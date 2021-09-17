@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+class PredictTheNumber extends StatelessWidget {
+  const PredictTheNumber({Key? key}) : super(key: key);
+
+  static _launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        body: Center(
+          child: InkWell(
+            onTap: () {
+              _launchURL('https://github.com/alicagatay/Predict-The-Number');
+            },
+            child: Container(
+              width: 800,
+              child: Text(
+                "Predict The Number is an Android game I developed while in an internship on summer 2018 using Java. "
+                "The main aim of the user in the game is to predict the number that is chosen randomly by the system."
+                "To learn more about the project click into this text.",
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

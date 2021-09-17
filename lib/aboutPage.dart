@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+
+class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        body: Center(
+          child: Container(
+            width: 700,
+            child: Text(
+              "Hi there, I'm Ali! "
+              "I'm a 3rd year Computer Science student at the University of Birmingham. "
+              "I'm mainly interested in software development, web development, machine learning and artificial intelligence. "
+              "In my free times, I love to work out or listen to music. "
+              "My favorite programming language is Python, and my favorite toolkit is Flutter. ",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
