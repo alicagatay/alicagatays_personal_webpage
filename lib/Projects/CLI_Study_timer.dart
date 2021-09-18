@@ -22,7 +22,7 @@ class CliStudyTimer extends StatelessWidget {
             onTap: () {
               _launchURL('https://github.com/alicagatay/CLI-Study-Timer');
             },
-            child: Container(
+            child: const SizedBox(
               width: 800,
               child: Text(
                 "CLI Study Timer is a command line application I developed using Python. "

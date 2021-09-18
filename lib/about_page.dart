@@ -5,11 +5,11 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.black,
         body: Center(
-          child: Container(
+          child: SizedBox(
             width: 700,
             child: Text(
               "Hi there, I'm Ali! "

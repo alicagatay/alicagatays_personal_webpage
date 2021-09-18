@@ -22,7 +22,7 @@ class PredictTheNumber extends StatelessWidget {
             onTap: () {
               _launchURL('https://github.com/alicagatay/Predict-The-Number');
             },
-            child: Container(
+            child: const SizedBox(
               width: 800,
               child: Text(
                 "Predict The Number is an Android game I developed while in an internship on summer 2018 using Java. "

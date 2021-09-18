@@ -22,7 +22,7 @@ class SpaceInvaders extends StatelessWidget {
             onTap: () {
               _launchURL('https://github.com/alicagatay/Space-Invaders');
             },
-            child: Container(
+            child: const SizedBox(
               width: 800,
               child: Text(
                 "Space Invaders is a game I developed using Processing. "

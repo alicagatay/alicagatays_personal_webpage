@@ -22,9 +22,9 @@ class Bookify extends StatelessWidget {
             onTap: () {
               _launchURL('https://github.com/alicagatay/bookify');
             },
-            child: Container(
+            child: const SizedBox(
               width: 800,
-              child: const Text(
+              child: Text(
                 "This app is in development, info will come soon once the first version is finished.",
                 style: TextStyle(
                   fontSize: 40,

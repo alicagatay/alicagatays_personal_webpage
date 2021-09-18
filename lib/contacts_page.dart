@@ -18,12 +18,12 @@ class ContactsPage extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.black,
         body: Center(
-          child: Container(
+          child: SizedBox(
             height: 600,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(
+                const Text(
                   "contact with me:",
                   style: TextStyle(
                     fontSize: 60,
@@ -34,7 +34,7 @@ class ContactsPage extends StatelessWidget {
                   onTap: () {
                     _launchURL("mailto:aliccagatay@gmail.com");
                   },
-                  child: Text(
+                  child: const Text(
                     "email: aliccagatay@gmail.com",
                     style: TextStyle(
                       fontSize: 30,
@@ -46,7 +46,7 @@ class ContactsPage extends StatelessWidget {
                   onTap: () {
                     _launchURL("https://github.com/alicagatay");
                   },
-                  child: Text(
+                  child: const Text(
                     "github: alicagatay",
                     style: TextStyle(
                       fontSize: 30,
@@ -58,7 +58,7 @@ class ContactsPage extends StatelessWidget {
                   onTap: () {
                     _launchURL("https://www.linkedin.com/in/alicagatay");
                   },
-                  child: Text(
+                  child: const Text(
                     "linkedin: Ali Çağatay",
                     style: TextStyle(
                       fontSize: 30,
@@ -71,7 +71,7 @@ class ContactsPage extends StatelessWidget {
                     _launchURL(
                         "https://docs.google.com/document/d/1QUSOAHbH_91jsgYviYTWRWGn3NGqcvwl/edit?usp=sharing&ouid=116963885626306843574&rtpof=true&sd=true");
                   },
-                  child: Text(
+                  child: const Text(
                     "click to view my resume.",
                     style: TextStyle(
                       fontSize: 30,

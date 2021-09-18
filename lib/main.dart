@@ -1,4 +1,4 @@
-import 'package:alicagatays_personal_webpage/homePage.dart';
+import 'package:alicagatays_personal_webpage/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
