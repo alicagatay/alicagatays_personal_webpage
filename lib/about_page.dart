@@ -14,8 +14,8 @@ class AboutPage extends StatelessWidget {
             child: Text(
               "Hi there, I'm Ali! "
               "I'm a 3rd year Computer Science student at the University of Birmingham. "
-              "I'm mainly interested in software development, web development, machine learning and artificial intelligence. "
-              "In my free times, I love to work out or listen to music. "
+              "I'm mainly interested in machine learning, artificial intelligence, and software development"
+              "In my free times, I love to work out, listen to music, or listen to a podcast. "
               "My favorite programming language is Python, and my favorite toolkit is Flutter. ",
               style: TextStyle(
                 fontSize: 30,
