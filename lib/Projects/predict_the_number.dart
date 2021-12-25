@@ -29,7 +29,7 @@ class PredictTheNumber extends StatelessWidget {
                 "The main aim of the user in the game is to predict the number that is chosen randomly by the system."
                 "To learn more about the project click into this text.",
                 style: TextStyle(
-                  fontSize: 40,
+                  fontSize: 30,
                   color: Colors.white,
                 ),
               ),

@@ -30,7 +30,7 @@ class SpaceInvaders extends StatelessWidget {
                 "just programmed in a different programming language."
                 "To learn more about the project click into the text.",
                 style: TextStyle(
-                  fontSize: 40,
+                  fontSize: 30,
                   color: Colors.white,
                 ),
               ),

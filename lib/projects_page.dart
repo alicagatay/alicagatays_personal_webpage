@@ -34,7 +34,6 @@ class ProjectsPage extends StatelessWidget {
                 );
               },
               child: Card(
-                margin: const EdgeInsets.all(40),
                 color: Colors.grey[900],
                 child: Center(
                   child: Text(
@@ -42,7 +41,7 @@ class ProjectsPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey[400],
-                      fontSize: 40,
+                      fontSize: 30,
                     ),
                   ),
                 ),
@@ -57,7 +56,6 @@ class ProjectsPage extends StatelessWidget {
                 );
               },
               child: Card(
-                margin: const EdgeInsets.all(40),
                 color: Colors.grey[900],
                 child: Center(
                   child: Text(
@@ -65,7 +63,7 @@ class ProjectsPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey[400],
-                      fontSize: 40,
+                      fontSize: 30,
                     ),
                   ),
                 ),
@@ -80,7 +78,6 @@ class ProjectsPage extends StatelessWidget {
                 );
               },
               child: Card(
-                margin: const EdgeInsets.all(40),
                 color: Colors.grey[900],
                 child: Center(
                   child: Text(
@@ -88,7 +85,7 @@ class ProjectsPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey[400],
-                      fontSize: 40,
+                      fontSize: 30,
                     ),
                   ),
                 ),
@@ -99,7 +96,6 @@ class ProjectsPage extends StatelessWidget {
                 _launchURL('https://github.com/alicagatay');
               },
               child: Card(
-                margin: const EdgeInsets.all(40),
                 color: Colors.grey[900],
                 child: Center(
                   child: Text(
@@ -108,7 +104,7 @@ class ProjectsPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey[400],
-                      fontSize: 40,
+                      fontSize: 30,
                     ),
                   ),
                 ),

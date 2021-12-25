@@ -30,7 +30,7 @@ class CliStudyTimer extends StatelessWidget {
                 "or you can set a study timer from scratch. To learn more about the project, "
                 "click into this text.",
                 style: TextStyle(
-                  fontSize: 40,
+                  fontSize: 30,
                   color: Colors.white,
                 ),
               ),
