@@ -1,6 +1,7 @@
 import 'package:alicagatays_personal_webpage/Projects/cli_study_timer.dart';
 import 'package:alicagatays_personal_webpage/Projects/predict_the_number.dart';
 import 'package:alicagatays_personal_webpage/Projects/space_invaders.dart';
+import 'package:alicagatays_personal_webpage/Projects/init_vim.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -25,6 +26,27 @@ class ProjectsPage extends StatelessWidget {
           crossAxisSpacing: 50,
           mainAxisSpacing: 50,
           children: <Widget>[
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const InitVim()),
+                );
+              },
+              child: Card(
+                color: Colors.grey[900],
+                child: Center(
+                  child: Text(
+                    "init.vim",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.grey[400],
+                      fontSize: 30,
+                    ),
+                  ),
+                ),
+              ),
+            ),
             InkWell(
               onTap: () {
                 Navigator.push(
