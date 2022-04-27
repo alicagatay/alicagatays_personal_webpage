@@ -20,12 +20,13 @@ class NamelessSecretProject extends StatelessWidget {
         body: Center(
           child: InkWell(
             onTap: () {
-              _launchURL('https://github.com/alicagatay/workout_bot');
+              _launchURL('https://github.com/alicagatay/nameless_secret_project');
             },
             child: const SizedBox(
               width: 800,
               child: Text(
-                "Information about this project will be given soon.",
+                "Information about this project will be given soon. "
+                "To learn more about it, you can visit the project's GitHub page by pressing into this text.",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,

@@ -28,7 +28,7 @@ class SpaceInvaders extends StatelessWidget {
                 "Space Invaders is a game I developed using Processing. "
                 "It is basically the copy of the original Space Invaders, "
                 "just programmed in a different programming language."
-                "To learn more about the project click into the text.",
+                "To learn more about the project click into this text.",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,

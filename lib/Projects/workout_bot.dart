@@ -27,7 +27,8 @@ class WorkoutBot extends StatelessWidget {
               child: Text(
                 "WorkoutBot is a workout recommender chatbot software "
                 "that uses machine learning to recommend workouts to its users, "
-                "based on their request messages.",
+                "based on their request messages. "
+                "To learn more about it, you can visit the project's GitHub page by pressing into this text.",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,
