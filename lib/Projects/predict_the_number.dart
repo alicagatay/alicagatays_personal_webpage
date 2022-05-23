@@ -19,6 +19,9 @@ class PredictTheNumber extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Center(
           child: InkWell(
+            onDoubleTap: () {
+              Navigator.pop(context);
+            },
             onTap: () {
               _launchURL('https://github.com/alicagatay/Predict-The-Number');
             },
@@ -27,7 +30,8 @@ class PredictTheNumber extends StatelessWidget {
               child: Text(
                 "Predict The Number is an Android game I developed while in an internship on summer 2018 using Java. "
                 "The main aim of the user in the game is to predict the number that is chosen randomly by the system."
-                "To learn more about the project click into this text.",
+                "To learn more about it, you can visit the project's GitHub page by pressing into this text, "
+                "or you can double press this text in order to return to the previous page.",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,

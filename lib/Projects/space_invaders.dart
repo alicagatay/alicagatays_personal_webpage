@@ -19,6 +19,9 @@ class SpaceInvaders extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Center(
           child: InkWell(
+            onDoubleTap: () {
+              Navigator.pop(context);
+            },
             onTap: () {
               _launchURL('https://github.com/alicagatay/Space-Invaders');
             },
@@ -28,7 +31,8 @@ class SpaceInvaders extends StatelessWidget {
                 "Space Invaders is a game I developed using Processing. "
                 "It is basically the copy of the original Space Invaders, "
                 "just programmed in a different programming language."
-                "To learn more about the project click into this text.",
+                "To learn more about it, you can visit the project's GitHub page by pressing into this text, "
+                "or you can double press this text in order to return to the previous page.",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,

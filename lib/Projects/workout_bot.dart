@@ -19,6 +19,9 @@ class WorkoutBot extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Center(
           child: InkWell(
+            onDoubleTap: () {
+              Navigator.pop(context);
+            },
             onTap: () {
               _launchURL('https://github.com/alicagatay/workout_bot');
             },
@@ -28,7 +31,8 @@ class WorkoutBot extends StatelessWidget {
                 "WorkoutBot is a workout recommender chatbot software "
                 "that uses machine learning to recommend workouts to its users, "
                 "based on their request messages. "
-                "To learn more about it, you can visit the project's GitHub page by pressing into this text.",
+                "To learn more about it, you can visit the project's GitHub page by pressing into this text, "
+                "or you can double press this text in order to return to the previous page.",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,

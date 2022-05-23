@@ -19,6 +19,9 @@ class Nvim extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Center(
           child: InkWell(
+            onDoubleTap: () {
+              Navigator.pop(context);
+            },
             onTap: () {
               _launchURL('https://github.com/alicagatay/nvim');
             },
@@ -26,9 +29,9 @@ class Nvim extends StatelessWidget {
               width: 800,
               child: Text(
                 "Nvim is a git repository that contains my Neovim configuration. "
-                "It is compatible with devices using Neovim 0.6.0 or newer. To learn "
-                "more about it, you can visit the project's GitHub page by pressing into "
-                "this text.",
+                "It is compatible with devices using Neovim 0.6.0 or newer."
+                "To learn more about it, you can visit the project's GitHub page by pressing into this text, "
+                "or you can double press this text in order to return to the previous page.",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,

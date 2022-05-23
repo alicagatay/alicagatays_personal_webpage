@@ -34,8 +34,7 @@ class ProjectsPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const Nvim()),
+                      MaterialPageRoute(builder: (context) => const Nvim()),
                     );
                   },
                   child: Card(

@@ -19,14 +19,19 @@ class NamelessSecretProject extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Center(
           child: InkWell(
+            onDoubleTap: () {
+              Navigator.pop(context);
+            },
             onTap: () {
-              _launchURL('https://github.com/alicagatay/nameless_secret_project');
+              _launchURL(
+                  'https://github.com/alicagatay/nameless_secret_project');
             },
             child: const SizedBox(
               width: 800,
               child: Text(
                 "Information about this project will be given soon. "
-                "To learn more about it, you can visit the project's GitHub page by pressing into this text.",
+                "To learn more about it, you can visit the project's GitHub page by pressing into this text, "
+                "or you can double press this text in order to return to the previous page.",
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,
