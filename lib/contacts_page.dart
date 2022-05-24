@@ -1,3 +1,4 @@
+import 'package:alicagatays_personal_webpage/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -79,6 +80,32 @@ class ContactsPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                },
+                child: SizedBox(
+                  width: 250,
+                  height: 120,
+                  child: Card(
+                    color: Colors.grey[900],
+                    child: Center(
+                      child: Text(
+                        "Click to return home",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.grey[400],
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
               ],
             ),
           ),

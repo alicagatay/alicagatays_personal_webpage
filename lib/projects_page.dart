@@ -2,6 +2,7 @@ import 'package:alicagatays_personal_webpage/Projects/predict_the_number.dart';
 import 'package:alicagatays_personal_webpage/Projects/space_invaders.dart';
 import 'package:alicagatays_personal_webpage/Projects/workout_bot.dart';
 import 'package:alicagatays_personal_webpage/Projects/nvim.dart';
+import 'package:alicagatays_personal_webpage/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:alicagatays_personal_webpage/Projects/nameless_secret_project.dart';
@@ -158,6 +159,28 @@ class ProjectsPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
+                  },
+                  child: Card(
+                    color: Colors.grey[900],
+                    child: Center(
+                      child: Text(
+                        "Return home",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.grey[400],
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
               ],
             );
           },
