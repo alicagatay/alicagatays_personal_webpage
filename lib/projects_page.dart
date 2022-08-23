@@ -5,7 +5,6 @@ import 'package:alicagatays_personal_webpage/Projects/nvim.dart';
 import 'package:alicagatays_personal_webpage/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:alicagatays_personal_webpage/Projects/nameless_secret_project.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({Key? key}) : super(key: key);
