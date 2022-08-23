@@ -16,11 +16,12 @@ class AboutPage extends StatelessWidget {
               const SizedBox(
                 width: 700,
                 child: Text(
-                  "Hi there, I'm Ali! "
-                  "I'm a 3rd year Computer Science student at the University of Birmingham. "
-                  "I'm mainly interested in machine learning, artificial intelligence, and software development. "
-                  "In my free times, I love to work out, listen to music, or program. "
-                  "My favorite programming language is Python, and my favorite toolkit is Flutter.",
+                    "Hi there, my name is Ali. "
+                    "I am a software developer based in Birmingham, UK. "
+                    "I am mainly interested in machine learning, artificial intelligence, "
+                    "and software development. In my free times, I love working out, listening to music, "
+                    "and program. My favorite programming language is Python, and my favorite toolkit "
+                    "is Flutter.",
                   style: TextStyle(
                     fontSize: 30,
                     color: Colors.white,

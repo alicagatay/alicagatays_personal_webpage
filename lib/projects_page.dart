@@ -11,8 +11,8 @@ class ProjectsPage extends StatelessWidget {
   const ProjectsPage({Key? key}) : super(key: key);
 
   static _launchURL(url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     } else {
       throw 'Could not launch $url';
     }
@@ -117,29 +117,7 @@ class ProjectsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NamelessSecretProject()),
-                    );
-                  },
-                  child: Card(
-                    color: Colors.grey[900],
-                    child: Center(
-                      child: Text(
-                        "Nameless Secret Project",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.grey[400],
-                          fontSize: 30,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                ), 
                 InkWell(
                   onTap: () {
                     _launchURL('https://github.com/alicagatay');
