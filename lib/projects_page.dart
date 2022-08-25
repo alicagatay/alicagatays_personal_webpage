@@ -10,8 +10,8 @@ class ProjectsPage extends StatelessWidget {
   const ProjectsPage({Key? key}) : super(key: key);
 
   static _launchURL(url) async {
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }
@@ -116,7 +116,7 @@ class ProjectsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                ), 
+                ),
                 InkWell(
                   onTap: () {
                     _launchURL('https://github.com/alicagatay');
@@ -157,7 +157,6 @@ class ProjectsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
               ],
             );
           },

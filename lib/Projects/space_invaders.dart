@@ -5,8 +5,8 @@ class SpaceInvaders extends StatelessWidget {
   const SpaceInvaders({Key? key}) : super(key: key);
 
   static _launchURL(url) async {
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }
