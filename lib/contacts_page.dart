@@ -6,8 +6,8 @@ class ContactsPage extends StatelessWidget {
   const ContactsPage({Key? key}) : super(key: key);
 
   static _launchURL(url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     } else {
       throw 'Could not launch $url';
     }
@@ -81,31 +81,30 @@ class ContactsPage extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
-                  );
-                },
-                child: SizedBox(
-                  width: 250,
-                  height: 120,
-                  child: Card(
-                    color: Colors.grey[900],
-                    child: Center(
-                      child: Text(
-                        "Click to return home",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.grey[400],
-                          fontSize: 30,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
+                  },
+                  child: SizedBox(
+                    width: 250,
+                    height: 120,
+                    child: Card(
+                      color: Colors.grey[900],
+                      child: Center(
+                        child: Text(
+                          "Click to return home",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.grey[400],
+                            fontSize: 30,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-
               ],
             ),
           ),

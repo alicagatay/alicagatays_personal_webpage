@@ -5,8 +5,8 @@ class PredictTheNumber extends StatelessWidget {
   const PredictTheNumber({Key? key}) : super(key: key);
 
   static _launchURL(url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     } else {
       throw 'Could not launch $url';
     }
