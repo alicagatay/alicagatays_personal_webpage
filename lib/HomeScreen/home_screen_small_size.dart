@@ -116,7 +116,7 @@ class HomeScreenSmallSize extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 30),
+            padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 10),
             child: Card(
               color: Colors.grey[900],
               child: const Padding(
@@ -130,7 +130,7 @@ class HomeScreenSmallSize extends StatelessWidget {
                   "is Flutter.",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30,
+                    fontSize: 20,
                   ),
                 ),
               ),
