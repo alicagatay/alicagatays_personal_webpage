@@ -1,6 +1,6 @@
 {
-    "name": "alicagatays_personal_webpage",
-    "short_name": "alicagatays_personal_webpage",
+    "name": "personal_website_new",
+    "short_name": "personal_website_new",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

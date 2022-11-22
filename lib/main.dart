@@ -1,17 +1,19 @@
-import 'package:alicagatays_personal_webpage/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_website_new/HomeScreen/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MainScreen(),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home: HomeScreen(),
     );
   }
 }
