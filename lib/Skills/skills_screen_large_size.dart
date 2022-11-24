@@ -122,6 +122,16 @@ class SkillsScreenLargeSize extends StatelessWidget {
               ),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.only(top: 15, left: 40),
+            child: Text(
+              "Scroll to see the complete list",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+          ),
           Padding(
             padding:
                 const EdgeInsets.only(left: 30, right: 30, top: 40, bottom: 80),
@@ -292,6 +302,16 @@ class SkillsScreenLargeSize extends StatelessWidget {
               ),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.only(top: 15, left: 30),
+            child: Text(
+              "Scroll to see the complete list",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+          ),
           Padding(
             padding:
                 const EdgeInsets.only(left: 30, right: 30, top: 40, bottom: 80),
@@ -426,6 +446,16 @@ class SkillsScreenLargeSize extends StatelessWidget {
               ),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.only(top: 15, left: 40),
+            child: Text(
+              "Scroll to see the complete list",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+          ),
           Padding(
             padding:
                 const EdgeInsets.only(left: 30, right: 30, top: 40, bottom: 80),
@@ -538,6 +568,16 @@ class SkillsScreenLargeSize extends StatelessWidget {
               "Design Stack",
               style: TextStyle(
                 fontSize: 50,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 15, left: 30),
+            child: Text(
+              "Scroll to see the complete list",
+              style: TextStyle(
+                fontSize: 20,
                 color: Colors.white,
               ),
             ),
