@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:personal_website_new/Contact/contact_screen_large_size.dart';
-import 'package:personal_website_new/Contact/contact_screen_small_size.dart';
+import 'package:personal_website_new/Contact/Contact_Screen_Large_Size/contact_screen_large_size.dart';
+import 'package:personal_website_new/Contact/Contact_Screen_Small_Size/contact_screen_small_size.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});
