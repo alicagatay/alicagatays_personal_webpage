@@ -23,5 +23,5 @@ class ExperienceScreenSmallSizeAppBar extends StatelessWidget
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(80);
 }
