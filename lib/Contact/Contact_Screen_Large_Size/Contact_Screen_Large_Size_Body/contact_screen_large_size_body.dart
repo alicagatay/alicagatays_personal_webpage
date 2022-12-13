@@ -139,36 +139,6 @@ class ContactScreenLargeSizeBody extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 50),
-                    child: Center(
-                      child: Text(
-                        "I am also always open to have a chat in a quick meeting "
-                        "about new work opportunities/collaboration ideas instead "
-                        "of messaging from the channels above. "
-                        "You can book an online meeting with me from my Google "
-                        "Calendar Booking Page: ",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                        ),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      _launchUrl(
-                          'https://calendar.app.google/sALTWsFsno8g1y9XA');
-                    },
-                    child: const Text(
-                      "Press to open the booking page. ",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
