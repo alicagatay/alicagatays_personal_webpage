@@ -139,6 +139,39 @@ class ContactScreenSmallSizeBody extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 50),
+                    child: Center(
+                      child: Text(
+                        "You can also book a 1-2-1 meeting with me to talk "
+                        "about your ideas live instead of mailing/messaging "
+                        "from the link below:",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 50),
+                    child: Center(
+                      child: InkWell(
+                        onTap: () {
+                          _launchUrl(
+                              'https://calendar.app.google/CiCYCC5teYXoBqDi7');
+                        },
+                        child: const Text(
+                          "Google Calendar Booking Page",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
