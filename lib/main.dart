@@ -20,6 +20,21 @@ class MyApp extends StatelessWidget {
     await launchUrl(url);
   }
 
+  _launchGithubProfile() async {
+    Uri url = Uri.parse('https://github.com/alicagatay');
+    await launchUrl(url);
+  }
+
+  _launchEmailSender() async {
+    Uri url = Uri.parse('mailto:aliccagatay@gmail.com');
+    await launchUrl(url);
+  }
+
+  _launchLinkedInProfile() async {
+    Uri url = Uri.parse('https://www.linkedin.com/in/alicagatay');
+    await launchUrl(url);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,7 +43,7 @@ class MyApp extends StatelessWidget {
         body: SingleChildScrollView(
           child: Container(
             width: double.infinity,
-            height: 2000,
+            height: 2400,
             color: const Color.fromARGB(255, 40, 44, 52),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -108,7 +123,7 @@ class MyApp extends StatelessWidget {
                     child: const Text(
                       "Aside from that, I also work on a coding bootcamp called CodeYourFuture, "
                       "where I, with the help of other instructors, teach full stack web development "
-                      "to the trainees of the bootcamp and mentor them in their journey of tech.",
+                      "to it's trainees of the bootcamp and mentor them in their journey of tech.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -132,13 +147,13 @@ class MyApp extends StatelessWidget {
                           Radius.circular(20),
                         ),
                       ),
-                      width: 400,
+                      width: 450,
                       height: 100,
                       child: Center(
                         child: Container(
                           margin: const EdgeInsets.all(20),
                           child: const Text(
-                            "Press to launch the CodeYourFuture website.",
+                            "Press to learn more about CodeYourFuture.",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -159,7 +174,9 @@ class MyApp extends StatelessWidget {
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: const Text(
-                      "In addition, I have a blog on Medium, where I write different stuff about full-stack web and mobile development every week.",
+                      "In addition, I create educational content for developers, teaching them about "
+                      "full-stack web and mobile development using technologies such as Ruby, JavaScript, Dart etc.  "
+                      "in the forms of blog posts inside my Medium blog.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -190,6 +207,144 @@ class MyApp extends StatelessWidget {
                           margin: const EdgeInsets.all(20),
                           child: const Text(
                             "Press to launch my blog on Medium.",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 60,
+                    bottom: 40,
+                    left: 20,
+                    right: 20,
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: const Text(
+                      "I also have a GitHub profile where I store all of my projects with their source codes "
+                      "I have built before or in the process of building, just like this website.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: InkWell(
+                    onTap: _launchGithubProfile,
+                    child: Container(
+                      margin: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                      ),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Color.fromARGB(255, 87, 87, 87),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                      width: 400,
+                      height: 100,
+                      child: Center(
+                        child: Container(
+                          margin: const EdgeInsets.all(20),
+                          child: const Text(
+                            "Press to launch my GitHub profile.",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 60,
+                    bottom: 40,
+                    left: 20,
+                    right: 20,
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: const Text(
+                      "If you ever want to contact me, you can do it either from my email address, "
+                      "or from my LinkedIn, which I will be leaving links to them below.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: InkWell(
+                    onTap: _launchEmailSender,
+                    child: Container(
+                      margin: const EdgeInsets.only(
+                        top: 20,
+                        left: 20,
+                        right: 20,
+                        bottom: 60,
+                      ),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Color.fromARGB(255, 87, 87, 87),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                      width: 400,
+                      height: 100,
+                      child: Center(
+                        child: Container(
+                          margin: const EdgeInsets.all(20),
+                          child: const Text(
+                            "Press to email me.",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: InkWell(
+                    onTap: _launchLinkedInProfile,
+                    child: Container(
+                      margin: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                      ),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Color.fromARGB(255, 87, 87, 87),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                      width: 400,
+                      height: 100,
+                      child: Center(
+                        child: Container(
+                          margin: const EdgeInsets.all(20),
+                          child: const Text(
+                            "Press to launch my LinkedIn profile.",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
