@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         body: SingleChildScrollView(
           child: Container(
             width: double.infinity,
-            height: 2400,
+            height: 2600,
             color: const Color.fromARGB(255, 40, 44, 52),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
