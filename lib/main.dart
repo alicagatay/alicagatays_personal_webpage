@@ -102,7 +102,8 @@ class MyApp extends StatelessWidget {
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: const Text(
-                      "I work on developing full-stack web and mobile applications, APIs, and databases using tools such as JavaScript, Flutter, Ruby and PostgreSQL.",
+                      "I work on developing full-stack web and mobile applications, APIs, "
+                      "and databases using tools such as JavaScript, React.js, Node.js, Flutter and PostgreSQL.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -175,7 +176,7 @@ class MyApp extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: const Text(
                       "In addition, I create educational content for developers, teaching them about "
-                      "full-stack web and mobile development using technologies such as Ruby, JavaScript, Dart etc.  "
+                      "full-stack web and mobile development using technologies such as HTML, CSS, JavaScript, React, Dart etc.  "
                       "in the forms of blog posts inside my Medium blog.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
