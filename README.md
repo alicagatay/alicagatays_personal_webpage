@@ -1,11 +1,42 @@
-# alicagatays_personal_webpage
+# Spotlight
 
-## About
+Spotlight is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
 
-This codebase is the actual source code of my personal webpage at [alicagatay.github.io](https://alicagatay.github.io) written in Dart programming language and the Flutter framework.
+## Getting started
 
-## Why creating another repository for the same webpage
+To get started with this template, first install the npm dependencies:
 
-The other [repository named alicagatay.github.io](https://github.com/alicagatay/alicagatay.github.io) is only there for Github Pages to host the build files of my webpage that Flutter generated with the command `flutter build web`.
+```bash
+npm install
+```
 
-I have created this repository in order to source control and backup the actual Flutter project that contains the bone of my webpage.
+Next, create a `.env.local` file in the root of your project and set the `NEXT_PUBLIC_SITE_URL` variable to your site's public URL:
+
+```
+NEXT_PUBLIC_SITE_URL=https://example.com
+```
+
+Next, run the development server:
+
+```bash
+npm run dev
+```
+
+Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+
+## Customizing
+
+You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+
+## License
+
+This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
+
+## Learn more
+
+To learn more about the technologies used in this site template, see the following resources:
+
+- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
+- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
+- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
+- [MDX](https://mdxjs.com) - the MDX documentation
