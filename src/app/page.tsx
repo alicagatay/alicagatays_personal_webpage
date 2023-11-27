@@ -232,11 +232,7 @@ export default async function Home() {
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Ali, a full stack software engineer specialising in web and
             mobile application development. I’m currently located in Birmingham,
-            United Kingdom. I am also a teaching lead at CodeYourFuture,
-            teaching full stack web development to disadvantaged people in the
-            United Kingdom, such as refugees, asylum seekers and people from low
-            income backgrounds. I also have a blog on Medium where I write about
-            full-stack web development.
+            United Kingdom.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
