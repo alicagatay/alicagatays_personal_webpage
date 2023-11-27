@@ -74,13 +74,6 @@ export default function About() {
             create the future by writing code.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-            {/* I’m Ali, a full stack software engineer specialising in web and
-            mobile application development. I’m currently located in Birmingham,
-            United Kingdom. I am also a teaching lead at CodeYourFuture,
-            teaching full stack web development to disadvantaged people in the
-            United Kingdom, such as refugees, asylum seekers and people from low
-            income backgrounds. I also have a blog on Medium where I write about
-            full-stack web development. */}
             <p>
               I’ve loved making things for as long as I can remember, and
               created my first program when I was 14 years old, a retro snake
