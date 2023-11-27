@@ -9,7 +9,7 @@ import {
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
-  TwitterIcon,
+  MediumIcon,
 } from '@/components/SocialIcons'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
@@ -238,8 +238,8 @@ export default async function Home() {
           <div className="mt-6 flex gap-6">
             <SocialLink
               href="https://twitter.com"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
+              aria-label="Follow on Medium"
+              icon={MediumIcon}
             />
             <SocialLink
               href="https://instagram.com"
