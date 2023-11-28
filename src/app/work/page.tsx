@@ -86,7 +86,7 @@ export default function Speaking() {
             of a Android game called 'Predict The Number' and published it on the Google Play Store in under a month."
             timePeriod="August 2018 - September 2018"
             location="Istanbul, Turkey"
-            cta="Learn more about CodeYourFuture and the work they do"
+            cta=""
           />
         </SpeakingSection>
       </div>
