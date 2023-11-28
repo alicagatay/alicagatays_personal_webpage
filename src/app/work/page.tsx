@@ -18,13 +18,15 @@ function SpeakingSection({
 function Appearance({
   title,
   description,
-  event,
+  timePeriod,
+  location,
   cta,
   href,
 }: {
   title: string
   description: string
-  event: string
+  timePeriod: string
+  location: string
   cta: string
   href: string
 }) {
@@ -33,7 +35,8 @@ function Appearance({
       <Card.Title as="h3" href={href}>
         {title}
       </Card.Title>
-      <Card.Eyebrow decorate>{event}</Card.Eyebrow>
+      <Card.Eyebrow decorate>{timePeriod}</Card.Eyebrow>
+      <Card.Eyebrow decorate>{location}</Card.Eyebrow>
       <Card.Description>{description}</Card.Description>
       <Card.Cta>{cta}</Card.Cta>
     </Card>
@@ -58,14 +61,16 @@ export default function Speaking() {
             href="https://codeyourfuture.io/"
             title="Teaching Lead"
             description="A technical deep-dive into HelioStream, the real-time streaming library I wrote for transmitting live video back to Earth."
-            event="September 2020 - Present"
+            timePeriod="September 2020 - Present"
+            location="Birmingham, United Kingdom"
             cta="Learn more about CodeYourFuture and the work they do"
           />
           <Appearance
             href="https://codeyourfuture.io/"
             title="Tech Lead"
             description="A technical deep-dive into HelioStream, the real-time streaming library I wrote for transmitting live video back to Earth."
-            event="March 2023 - July 2023"
+            timePeriod="March 2023 - July 2023"
+            location="Birmingham, United Kingdom"
             cta="Learn more about CodeYourFuture and the work they do"
           />
         </SpeakingSection>
