@@ -76,6 +76,12 @@ export default function Uses() {
             has loads of extensions, where you can power it up with any feature
             you want.
           </Tool>
+          <Tool title="macOS Terminal">
+            It is not the most powerful terminal emulator out there, but it has
+            all the features and customizations I need. I use it for everything
+            from running my local development environment to managing my
+            servers. It also looks very nice and clean, which I like a lot.
+          </Tool>
         </ToolsSection>
         <ToolsSection title="Design"></ToolsSection>
         <ToolsSection title="Productivity">
