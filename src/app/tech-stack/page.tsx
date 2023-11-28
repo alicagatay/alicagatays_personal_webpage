@@ -143,6 +143,12 @@ export default function Uses() {
             articles. It’s just so convenient to have all my reading material in
             one place, and it’s also very easy to carry around while travelling.
           </Tool>
+          <Tool title="Sony WH-1000XM5 Noise Cancelling Wireless Headphones">
+            I use these headphones to listen to music, watch videos, and to
+            attend meetings. They are just so comfortable and the sound quality
+            is amazing. I also use them to block out any noise while I’m
+            travelling or working in a noisy environment.
+          </Tool>
         </ToolsSection>
       </div>
     </SimpleLayout>
