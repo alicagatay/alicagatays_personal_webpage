@@ -82,6 +82,17 @@ export default function Uses() {
             from running my local development environment to managing my
             servers. It also looks very nice and clean, which I like a lot.
           </Tool>
+          <Tool title="Docker">
+            As a software engineer, I work with a lot of different projects,
+            which requires the usage of different programming languages,
+            frameworks and tools. And most of the time, it is common that these
+            tools will break other tools in other projects, which is a huge
+            pain. Docker solves this problem by allowing me to create isolated
+            development environments for each project, where I can install any
+            tool I need without having to worry about breaking other projects. I
+            also use it to run my local development environment, which is very
+            convenient.
+          </Tool>
         </ToolsSection>
         <ToolsSection title="Design"></ToolsSection>
         <ToolsSection title="Productivity">
