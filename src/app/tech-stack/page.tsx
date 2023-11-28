@@ -43,7 +43,7 @@ export default function Uses() {
   return (
     <SimpleLayout
       title="Software I use, gadgets I love, and other things I recommend."
-      intro="A list of the tools and gadgets I use to build, design and test software + the tools I use to stay productive all day + other random stuff that I just really like in my workflow."
+      intro="A list of the tools and gadgets I currently use to build, design and test software + the tools I currently use to stay productive all day + other random stuff that I just really like in my workflow."
     >
       <div className="space-y-20">
         <ToolsSection title="Workstation">
