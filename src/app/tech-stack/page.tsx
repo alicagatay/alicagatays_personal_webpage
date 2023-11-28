@@ -101,6 +101,11 @@ export default function Uses() {
             has a very easy learning curve and it’s free. Also, it has a great
             community of users and developers, which is always a plus.
           </Tool>
+          <Tool title="Figma">
+            I use Figma for all of my UI design work. It’s a great tool for
+            designing user interfaces, and it also has a great community of
+            users and developers, which is always a plus.
+          </Tool>
         </ToolsSection>
         <ToolsSection title="Productivity">
           <Tool title="Alfred">
