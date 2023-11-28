@@ -129,6 +129,12 @@ export default function Uses() {
             which is very convenient in the times I don’t have access to the
             internet, such as when I’m on a plane or in a train.
           </Tool>
+          <Tool title="Loom">
+            I use Loom to record my screen and share it with other people. It’s
+            a great tool for recording video tutorials and for giving feedback
+            on other people’s work without the need of scheduling and attending
+            a meeting.
+          </Tool>
         </ToolsSection>
       </div>
     </SimpleLayout>
