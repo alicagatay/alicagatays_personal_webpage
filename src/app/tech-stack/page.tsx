@@ -46,7 +46,15 @@ export default function Uses() {
       intro="A list of the tools and gadgets I use to build, design and test software + the tools I use to stay productive all day + other random stuff that I just really like in my workflow."
     >
       <div className="space-y-20">
-        <ToolsSection title="Workstation"></ToolsSection>
+        <ToolsSection title="Workstation">
+          <Tool title="14” MacBook Pro, M1 Pro, 16GB RAM (2021)">
+            I was using an Intel-based 16” MacBook Pro prior to this and the
+            difference is night and day. I’ve never heard the fans turn on a a
+            single time, even under the incredibly heavy loads I put it through
+            while working with extensive API calls and while running several
+            virtual machines via Docker.
+          </Tool>
+        </ToolsSection>
         <ToolsSection title="Development tools">
           <Tool title="Sublime Text 4">
             I don’t care if it’s missing all of the fancy IDE features everyone
