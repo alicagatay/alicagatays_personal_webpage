@@ -78,6 +78,17 @@ export default function Speaking() {
             cta="Learn more about CodeYourFuture and the work they do"
           />
         </SpeakingSection>
+        <SpeakingSection title="Invitelecom">
+          <Appearance
+            href="#"
+            title="Software Engineer Intern"
+            description="In my time at Invitelecom as a Software Engineer Intern, I worked on the development
+            of a Android game called 'Predict The Number' and published it on the Google Play Store in under a month."
+            timePeriod="August 2018 - September 2018"
+            location="Istanbul, Turkey"
+            cta="Learn more about CodeYourFuture and the work they do"
+          />
+        </SpeakingSection>
       </div>
     </SimpleLayout>
   )
