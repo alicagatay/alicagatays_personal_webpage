@@ -107,7 +107,15 @@ export default function Uses() {
             users and developers, which is always a plus.
           </Tool>
         </ToolsSection>
-        <ToolsSection title="Productivity"></ToolsSection>
+        <ToolsSection title="Productivity">
+          <Tool title="Google Calendar">
+            I use Google Calendar to keep track of all my meetings and events.
+            It is just a very simple and reliable tool that gets the job done. I
+            also have a Google Workspace subscription, which lets me to create
+            appointment schedules directly from my calendar and share them with
+            anyone so that they can book a meeting with me.
+          </Tool>
+        </ToolsSection>
       </div>
     </SimpleLayout>
   )
