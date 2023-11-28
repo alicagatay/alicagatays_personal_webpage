@@ -136,6 +136,7 @@ export default function Uses() {
             a meeting.
           </Tool>
         </ToolsSection>
+        <ToolsSection title="Other Stuff"></ToolsSection>
       </div>
     </SimpleLayout>
   )
