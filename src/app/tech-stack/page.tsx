@@ -66,7 +66,17 @@ export default function Uses() {
             apps.
           </Tool>
         </ToolsSection>
-        <ToolsSection title="Development tools"></ToolsSection>
+        <ToolsSection title="Development tools">
+          <Tool title="Visual Studio Code">
+            I don’t care if it’s missing all of the fancy IDE features everyone
+            else relies on, Visual Studio Code is still the best text editor
+            ever made. I’ve tried so many tools over the years such as Atom,
+            other JetBrains IDE’s, Sublime Text, and even Vim and Neovim but I
+            always come back to VS Code. It’s just so fast and reliable, and it
+            has loads of extensions, where you can power it up with any feature
+            you want.
+          </Tool>
+        </ToolsSection>
         <ToolsSection title="Design"></ToolsSection>
         <ToolsSection title="Productivity">
           <Tool title="Alfred">
