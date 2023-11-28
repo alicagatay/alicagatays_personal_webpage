@@ -56,7 +56,7 @@ export default function Speaking() {
         <SpeakingSection title="CodeYourFuture">
           <Appearance
             href="https://codeyourfuture.io/"
-            title="Teaching Lead & Technical Assistant"
+            title="Teaching Lead"
             description="A technical deep-dive into HelioStream, the real-time streaming library I wrote for transmitting live video back to Earth."
             event="September 2020 - Present"
             cta="Learn more about CodeYourFuture and the work they do"
