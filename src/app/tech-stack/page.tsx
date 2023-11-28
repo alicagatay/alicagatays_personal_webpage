@@ -111,6 +111,12 @@ export default function Uses() {
             designing user interfaces, and it also has a great community of
             users and developers, which is always a plus.
           </Tool>
+          <Tool title="Contrast">
+            Whenever I need to check the contrast between two colors, I use this
+            tool to see if their contrast ratio is high enough to be accessible
+            for the end user. I also use this tool to find the color I see on
+            the screen.
+          </Tool>
         </ToolsSection>
         <ToolsSection title="Productivity">
           <Tool title="Google Calendar">
