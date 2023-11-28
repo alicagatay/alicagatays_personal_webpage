@@ -94,7 +94,14 @@ export default function Uses() {
             convenient.
           </Tool>
         </ToolsSection>
-        <ToolsSection title="Design"></ToolsSection>
+        <ToolsSection title="Design">
+          <Tool title="Excalidraw">
+            I use Excalidraw for all of my wireframing and prototyping work.
+            It’s easily the best tool I’ve ever used for this purpose. It also
+            has a very easy learning curve and it’s free. Also, it has a great
+            community of users and developers, which is always a plus.
+          </Tool>
+        </ToolsSection>
         <ToolsSection title="Productivity">
           <Tool title="Alfred">
             It’s not the newest kid on the block but it’s still the fastest. The
