@@ -136,7 +136,14 @@ export default function Uses() {
             a meeting.
           </Tool>
         </ToolsSection>
-        <ToolsSection title="Other Stuff"></ToolsSection>
+        <ToolsSection title="Other Stuff">
+          <Tool title="Kindle Paperwhite">
+            Kindle’s Paperwhite edition is one of the best gadgets I’ve ever
+            purchased. I use it to read books, articles, and even my own
+            articles. It’s just so convenient to have all my reading material in
+            one place, and it’s also very easy to carry around while travelling.
+          </Tool>
+        </ToolsSection>
       </div>
     </SimpleLayout>
   )
