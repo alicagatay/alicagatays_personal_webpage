@@ -54,6 +54,11 @@ export default function Uses() {
             while working with extensive API calls and while running several
             virtual machines via Docker.
           </Tool>
+          <Tool title="Dell S Series S2421HSX 23.8” ">
+            I use this display vertically all the time while working on large
+            codebases. It’s also great for reading long articles, documentation,
+            and it also helps while writing my articles on Medium.
+          </Tool>
         </ToolsSection>
         <ToolsSection title="Development tools">
           <Tool title="Sublime Text 4">
