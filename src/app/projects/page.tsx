@@ -13,7 +13,7 @@ const projects = [
   {
     name: 'Test Project',
     description: 'Test description',
-    link: { href: 'http://test-project.link.com', label: 'Test link' },
+    link: { href: '#', label: 'Test link' },
     logo: logoPlanetaria,
   },
 ]
