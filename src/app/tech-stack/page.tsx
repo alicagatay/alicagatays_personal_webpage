@@ -93,6 +93,11 @@ export default function Uses() {
             also use it to run my local development environment, which is very
             convenient.
           </Tool>
+          <Tool title="Postman">
+            I use Postman whenever I need to test a server or an API by sending
+            different kind of web requests, whether it is mine or someone
+            else’s.
+          </Tool>
         </ToolsSection>
         <ToolsSection title="Design">
           <Tool title="Excalidraw">
