@@ -6,8 +6,6 @@ export function TwitterIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-// Create SVG icon for Medium
-
 export function MediumIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
