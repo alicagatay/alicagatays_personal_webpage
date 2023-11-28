@@ -60,7 +60,9 @@ export default function Speaking() {
           <Appearance
             href="https://codeyourfuture.io/"
             title="Teaching Lead"
-            description="A technical deep-dive into HelioStream, the real-time streaming library I wrote for transmitting live video back to Earth."
+            description="As a Teaching Lead at CodeYourFuture, I am responsible for the delivery of the course
+            content to the trainees on the Saturday classes. I also mentor the trainees and help them with their
+            tech journey during the week."
             timePeriod="September 2020 - Present"
             location="Birmingham, United Kingdom"
             cta="Learn more about CodeYourFuture and the work they do"
@@ -68,7 +70,9 @@ export default function Speaking() {
           <Appearance
             href="https://codeyourfuture.io/"
             title="Tech Lead"
-            description="A technical deep-dive into HelioStream, the real-time streaming library I wrote for transmitting live video back to Earth."
+            description="As a Tech Lead at the Product Team of CodeYourFuture, I was responsible for the development of an
+            internal tool that would help the organisation manage the trainees and the volunteers. There, I partnered with
+            a product team of 12 people, including developers, product owners, QA testers and scrum masters."
             timePeriod="March 2023 - July 2023"
             location="Birmingham, United Kingdom"
             cta="Learn more about CodeYourFuture and the work they do"
