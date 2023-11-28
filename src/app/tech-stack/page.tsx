@@ -59,6 +59,12 @@ export default function Uses() {
             codebases. It’s also great for reading long articles, documentation,
             and it also helps while writing my articles on Medium.
           </Tool>
+          <Tool title="HP 24f Ultraslim Full HD Monitor 23.8”">
+            This is the main display I use while doing research for my articles,
+            debugging my code, and watching videos on my free time as I use my
+            main MacBook computer for messaging in Slack and other communication
+            apps.
+          </Tool>
         </ToolsSection>
         <ToolsSection title="Development tools">
           <Tool title="Sublime Text 4">
