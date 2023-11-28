@@ -61,6 +61,13 @@ export default function Speaking() {
             event="September 2020 - Present"
             cta="Learn more about CodeYourFuture and the work they do"
           />
+          <Appearance
+            href="https://codeyourfuture.io/"
+            title="Tech Lead"
+            description="A technical deep-dive into HelioStream, the real-time streaming library I wrote for transmitting live video back to Earth."
+            event="March 2023 - July 2023"
+            cta="Learn more about CodeYourFuture and the work they do"
+          />
         </SpeakingSection>
       </div>
     </SimpleLayout>
