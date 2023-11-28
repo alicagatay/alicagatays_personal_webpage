@@ -115,6 +115,11 @@ export default function Uses() {
             appointment schedules directly from my calendar and share them with
             anyone so that they can book a meeting with me.
           </Tool>
+          <Tool title="Google Tasks">
+            I use Google Tasks to keep track of all my tasks. Is is a very
+            simple yet powerful tool that lets me organise and store all my
+            tasks.
+          </Tool>
         </ToolsSection>
       </div>
     </SimpleLayout>
