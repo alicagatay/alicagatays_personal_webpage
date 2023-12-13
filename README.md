@@ -1,5 +1,5 @@
 # alicagatay.xyz
 
-**Framework**: Next.js
-**Styling**: Tailwind CSS
-**Deployment**: Vercel
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
