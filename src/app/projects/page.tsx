@@ -1,20 +1,19 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
-
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoTimer from '@/images/logos/timer.svg'
 
 const projects = [
   {
-    name: 'Test Project',
-    description: 'Test description',
-    link: { href: '#', label: 'Test link' },
-    logo: logoPlanetaria,
+    name: 'Focus Timer',
+    description:
+      'A simple web application with a clean user interface where you can set a timer for your work and break sessions.',
+    link: {
+      href: 'https://focus-timer-sandy.vercel.app/',
+      label: 'View the project.',
+    },
+    logo: logoTimer,
   },
 ]
 
