@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoTimer from '@/images/logos/timer.svg'
+import logoMetronome from '@/images/logos/metronome.svg'
 
 const projects = [
   {
@@ -14,6 +15,16 @@ const projects = [
       label: 'View the project.',
     },
     logo: logoTimer,
+  },
+  {
+    name: 'Metronome',
+    description:
+      'A simple metronome application where you can set the tempo and the BPM using the sliders.',
+    link: {
+      href: 'https://metronome-delta.vercel.app/',
+      label: 'View the project.',
+    },
+    logo: logoMetronome,
   },
 ]
 
