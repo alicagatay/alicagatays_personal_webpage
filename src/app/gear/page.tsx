@@ -126,19 +126,20 @@ export default function Uses() {
             appointment schedules directly from my calendar and share them with
             anyone so that they can book a meeting with me.
           </Tool>
-          <Tool title="Google Tasks">
-            I use Google Tasks to keep track of all my tasks. Is is a very
-            simple yet powerful tool that lets me organise and store all my
-            tasks.
+          <Tool title="Notion">
+            Notion is my tool of choice for organising my work and personal
+            life. I use it to keep track of my projects, tasks, and deadlines.
+            In addition, I also use Notion to write articles, take notes, and
+            store resources. I like Notion because it is very flexible and
+            allows me to create my own custom templates and workflows. I also
+            like that it has a great community of users and developers, which is
+            always a plus.
           </Tool>
           <Tool title="Google Drive">
-            Google Drive is where I store, organise and edit all my documents. I
-            also use it to share documents with other people and edit it live
-            with them. I also use Google Drive to write and store all my Medium
-            articles. One feature I really like about Google Drive is that it
-            works offline with the Google Drive desktop app and Google Chrome,
-            which is very convenient in the times I don’t have access to the
-            internet, such as when I’m on a plane or in a train.
+            I use Google Drive to store all of my files and documents. It’s just
+            so convenient to have all my files in one place and to be able to
+            access them from any device. I also like that I can share my files
+            with other people and collaborate on them in real time.
           </Tool>
           <Tool title="Loom">
             I use Loom to record my screen and share it with other people. It’s
