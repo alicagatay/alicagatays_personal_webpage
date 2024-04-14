@@ -160,13 +160,6 @@ export default function About() {
             >
               aliccagatay@gmail.com
             </SocialLink>
-            <SocialLink
-              href="https://calendar.app.google/NX9qP9mWnfzfpztq9"
-              icon={CalendarIcon}
-              className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
-            >
-              Book a meeting with me
-            </SocialLink>
           </ul>
         </div>
       </div>
