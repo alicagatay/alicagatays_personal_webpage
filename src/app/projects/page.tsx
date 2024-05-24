@@ -18,10 +18,9 @@ const projects = [
   },
   {
     name: 'Metronome',
-    description:
-      'A simple metronome application where you can set the tempo and the BPM using the sliders.',
+    description: 'Coming soon.',
     link: {
-      href: 'https://metronome-delta.vercel.app/',
+      href: '/projects',
       label: 'View the project.',
     },
     logo: logoMetronome,
