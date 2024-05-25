@@ -126,20 +126,20 @@ export default function Uses() {
             appointment schedules directly from my calendar and share them with
             anyone so that they can book a meeting with me.
           </Tool>
-          <Tool title="Notion">
-            Notion is my tool of choice for organising my work and personal
-            life. I use it to keep track of my projects, tasks, and deadlines.
-            In addition, I also use Notion to write articles, take notes, and
-            store resources. I like Notion because it is very flexible and
-            allows me to create my own custom templates and workflows. I also
-            like that it has a great community of users and developers, which is
-            always a plus.
-          </Tool>
           <Tool title="Google Drive">
-            I use Google Drive to store all of my files and documents. It’s just
-            so convenient to have all my files in one place and to be able to
-            access them from any device. I also like that I can share my files
-            with other people and collaborate on them in real time.
+            Google Drive is an essential tool that I heavily rely on to keep
+            both my work and personal life organised. I use it as a central hub
+            for storing all my work-related documents, spreadsheets, and
+            presentations, as well as personal files such as photos and videos.
+            It&apos;s not just a storage space for me but also a versatile
+            platform for creating and managing project files, brainstorming and
+            drafting blog posts, and collaborating with colleagues on shared
+            documents. Having the capability to effortlessly retrieve all my
+            files from any device, no matter where I am, has proven to be
+            incredibly convenient and has substantially improved my
+            productivity. This flexibility allows me to seamlessly transition
+            between my desktop, laptop, and mobile devices, ensuring that I can
+            access important documents and information whenever I need them.
           </Tool>
           <Tool title="Loom">
             I use Loom to record my screen and share it with other people. It’s
