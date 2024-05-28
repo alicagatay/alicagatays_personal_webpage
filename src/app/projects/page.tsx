@@ -4,8 +4,19 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoTimer from '@/images/logos/timer.svg'
 import logoMetronome from '@/images/logos/metronome.svg'
+import logoM from '@/images/logos/letter-m.svg'
 
 const projects = [
+  {
+    name: 'Micro Marketing Assistant',
+    description:
+      'Micro Marketing Assistant is a minimal and fast CRM tool for small businesses and business persons that helps them manage and track the products they are selling or trying to sell and to whom they are selling the product into.',
+    link: {
+      href: 'https://www.micro-marketing-assistant.com/',
+      label: 'View the project.',
+    },
+    logo: logoM,
+  },
   {
     name: 'Focus Timer',
     description:
