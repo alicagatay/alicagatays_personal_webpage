@@ -10,7 +10,7 @@ const projects = [
   {
     name: 'Micro Marketing Assistant',
     description:
-      'Micro Marketing Assistant is a minimal and fast CRM tool for small businesses and business persons that helps them manage and track the products they are selling or trying to sell and to whom they are selling the product into.',
+      'Micro Marketing Assistant is a minimal and fast CRM tool for small businesses and business people that helps them manage and track the products they are selling or trying to sell and to whom they are selling the product into.',
     link: {
       href: 'https://www.micro-marketing-assistant.com/',
       label: 'View the project.',
