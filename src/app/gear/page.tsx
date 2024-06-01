@@ -120,26 +120,54 @@ export default function Uses() {
         </ToolsSection>
         <ToolsSection title="Productivity">
           <Tool title="Google Calendar">
-            I use Google Calendar to keep track of all my meetings and events.
-            It is just a very simple and reliable tool that gets the job done. I
-            also have a Google Workspace subscription, which lets me to create
-            appointment schedules directly from my calendar and share them with
-            anyone so that they can book a meeting with me.
+            I rely on Google Calendar as my primary tool to manage and keep
+            track of all my meetings, appointments, and important events. It is
+            an extremely user-friendly and reliable system that effectively gets
+            the job done without any complications. One of the reasons I find
+            Google Calendar so useful is its simplicity; it&apos;s
+            straightforward and easy to use, helping me to avoid any scheduling
+            conflicts and ensuring that I&apos;m always well-prepared for the
+            day ahead. In addition to this, I also have a Google Workspace
+            subscription. This service provides a plethora of additional
+            benefits, one of which is the ability to create appointment
+            schedules directly from my calendar. I can easily prepare these
+            schedules and share them with colleagues, clients, or anyone else
+            who may need to book a meeting with me. This feature makes it
+            incredibly easy for others to see my availability and schedule a
+            time that works for both of us, streamlining the entire process and
+            making scheduling meetings a breeze.
           </Tool>
           <Tool title="Google Drive">
-            Google Drive is an essential tool that I heavily rely on to keep
-            both my work and personal life organised. I use it as a central hub
-            for storing all my work-related documents, spreadsheets, and
-            presentations, as well as personal files such as photos and videos.
-            It&apos;s not just a storage space for me but also a versatile
-            platform for creating and managing project files, brainstorming and
-            drafting blog posts, and collaborating with colleagues on shared
-            documents. Having the capability to effortlessly retrieve all my
-            files from any device, no matter where I am, has proven to be
-            incredibly convenient and has substantially improved my
-            productivity. This flexibility allows me to seamlessly transition
-            between my desktop, laptop, and mobile devices, ensuring that I can
-            access important documents and information whenever I need them.
+            Google Drive is a vital tool that keeps my work and personal life
+            organised. I use it to store all work-related documents,
+            spreadsheets, presentations, and personal files like photos and
+            videos. The ability to access my files from any device, anywhere, is
+            extremely convenient and boosts my productivity. This flexibility
+            enables me to smoothly switch between my desktop, laptop, and mobile
+            devices, ensuring I can access crucial documents and information
+            whenever necessary.
+          </Tool>
+          <Tool title="Notion">
+            Notion has become my primary tool for managing both my professional
+            and personal life. This incredibly versatile platform has
+            revolutionised the way I organise my daily tasks, allowing me to
+            keep a clear and updated record of all my ongoing projects, their
+            respective tasks, and any impending deadlines. Beyond the scope of
+            work, Notion has proved invaluable in my personal life. I regularly
+            use it as a tool to pen my articles on Medium, quickly jot down
+            notes, and even as a repository for any interesting pieces of
+            information that I stumble upon on the internet. One of the
+            fundamental reasons I advocate for Notion and consider it an
+            extremely advantageous tool is its flexibility in on-page editing.
+            This feature allows me to tailor my pages to my specific needs,
+            creating custom templates and workflows that can adapt to any
+            situation. I have found this level of customisation to be unique to
+            Notion. Additionally, Notion boasts an active and engaged community
+            of both users and developers. This sense of community is always a
+            significant factor to consider, as it ensures the platform continues
+            to grow and evolve in response to user needs. It also provides a
+            space for users to share tips and tricks, further enhancing my
+            overall Notion experience.
           </Tool>
           <Tool title="Loom">
             I use Loom to record my screen and share it with other people. It’s
