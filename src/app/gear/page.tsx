@@ -121,8 +121,8 @@ export default function Uses() {
         <ToolsSection title="Productivity">
           <Tool title="Google Calendar">
             I rely on Google Calendar as my primary tool to manage and keep
-            track of all my meetings, appointments, and important events. It is
-            an extremely user-friendly and reliable system that effectively gets
+            track of all my meetings, appointments, events, and tasks. It is an
+            extremely user-friendly and reliable system that effectively gets
             the job done without any complications. One of the reasons I find
             Google Calendar so useful is its simplicity; it&apos;s
             straightforward and easy to use, helping me to avoid any scheduling
@@ -138,36 +138,19 @@ export default function Uses() {
             making scheduling meetings a breeze.
           </Tool>
           <Tool title="Google Drive">
-            Google Drive is a vital tool that keeps my work and personal life
-            organised. I use it to store all work-related documents,
-            spreadsheets, presentations, and personal files like photos and
-            videos. The ability to access my files from any device, anywhere, is
-            extremely convenient and boosts my productivity. This flexibility
-            enables me to smoothly switch between my desktop, laptop, and mobile
-            devices, ensuring I can access crucial documents and information
-            whenever necessary.
-          </Tool>
-          <Tool title="Notion">
-            Notion has become my primary tool for managing both my professional
-            and personal life. This incredibly versatile platform has
-            revolutionised the way I organise my daily tasks, allowing me to
-            keep a clear and updated record of all my ongoing projects, their
-            respective tasks, and any impending deadlines. Beyond the scope of
-            work, Notion has proved invaluable in my personal life. I regularly
-            use it as a tool to pen my articles on Medium, quickly jot down
-            notes, and even as a repository for any interesting pieces of
-            information that I stumble upon on the internet. One of the
-            fundamental reasons I advocate for Notion and consider it an
-            extremely advantageous tool is its flexibility in on-page editing.
-            This feature allows me to tailor my pages to my specific needs,
-            creating custom templates and workflows that can adapt to any
-            situation. I have found this level of customisation to be unique to
-            Notion. Additionally, Notion boasts an active and engaged community
-            of both users and developers. This sense of community is always a
-            significant factor to consider, as it ensures the platform continues
-            to grow and evolve in response to user needs. It also provides a
-            space for users to share tips and tricks, further enhancing my
-            overall Notion experience.
+            Google Drive is an essential tool that keeps both my work and
+            personal life organised. I use it to store all my work-related
+            documents, spreadsheets, presentations, and personal files like
+            photos and videos. It also serves as a central hub for creating and
+            managing project files, brainstorming and drafting Medium blog posts
+            and collaborating with colleagues on shared documents. The ability
+            to access my files from any device, anywhere, is incredibly
+            convenient and significantly boosts my productivity. Additionally,
+            its desktop app allows me to access files offline, which is very
+            convenient in places with bad connections or while travelling. This
+            flexibility allows me to seamlessly transition between my desktop,
+            laptop, and mobile devices, ensuring I can access important
+            documents and information whenever necessary.
           </Tool>
           <Tool title="Loom">
             I use Loom to record my screen and share it with other people. It’s
