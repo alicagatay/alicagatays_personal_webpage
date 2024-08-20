@@ -25,15 +25,15 @@ export default function Projects() {
   return (
     <SimpleLayout
       title="Let’s work together to create something amazing."
-      intro="Do you have a minimum viable product (MVP) for a web or mobile application that needs completion within the next month? Or do you have innovative designs for an application but need a professional to turn them into a live application? Maybe you have a great project idea for your business but lack the technical skills to make it a reality. Or, are you looking for a skilled full-stack web or mobile application developer to join your team, either full-time or on a contract basis? If any of these situations apply to you, I could be the person you need. I invite you to schedule a one-on-one meeting with me. This will allow us to discuss your needs in detail and see how I can help you achieve your digital goals. Let's connect and start the conversation."
+      intro="Do you have a minimum viable product (MVP) for a web or mobile application that needs to be completed soon? Or perhaps you have innovative designs for an app but need a skilled developer to bring them to life? Maybe you have a promising project idea for your business but lack the technical expertise to turn it into reality. If any of these situations sound familiar, I’m here to help. Book a call with me, and let’s have a detailed conversation about your vision and how I can support you in making it happen. During our session, we’ll dive into your specific needs and goals, allowing me to fully understand your project and how I can contribute to its success. Whether you’re finalising an MVP that requires quick development, transforming your designs into a live, functional product, or starting a new project from the ground up, I’ll work with you to craft a clear and efficient plan that ensures everything is on track for success. This consultation is an opportunity for us to connect, explore your ideas, and see how I can help bring your digital goals to life. When booking your time slot, please provide as much detail as possible so that we can have a productive and focused conversation. I’m excited to learn more about your project and look forward to helping you bring it to completion with dedication, expertise, and professionalism."
     >
       <div className="flex justify-center">
         <a
-          href="https://calendar.app.google/NX9qP9mWnfzfpztq9"
+          href="https://calendar.app.google/kp9sapugpyAugvnQA"
           target="_blank"
           className="inline-flex items-center rounded-md border border-transparent bg-teal-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
         >
-          Schedule a Meeting with me.
+          Schedule a meeting with me.
         </a>
       </div>
     </SimpleLayout>
