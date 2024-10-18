@@ -8,10 +8,11 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: '%s - Ali Cagatay',
-    default: 'Ali Cagatay - Software engineer, writer, and full-time learner.',
+    default:
+      'Ali Cagatay - Software Engineer | Data Scientist | ML Enthusiast | Writer & Lifelong Learner',
   },
   description:
-    'I’m Ali, a software engineer based in Birmingham, United Kingdom.',
+    'I’m Ali, a software engineer and machine learning enthusiast based in Birmingham, United Kingdom.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
