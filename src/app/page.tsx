@@ -8,6 +8,7 @@ import { Container } from '@/components/Container'
 import {
   GitHubIcon,
   InstagramIcon,
+  KaggleIcon,
   LinkedInIcon,
   MediumIcon,
 } from '@/components/SocialIcons'
@@ -227,12 +228,14 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software engineer, writer, and full-time learner.
+            Software Engineer | Data Scientist | ML Enthusiast | Writer &
+            Lifelong Learner
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Ali, a full stack software engineer specialising in web and
-            mobile application development. I’m currently located in Birmingham,
-            United Kingdom.
+            Hi, I’m Ali! I’m a software engineer and data scientist with a love
+            for machine learning, web, and mobile development. I’m currently
+            based in Birmingham, United Kingdom, and I’m all about using
+            technology to tackle tough challenges and build creative solutions.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -254,6 +257,11 @@ export default async function Home() {
               href="https://www.linkedin.com/in/alicagatay/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
+            />
+            <SocialLink
+              href="https://www.kaggle.com/aliccagatay"
+              aria-label="Follow on Kaggle"
+              icon={KaggleIcon}
             />
           </div>
         </div>
