@@ -232,10 +232,10 @@ export default async function Home() {
             Lifelong Learner
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Hi, I’m Ali! I’m a software engineer and data scientist with a love
-            for machine learning, web, and mobile development. I’m currently
-            based in Birmingham, United Kingdom, and I’m all about using
-            technology to tackle tough challenges and build creative solutions.
+            I’m Ali! I’m a software engineer and data scientist with a love for
+            machine learning, web, and mobile development. I’m currently based
+            in Birmingham, United Kingdom, and I’m all about using technology to
+            tackle tough challenges and build creative solutions.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
