@@ -154,18 +154,18 @@ export default function About() {
               Follow on GitHub
             </SocialLink>
             <SocialLink
-              href="https://www.linkedin.com/in/alicagatay/"
-              icon={LinkedInIcon}
-              className="mt-4"
-            >
-              Follow on LinkedIn
-            </SocialLink>
-            <SocialLink
               href="https://www.kaggle.com/aliccagatay"
               icon={KaggleIcon}
               className="mt-4"
             >
               Follow on Kaggle
+            </SocialLink>
+            <SocialLink
+              href="https://www.linkedin.com/in/alicagatay/"
+              icon={LinkedInIcon}
+              className="mt-4"
+            >
+              Follow on LinkedIn
             </SocialLink>
             <SocialLink
               href="mailto:aliccagatay@gmail.com"
