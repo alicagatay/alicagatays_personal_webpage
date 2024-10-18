@@ -56,6 +56,23 @@ export default function Speaking() {
       intro="This list includes internships and volunteering work as well."
     >
       <div className="space-y-20">
+        <SpeakingSection title="Kollestee UK Global">
+          <Appearance
+            href="https://kollestee.co.uk/"
+            title="Machine Learning Engineer Intern"
+            description="In my role as a Machine Learning Engineer Intern at Kollestee UK Global,
+            I lead the research and development of machine learning models, focusing on delivering
+            AI-driven solutions that drive key innovations within the company. I also integrate AI
+            algorithms into robotic systems and core products, enhancing their performance and
+            streamlining development processes. Additionally, I design and implement data processing
+            algorithms for large 3D and 2D datasets, improving both the speed and accuracy of the
+            models, which plays a significant role in advancing automation and decision-making
+            capabilities."
+            timePeriod="June 2024 - Present"
+            location="Birmingham, United Kingdom"
+            cta="Learn more about Kollestee UK Global"
+          />
+        </SpeakingSection>
         <SpeakingSection title="CodeYourFuture">
           <Appearance
             href="https://codeyourfuture.io/"
