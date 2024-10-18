@@ -7,6 +7,7 @@ import { Container } from '@/components/Container'
 import {
   GitHubIcon,
   InstagramIcon,
+  KaggleIcon,
   LinkedInIcon,
   MediumIcon,
   TwitterIcon,
@@ -91,35 +92,41 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’ve loved making things for as long as I can remember, and
-              created my first program when I was 14 years old, a retro snake
+              I’ve loved making things for as long as I can remember, and I
+              created my first program when I was 14 years old—a retro snake
               game in Scratch. From that moment on, I knew I wanted to be a
               software engineer, so I started learning how to code in my free
               time with a programming language called Processing.
             </p>
             <p>
               I then went on to study Computer Science at the University of
-              Birmingham, where I learned about the fundamentals of software
-              engineering, data structures and algorithms, machine learning,
-              artificial intelligence and mobile & ubiquitous computing. I also
-              worked on numerous of interesting projects, such as a computer
-              vision algorithm that classifies brain scans to detect brain
-              tumours, or a mobile application that uses machine learning and
-              natural language processing to recommend workouts to users based
-              on their messages.
+              Birmingham, where I gained a strong foundation in software
+              engineering, data structures, algorithms, machine learning,
+              artificial intelligence, and mobile & ubiquitous computing. During
+              this time, I worked on exciting projects, such as developing a
+              computer vision algorithm to classify brain scans for tumour
+              detection and building a mobile app that uses machine learning and
+              natural language processing to recommend workouts based on user
+              messages.
             </p>
             <p>
-              Today, I’m a full-stack software engineer specialising in web and
-              mobile application development using tools such as Next.js,
-              React.js, TypeScript, Tailwind CSS and Flutter. In addition to
-              this, I am also a volunteer in a non-profit organisation called
-              CodeYourFuture as a teaching lead, where I teach full-stack web
-              development to people from disadvantaged backgrounds, such as
-              refugees, asylum seekers and people from low income backgrounds.
+              Currently, I’m pursuing a Master’s degree in Artificial
+              Intelligence at Birmingham City University, where I’m expanding my
+              knowledge in key areas such as deep learning, data visualisation,
+              and applied AI. Alongside my studies, I’m applying these skills as
+              a Machine Learning Engineer intern at Kollestee UK Global, where I
+              contribute to the development of innovative AI-driven solutions
+              for automation and robotic systems.
             </p>
             <p>
-              In addition, I have a blog on Medium where I constantly write
-              about the tools used in full-stack web and mobile application in a
+              Alongside this, I volunteer as a teaching lead at CodeYourFuture,
+              a non-profit organization where I teach full-stack web development
+              to individuals from disadvantaged backgrounds, including refugees,
+              asylum seekers, and people from low-income families.
+            </p>
+            <p>
+              I also maintain a blog on Medium, where I regularly write about
+              the tools used in full-stack web and mobile applications in a
               series called <em>“The Mastery Series”</em>.
             </p>
           </div>
@@ -152,6 +159,13 @@ export default function About() {
               className="mt-4"
             >
               Follow on LinkedIn
+            </SocialLink>
+            <SocialLink
+              href="https://www.kaggle.com/aliccagatay"
+              icon={KaggleIcon}
+              className="mt-4"
+            >
+              Follow on Kaggle
             </SocialLink>
             <SocialLink
               href="mailto:aliccagatay@gmail.com"
