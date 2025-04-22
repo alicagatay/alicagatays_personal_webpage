@@ -67,7 +67,7 @@ export default function Speaking() {
             voice interactions. Our solution earned 3rd place among fifteen university teams
             and was praised for its accessibility, scalability, and alignment with the UN
             Sustainable Development Goals."
-            timePeriod="March 2025"
+            timePeriod="April 2025"
             location="Birmingham, United Kingdom"
             cta="Github repo of the project we built during the hackathon"
           />
