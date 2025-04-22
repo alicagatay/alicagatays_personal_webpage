@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: {
     template: '%s - Ali Cagatay',
     default:
-      'Ali Cagatay - Software Engineer | Data Scientist | ML Enthusiast | Writer & Lifelong Learner',
+      'Ali Cagatay - Software Engineer | Data Scientist | ML Enthusiast | Lifelong Learner',
   },
   description:
     'I’m Ali, a software engineer and machine learning enthusiast based in Birmingham, United Kingdom.',
