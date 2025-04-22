@@ -31,6 +31,7 @@ export function Footer() {
                 <NavLink href="/projects">Projects</NavLink>
                 <NavLink href="/education">Education</NavLink>
                 <NavLink href="/work">Work</NavLink>
+                <NavLink href="/hackathons">Hackathons</NavLink>
                 <NavLink href="/gear">Gear</NavLink>
                 {/* <NavLink href="/work-with-me">Work With Me</NavLink> */}
               </div>
