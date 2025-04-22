@@ -124,21 +124,10 @@ export default function About() {
               to individuals from disadvantaged backgrounds, including refugees,
               asylum seekers, and people from low-income families.
             </p>
-            <p>
-              I also maintain a blog on Medium, where I regularly write about
-              the tools used in full-stack web and mobile applications in a
-              series called <em>“The Mastery Series”</em>.
-            </p>
           </div>
         </div>
         <div className="lg:pl-20">
           <ul role="list">
-            <SocialLink
-              href="https://medium.com/@aliccagatay"
-              icon={MediumIcon}
-            >
-              Follow on Medium
-            </SocialLink>
             <SocialLink
               href="https://www.instagram.com/_alicagatay/"
               icon={InstagramIcon}
