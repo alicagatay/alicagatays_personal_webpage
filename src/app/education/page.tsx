@@ -60,10 +60,11 @@ export default function Speaking() {
           <Appearance
             href="https://www.bcu.ac.uk/"
             title="MSc Artificial Intelligence at the Birmingham City University"
-            description="On September 2024, I will be starting my Masters degree in Artificial Intelligence at the Birmingham City University,
-            to pursue my interest in Artificial Intelligence and Machine Learning even further. There, I will be studying a variaty of modules such
-            as Computing for AI, Machine Learning, Applied AI, Deep Learning, Data Visualisation and Impact of AI. In addition, I will be completing
-            my Individual Masters Project during my studies."
+            description="I am currently pursuing an MSc degree in Artificial Intelligence at Birmingham City University
+            to pursue my passion for Artificial Intelligence and Machine Learning. As part of the programme, I am exploring
+            a variety of modules including Computing for AI, Machine Learning, Applied AI, Deep Learning, Data Visualisation,
+            and the Impact of AI. I am also undertaking an Individual Masters Project as a key component of my studies.
+            In addition, I am currently on track to graduate from this degree with a distinction."
             timePeriod="September 2024 - Present"
             location="Birmingham, United Kingdom"
             cta="About Birmingham City University"
