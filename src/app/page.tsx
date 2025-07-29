@@ -228,14 +228,17 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software Engineer | Data Scientist | ML Enthusiast | Lifelong
-            Learner
+            Hi, I’m Ali! I’m a software engineer building full‑stack products
+            and intelligent systems.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Ali! I’m a software engineer and data scientist with a love for
-            machine learning, web, and mobile development. I’m currently based
-            in Birmingham, United Kingdom, and I’m all about using technology to
-            tackle tough challenges and build creative solutions.
+            I am a software engineer specialising in full-stack software
+            development and intelligent AI systems. I combine software
+            engineering and machine learning to build innovative, end-to-end
+            solutions that are scalable, reliable, and built to make a real
+            impact. I thrive on taking complex ideas and shaping them into
+            well-crafted, production-ready software - always with a focus on
+            clarity, collaboration, and long-term value.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
