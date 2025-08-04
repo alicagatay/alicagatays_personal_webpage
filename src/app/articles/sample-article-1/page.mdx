@@ -28,7 +28,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, n
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus.
 
 
-## Heading 1
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
 
 
 Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -54,10 +58,6 @@ print_fib_sequence(15)
 
 Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
-
-## Heading 2
-
-
 Aliquam erat volutpat. Etiam ac erat sit amet neque efficitur faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisl aliquam nisl, eu aliquam nisl nisl eu nisl.
 
 1. Captus inpleverunt collo
@@ -69,28 +69,3 @@ Aliquam erat volutpat. Etiam ac erat sit amet neque efficitur faucibus. Pellente
 
 
 Donec facilisis tortor ut augue lacinia, at viverra est semper. Sed sapien metus, scelerisque nec pharetra id, tempor a tortor. Pellentesque non magna nec nulla dictum ultricies.
-
-```python
-import re
-from collections import Counter
-
-def analyze_text(text):
-    """Analyze text: count words, sentences, and most common words."""
-    words = re.findall(r'\w+', text.lower())
-    sentences = re.split(r'[.!?]+', text)
-    word_count = len(words)
-    sentence_count = len([s for s in sentences if s.strip()])
-    most_common = Counter(words).most_common(3)
-    print(f"Word count: {word_count}")
-    print(f"Sentence count: {sentence_count}")
-    print("Most common words:")
-    for word, count in most_common:
-        print(f"  {word}: {count}")
-
-sample = "Hello world! This is a sample sentence. Hello again! How many words are here? This is just a test."
-analyze_text(sample)
-```
-
-
-
-Curabitur euismod sem vel vulputate dictum. Quisque facilisis, est a hendrerit facilisis, enim erat dictum erat, nec dictum enim enim nec enim.
