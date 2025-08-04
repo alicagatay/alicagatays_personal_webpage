@@ -37,9 +37,9 @@ function Article({ article }: { article: ArticleWithSlug }) {
 }
 
 export const metadata: Metadata = {
-  title: 'Articles',
+  title: 'Thoughts',
   description:
-    'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+    'Build Logs & Brain Dumps from a Software Engineer: Notes on Software, AI, and Everything in Between',
 }
 
 export async function generateStaticParams() {
@@ -64,8 +64,8 @@ export default async function ArticlesPage({ params }: PageProps) {
 
   return (
     <SimpleLayout
-      title="Writing on software design, company building, and the aerospace industry."
-      intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+      title="Build Logs & Brain Dumps from a Software Engineer: Notes on Software, AI, and Everything in Between"
+      intro="A living archive of my experiences, experiments, and lessons in software engineering, artificial intelligence, and the creative mess in between."
     >
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">

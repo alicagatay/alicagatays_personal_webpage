@@ -35,9 +35,9 @@ function Article({ article }: { article: ArticleWithSlug }) {
 }
 
 export const metadata: Metadata = {
-  title: 'Articles',
+  title: 'Thoughts',
   description:
-    'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+    'Build Logs & Brain Dumps from a Software Engineer: Notes on Software, AI, and Everything in Between',
 }
 
 import { redirect } from 'next/navigation'
