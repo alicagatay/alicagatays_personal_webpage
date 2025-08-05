@@ -9,7 +9,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/articles/${article.slug}`}>
+        <Card.Title href={`/thought-log/${article.slug}`}>
           {article.title}
         </Card.Title>
         <Card.Eyebrow
@@ -43,5 +43,5 @@ export const metadata: Metadata = {
 import { redirect } from 'next/navigation'
 
 export default function ArticlesIndex() {
-  redirect('/articles/page/1')
+  redirect('/thought-log/page/1')
 }

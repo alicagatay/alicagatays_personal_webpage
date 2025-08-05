@@ -11,7 +11,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/articles/${article.slug}`}>
+        <Card.Title href={`/thought-log/${article.slug}`}>
           {article.title}
         </Card.Title>
         <Card.Eyebrow
@@ -90,7 +90,7 @@ function Pagination({
     <nav className="mt-8 flex justify-center gap-4">
       {currentPage > 1 && (
         <a
-          href={`/articles/page/${currentPage - 1}`}
+          href={`/thought-log/page/${currentPage - 1}`}
           className="rounded bg-zinc-200 px-3 py-1 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600"
         >
           Previous
@@ -101,7 +101,7 @@ function Pagination({
       </span>
       {currentPage < totalPages && (
         <a
-          href={`/articles/page/${currentPage + 1}`}
+          href={`/thought-log/page/${currentPage + 1}`}
           className="rounded bg-zinc-200 px-3 py-1 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600"
         >
           Next
