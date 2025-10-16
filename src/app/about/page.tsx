@@ -105,22 +105,35 @@ export default function About() {
               computer vision algorithm to classify brain scans for tumour
               detection and building a mobile app that uses machine learning and
               natural language processing to recommend workouts based on user
-              messages.
+              messages. While pursuing my studies, I also volunteered as a
+              teaching lead at CodeYourFuture, a non-profit organisation that
+              offers full-stack web development training to individuals from
+              disadvantaged backgrounds, including refugees, asylum seekers, and
+              low-income families. This experience not only enhanced my web and
+              software development skills but also taught me how to collaborate
+              effectively with a team of developers and mentors, as well as
+              present technical concepts to non-technical audiences.
             </p>
             <p>
-              Currently, I’m pursuing a Master’s degree in Artificial
-              Intelligence at Birmingham City University, where I’m expanding my
-              knowledge in key areas such as deep learning, data visualisation,
-              and applied AI. Alongside my studies, I’m applying these skills as
-              a Machine Learning Engineer intern at Kollestee UK Global, where I
-              contribute to the development of innovative AI-driven solutions
-              for automation and robotic systems.
+              Later on, I chose to further pursue my interest in Artificial
+              Intelligence by studying for a Master’s degree in Artificial
+              Intelligence at Birmingham City University. This program has
+              allowed me to deepen my knowledge in key areas, including deep
+              learning, data visualisation, machine learning, and applied AI.
+              During my studies, I worked on various AI-related projects and
+              participated in hackathons, developing tools such as house price
+              predictors and AI-powered voice assistants (more details can be
+              found on the respective pages of the website). Additionally, I
+              completed a year-long internship at Kollestee UK Global as a
+              Machine Learning Engineer intern, where I contributed to the
+              development of innovative AI-driven solutions for automation and
+              robotic systems.
             </p>
             <p>
-              Alongside this, I volunteer as a teaching lead at CodeYourFuture,
-              a non-profit organization where I teach full-stack web development
-              to individuals from disadvantaged backgrounds, including refugees,
-              asylum seekers, and people from low-income families.
+              Currently, I am undertaking a six-month placement with Probuild360
+              as an AI & Data Analytics Software Engineer, where I’m developing
+              an internal product and working on its integration with AI-based
+              systems to enhance its functionality.
             </p>
           </div>
         </div>
