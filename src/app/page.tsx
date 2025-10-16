@@ -8,7 +8,6 @@ import { Container } from '@/components/Container'
 import {
   GitHubIcon,
   InstagramIcon,
-  KaggleIcon,
   LinkedInIcon,
   MediumIcon,
 } from '@/components/SocialIcons'
@@ -21,8 +20,6 @@ import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
-import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
-import { formatDate } from '@/lib/formatDate'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -255,11 +252,6 @@ export default async function Home() {
               href="https://www.linkedin.com/in/alicagatay/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
-            />
-            <SocialLink
-              href="https://www.kaggle.com/aliccagatay"
-              aria-label="Follow on Kaggle"
-              icon={KaggleIcon}
             />
           </div>
         </div>

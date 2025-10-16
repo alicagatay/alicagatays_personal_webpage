@@ -7,7 +7,6 @@ import { Container } from '@/components/Container'
 import {
   GitHubIcon,
   InstagramIcon,
-  KaggleIcon,
   LinkedInIcon,
   MediumIcon,
   TwitterIcon,
@@ -140,13 +139,6 @@ export default function About() {
               className="mt-4"
             >
               Follow on GitHub
-            </SocialLink>
-            <SocialLink
-              href="https://www.kaggle.com/aliccagatay"
-              icon={KaggleIcon}
-              className="mt-4"
-            >
-              Follow on Kaggle
             </SocialLink>
             <SocialLink
               href="https://www.linkedin.com/in/alicagatay/"
