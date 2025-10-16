@@ -56,6 +56,16 @@ export default function Speaking() {
       intro="This list includes internships and volunteering work as well."
     >
       <div className="space-y-20">
+        <SpeakingSection title="ProBuild360">
+          <Appearance
+            href="https://www.probuild360.co.uk/"
+            title="AI & Data Analytics Software Engineer Placement"
+            description="Will be updated soon."
+            timePeriod="October 2025 - Present"
+            location="Birmingham, United Kingdom"
+            cta="Learn more about ProBuild360"
+          />
+        </SpeakingSection>
         <SpeakingSection title="Kollestee UK Global">
           <Appearance
             href="https://kollestee.co.uk/"
@@ -68,7 +78,7 @@ export default function Speaking() {
             algorithms for large 3D and 2D datasets, improving both the speed and accuracy of the
             models, which plays a significant role in advancing automation and decision-making
             capabilities."
-            timePeriod="June 2024 - Present"
+            timePeriod="June 2024 - September 2025"
             location="Birmingham, United Kingdom"
             cta="Learn more about Kollestee UK Global"
           />
@@ -80,7 +90,7 @@ export default function Speaking() {
             description="As a Teaching Lead at CodeYourFuture, I am responsible for the delivery of the course
             content to the trainees on the Saturday classes. I also mentor the trainees and help them with their
             tech journey during the week."
-            timePeriod="September 2020 - Present"
+            timePeriod="September 2020 - September 2025"
             location="Birmingham, United Kingdom"
             cta="Learn more about CodeYourFuture and the work they do"
           />
