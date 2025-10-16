@@ -59,7 +59,7 @@ export default function Speaking() {
         <SpeakingSection title="University Degrees">
           <Appearance
             href="https://www.bcu.ac.uk/"
-            title="MSc Artificial Intelligence at the Birmingham City University"
+            title="MSc Artificial Intelligence with Professional Placement at the Birmingham City University"
             description="I am currently pursuing an MSc degree in Artificial Intelligence at Birmingham City University
             to pursue my passion for Artificial Intelligence and Machine Learning. As part of the programme, I am exploring
             a variety of modules including Computing for AI, Machine Learning, Applied AI, Deep Learning, Data Visualisation,
