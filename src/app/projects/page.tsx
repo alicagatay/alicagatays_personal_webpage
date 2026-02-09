@@ -14,6 +14,10 @@ const projects = [
     description:
       'A retrieval-augmented generation system built from transcripts of business and lifestyle YouTubers, letting you ask questions and get answers grounded in what those creators have actually said in their videos previously.',
     links: {
+      website: {
+        href: 'https://board-of-directors-rag.vercel.app/',
+        label: 'Website',
+      },
       github: {
         href: 'https://github.com/alicagatay/board-of-directors-rag',
         label: 'GitHub',
@@ -30,6 +34,10 @@ const projects = [
         href: 'https://www.micro-marketing-assistant.com/',
         label: 'Website',
       },
+      github: {
+        href: 'https://github.com/alicagatay/micro-marketing-assistant',
+        label: 'GitHub',
+      },
     },
     logo: logoM,
   },
@@ -41,6 +49,10 @@ const projects = [
       website: {
         href: 'https://focus-timer-sandy.vercel.app/',
         label: 'Website',
+      },
+      github: {
+        href: 'https://github.com/alicagatay/micro-marketing-assistant',
+        label: 'GitHub',
       },
     },
     logo: logoTimer,
@@ -99,7 +111,7 @@ export default function Projects() {
               {project.name}
             </h2>
             <Card.Description>{project.description}</Card.Description>
-            <div className="relative z-10 mt-6 flex flex-wrap gap-3 text-sm font-medium">
+            <div className="relative z-10 mt-6 flex flex-col gap-3 text-sm font-medium">
               {project.links.website ? (
                 <Link
                   href={project.links.website.href}
