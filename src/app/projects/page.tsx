@@ -109,8 +109,8 @@ export default function Projects() {
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
               <Card.Link
+                disabled
                 overlay={false}
-                href={project.links.website?.href ?? project.links.github?.href}
                 className="transition group-hover:text-teal-500 dark:group-hover:text-teal-400"
               >
                 {project.name}
