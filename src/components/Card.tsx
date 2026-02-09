@@ -37,16 +37,31 @@ Card.Link = function CardLink({
   children,
   className,
   overlay = true,
+  disabled = false,
+  href,
   ...props
-}: React.ComponentPropsWithoutRef<typeof Link> & {
+}: Omit<React.ComponentPropsWithoutRef<typeof Link>, 'href'> & {
+  href?: string
   overlay?: boolean
+  disabled?: boolean
 }) {
+  if (disabled || !href) {
+    return (
+      <>
+        {overlay ? (
+          <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+        ) : null}
+        <span className={clsx('relative z-10', className)}>{children}</span>
+      </>
+    )
+  }
+
   return (
     <>
       {overlay ? (
         <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
       ) : null}
-      <Link {...props} className={clsx('relative z-10', className)}>
+      <Link href={href} {...props} className={clsx('relative z-10', className)}>
         {overlay ? (
           <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         ) : null}
@@ -59,15 +74,22 @@ Card.Link = function CardLink({
 Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
   as,
   href,
+  className,
   children,
 }: Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'href'> & {
   as?: T
   href?: string
+  className?: string
 }) {
   let Component = as ?? 'h2'
 
   return (
-    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <Component
+      className={clsx(
+        'text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100',
+        className,
+      )}
+    >
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
