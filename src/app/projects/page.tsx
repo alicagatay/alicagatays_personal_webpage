@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoBoardOfDirectors from '@/images/logos/board-of-directors.svg'
@@ -12,9 +13,11 @@ const projects = [
     name: 'Board of Directors RAG',
     description:
       'A retrieval-augmented generation system built from transcripts of business and lifestyle YouTubers, letting you ask questions and get answers grounded in what those creators have actually said in their videos previously.',
-    link: {
-      href: 'https://github.com/alicagatay/board-of-directors-rag',
-      label: 'View on GitHub.',
+    links: {
+      github: {
+        href: 'https://github.com/alicagatay/board-of-directors-rag',
+        label: 'GitHub',
+      },
     },
     logo: logoBoardOfDirectors,
   },
@@ -22,9 +25,11 @@ const projects = [
     name: 'Micro Marketing Assistant',
     description:
       'Micro Marketing Assistant is a minimal and fast CRM tool for small businesses and business people that helps them manage and track the products they are selling or trying to sell and to whom they are selling the product into.',
-    link: {
-      href: 'https://www.micro-marketing-assistant.com/',
-      label: 'View the project.',
+    links: {
+      website: {
+        href: 'https://www.micro-marketing-assistant.com/',
+        label: 'Website',
+      },
     },
     logo: logoM,
   },
@@ -32,18 +37,22 @@ const projects = [
     name: 'Focus Timer',
     description:
       'A simple web application with a clean user interface where you can set a timer for your work and break sessions.',
-    link: {
-      href: 'https://focus-timer-sandy.vercel.app/',
-      label: 'View the project.',
+    links: {
+      website: {
+        href: 'https://focus-timer-sandy.vercel.app/',
+        label: 'Website',
+      },
     },
     logo: logoTimer,
   },
   {
     name: 'Metronome',
     description: 'Coming soon.',
-    link: {
-      href: '/projects',
-      label: 'View the project.',
+    links: {
+      website: {
+        href: '/projects',
+        label: 'Website',
+      },
     },
     logo: logoMetronome,
   },
@@ -77,6 +86,7 @@ export default function Projects() {
       >
         {projects.map((project) => (
           <Card as="li" key={project.name}>
+            <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 rounded-2xl bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6" />
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image
                 src={project.logo}
@@ -86,13 +96,29 @@ export default function Projects() {
               />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              {project.name}
             </h2>
             <Card.Description>{project.description}</Card.Description>
-            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-              <LinkIcon className="h-6 w-6 flex-none" />
-              <span className="ml-2">{project.link.label}</span>
-            </p>
+            <div className="relative z-10 mt-6 flex flex-wrap gap-3 text-sm font-medium">
+              {project.links.website ? (
+                <Link
+                  href={project.links.website.href}
+                  className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:border-teal-500 hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200"
+                >
+                  <LinkIcon className="h-5 w-5 flex-none" />
+                  <span className="ml-2">{project.links.website.label}</span>
+                </Link>
+              ) : null}
+              {project.links.github ? (
+                <Link
+                  href={project.links.github.href}
+                  className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:border-teal-500 hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200"
+                >
+                  <LinkIcon className="h-5 w-5 flex-none" />
+                  <span className="ml-2">{project.links.github.label}</span>
+                </Link>
+              ) : null}
+            </div>
           </Card>
         ))}
       </ul>
