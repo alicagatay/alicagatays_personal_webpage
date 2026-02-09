@@ -2,11 +2,22 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import logoBoardOfDirectors from '@/images/logos/board-of-directors.svg'
 import logoTimer from '@/images/logos/timer.svg'
 import logoMetronome from '@/images/logos/metronome.svg'
 import logoM from '@/images/logos/letter-m.svg'
 
 const projects = [
+  {
+    name: 'Board of Directors RAG',
+    description:
+      'A retrieval-augmented generation system built from transcripts of business and lifestyle YouTubers, letting you ask questions and get answers grounded in what those creators have actually said in their videos previously.',
+    link: {
+      href: 'https://github.com/alicagatay/board-of-directors-rag',
+      label: 'View on GitHub.',
+    },
+    logo: logoBoardOfDirectors,
+  },
   {
     name: 'Micro Marketing Assistant',
     description:
