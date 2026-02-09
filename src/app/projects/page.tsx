@@ -16,11 +16,11 @@ const projects = [
     links: {
       website: {
         href: 'https://board-of-directors-rag.vercel.app/',
-        label: 'Website',
+        label: 'Project Website',
       },
       github: {
         href: 'https://github.com/alicagatay/board-of-directors-rag',
-        label: 'GitHub',
+        label: 'GitHub Repo',
       },
     },
     logo: logoBoardOfDirectors,
@@ -32,11 +32,11 @@ const projects = [
     links: {
       website: {
         href: 'https://www.micro-marketing-assistant.com/',
-        label: 'Website',
+        label: 'Project Website',
       },
       github: {
         href: 'https://github.com/alicagatay/micro-marketing-assistant',
-        label: 'GitHub',
+        label: 'GitHub Repo',
       },
     },
     logo: logoM,
@@ -48,11 +48,11 @@ const projects = [
     links: {
       website: {
         href: 'https://focus-timer-sandy.vercel.app/',
-        label: 'Website',
+        label: 'Project Website',
       },
       github: {
         href: 'https://github.com/alicagatay/micro-marketing-assistant',
-        label: 'GitHub',
+        label: 'GitHub Repo',
       },
     },
     logo: logoTimer,
@@ -63,7 +63,7 @@ const projects = [
     links: {
       website: {
         href: '/projects',
-        label: 'Website',
+        label: 'Project Website',
       },
     },
     logo: logoMetronome,
@@ -108,14 +108,20 @@ export default function Projects() {
               />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              {project.name}
+              <Card.Link
+                overlay={false}
+                href={project.links.website?.href ?? project.links.github?.href}
+                className="transition group-hover:text-teal-500 dark:group-hover:text-teal-400"
+              >
+                {project.name}
+              </Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
             <div className="relative z-10 mt-6 flex flex-col gap-3 text-sm font-medium">
               {project.links.website ? (
                 <Link
                   href={project.links.website.href}
-                  className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:border-teal-500 hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200"
+                  className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:border-teal-500 hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
                   <span className="ml-2">{project.links.website.label}</span>
@@ -124,7 +130,7 @@ export default function Projects() {
               {project.links.github ? (
                 <Link
                   href={project.links.github.href}
-                  className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:border-teal-500 hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200"
+                  className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:border-teal-500 hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
                   <span className="ml-2">{project.links.github.label}</span>
