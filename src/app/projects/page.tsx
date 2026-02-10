@@ -1,6 +1,6 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from '@/components/Link'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoBoardOfDirectors from '@/images/logos/board-of-directors.svg'
@@ -121,6 +121,8 @@ export default function Projects() {
               {project.links.website ? (
                 <Link
                   href={project.links.website.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
@@ -130,6 +132,8 @@ export default function Projects() {
               {project.links.github ? (
                 <Link
                   href={project.links.github.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
