@@ -1,0 +1,282 @@
+{
+  "common": {
+    "menu": "Menu",
+    "navigation": "Navigation",
+    "closeMenu": "Close menu",
+    "home": "Home",
+    "nav": {
+      "about": "About",
+      "projects": "Projects",
+      "education": "Education",
+      "work": "Work",
+      "hackathons": "Hackathons",
+      "gear": "Gear"
+    },
+    "theme": {
+      "switchTo": "Switch to {theme} theme",
+      "toggle": "Toggle theme",
+      "light": "light",
+      "dark": "dark"
+    },
+    "language": {
+      "toggle": "Change language",
+      "title": "Language",
+      "english": "English",
+      "turkish": "Türkçe"
+    },
+    "social": {
+      "instagram": "Follow on Instagram",
+      "github": "Follow on GitHub",
+      "linkedin": "Follow on LinkedIn"
+    },
+    "footer": {
+      "copyright": "© {year} Ali Cagatay. All rights reserved."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "Sorry, we couldn’t find the page you’re looking for.",
+      "goHome": "Go back home"
+    }
+  },
+  "home": {
+    "title": "Hi, I’m Ali! I’m a software engineer building full‑stack products and intelligent systems.",
+    "intro": "I am a software engineer specialising in full-stack software development and intelligent AI systems. I combine software engineering and machine learning to build innovative, end-to-end solutions that are scalable, reliable, and built to make a real impact. I thrive on taking complex ideas and shaping them into well-crafted, production-ready software - always with a focus on clarity, collaboration, and long-term value."
+  },
+  "about": {
+    "title": "My Path So Far",
+    "paragraphs": [
+      "I’ve loved making things for as long as I can remember, and I created my first program when I was 14 years old—a retro snake game in Scratch. From that moment on, I knew I wanted to be a software engineer, so I started learning how to code in my free time with a programming language called Processing.",
+      "I then went on to study Computer Science at the University of Birmingham, where I gained a strong foundation in software engineering, data structures, algorithms, machine learning, artificial intelligence, and mobile & ubiquitous computing. During this time, I worked on exciting projects, such as developing a computer vision algorithm to classify brain scans for tumour detection and building a mobile app that uses machine learning and natural language processing to recommend workouts based on user messages. While pursuing my studies, I also volunteered as a teaching lead at CodeYourFuture, a non-profit organisation that offers full-stack web development training to individuals from disadvantaged backgrounds, including refugees, asylum seekers, and low-income families. This experience not only enhanced my web and software development skills but also taught me how to collaborate effectively with a team of developers and mentors, as well as present technical concepts to non-technical audiences.",
+      "Later on, I chose to further pursue my interest in Artificial Intelligence by studying for a Master’s degree in Artificial Intelligence at Birmingham City University. This program has allowed me to deepen my knowledge in key areas, including deep learning, data visualisation, machine learning, and applied AI. During my studies, I worked on various AI-related projects and participated in hackathons, developing tools such as house price predictors and AI-powered voice assistants (more details can be found on the respective pages of the website). Additionally, I completed a year-long internship at Kollestee UK Global as a Machine Learning Engineer intern, where I contributed to the development of innovative AI-driven solutions for automation and robotic systems.",
+      "Currently, I am undertaking a six-month placement with Probuild360 as an AI & Data Analytics Software Engineer, where I’m developing an internal product and working on its integration with AI-based systems to enhance its functionality."
+    ]
+  },
+  "projects": {
+    "title": "Things I’ve made trying to put my dent in the universe.",
+    "intro": "I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.",
+    "items": {
+      "boardOfDirectors": {
+        "name": "Board of Directors RAG",
+        "description": "A retrieval-augmented generation system built from transcripts of business and lifestyle YouTubers, letting you ask questions and get answers grounded in what those creators have actually said in their videos previously.",
+        "websiteLabel": "Project Website",
+        "githubLabel": "GitHub Repo"
+      },
+      "microMarketingAssistant": {
+        "name": "Micro Marketing Assistant",
+        "description": "Micro Marketing Assistant is a minimal and fast CRM tool for small businesses and business people that helps them manage and track the products they are selling or trying to sell and to whom they are selling the product into.",
+        "websiteLabel": "Project Website",
+        "githubLabel": "GitHub Repo"
+      },
+      "focusTimer": {
+        "name": "Focus Timer",
+        "description": "A simple web application with a clean user interface where you can set a timer for your work and break sessions.",
+        "websiteLabel": "Project Website",
+        "githubLabel": "GitHub Repo"
+      },
+      "metronome": {
+        "name": "Metronome",
+        "description": "Coming soon.",
+        "websiteLabel": "Project Website"
+      }
+    }
+  },
+  "education": {
+    "title": "My complete education history",
+    "intro": "This list includes all my degrees, courses, and certifications.",
+    "sectionTitle": "University Degrees",
+    "entries": [
+      {
+        "href": "https://www.bcu.ac.uk/",
+        "title": "MSc Artificial Intelligence with Professional Placement at Birmingham City University",
+        "description": "I am currently pursuing an MSc degree in Artificial Intelligence at Birmingham City University to pursue my passion for Artificial Intelligence and Machine Learning. As part of the programme, I am exploring a variety of modules including Computing for AI, Machine Learning, Applied AI, Deep Learning, Data Visualisation, and the Impact of AI. I am also undertaking an Individual Masters Project as a key component of my studies. In addition, I am currently on track to graduate from this degree with a distinction.",
+        "timePeriod": "September 2024 - Present",
+        "location": "Birmingham, United Kingdom",
+        "cta": "About Birmingham City University"
+      },
+      {
+        "href": "https://www.birmingham.ac.uk/",
+        "title": "BSc Computer Science at the University of Birmingham",
+        "description": "During my Bachelor’s degree at the University of Birmingham, I studied various modules in Computer Science, including Software Engineering, Data Structures & Algorithms, and Mobile & Ubiquitous Computing. In addition, I took introductory Artificial Intelligence modules such as Machine Learning, Neural Computation, and Computer Vision. During my studies, I built multiple projects, including my final-year dissertation project: a mobile application that uses Natural Language Processing and Neural Networks in its backend to recommend workouts based on the body part the user wants to train. I graduated in July 2022 with a 2:2 Honours degree.",
+        "timePeriod": "September 2019 - July 2022",
+        "location": "Birmingham, United Kingdom",
+        "cta": "About the University of Birmingham"
+      }
+    ]
+  },
+  "work": {
+    "title": "The history of all the companies I’ve been in and the projects I’ve worked on.",
+    "intro": "This list includes internships and volunteering work as well.",
+    "sections": [
+      {
+        "title": "ProBuild360",
+        "appearances": [
+          {
+            "href": "https://www.probuild360.co.uk/",
+            "title": "AI & Data Analytics Software Engineer Placement",
+            "description": "Will be updated soon.",
+            "timePeriod": "October 2025 - Present",
+            "location": "Birmingham, United Kingdom",
+            "cta": "Learn more about ProBuild360"
+          }
+        ]
+      },
+      {
+        "title": "Kollestee UK Global",
+        "appearances": [
+          {
+            "href": "https://kollestee.co.uk/",
+            "title": "Machine Learning Engineer Intern",
+            "description": "In my role as a Machine Learning Engineer Intern at Kollestee UK Global, I led the research and development of machine learning models, focusing on delivering AI-driven solutions that drive key innovations within the company. I also integrated AI algorithms into robotic systems and core products, enhancing their performance and streamlining development processes. Additionally, I designed and implemented data processing algorithms for large 3D and 2D datasets, improving both speed and accuracy, which played a significant role in advancing automation and decision-making capabilities.",
+            "timePeriod": "June 2024 - September 2025",
+            "location": "Birmingham, United Kingdom",
+            "cta": "Learn more about Kollestee UK Global"
+          }
+        ]
+      },
+      {
+        "title": "CodeYourFuture",
+        "appearances": [
+          {
+            "href": "https://codeyourfuture.io/",
+            "title": "Teaching Lead",
+            "description": "As a Teaching Lead at CodeYourFuture, I was responsible for delivering course content to trainees during Saturday classes. I also mentored trainees and supported their technical journey throughout the week.",
+            "timePeriod": "September 2020 - September 2025",
+            "location": "Birmingham, United Kingdom",
+            "cta": "Learn more about CodeYourFuture and the work they do"
+          },
+          {
+            "href": "https://codeyourfuture.io/",
+            "title": "Tech Lead",
+            "description": "As a Tech Lead in the Product Team of CodeYourFuture, I was responsible for developing an internal tool to help the organisation manage trainees and volunteers. I partnered with a product team of 12 people, including developers, product owners, QA testers, and scrum masters.",
+            "timePeriod": "March 2023 - July 2023",
+            "location": "Birmingham, United Kingdom",
+            "cta": "Learn more about CodeYourFuture and the work they do"
+          }
+        ]
+      },
+      {
+        "title": "Invitelecom",
+        "appearances": [
+          {
+            "href": "#",
+            "title": "Software Engineer Intern",
+            "description": "During my internship at Invitelecom, I worked on developing an Android game called 'Predict The Number' and published it on the Google Play Store in under a month.",
+            "timePeriod": "August 2018 - September 2018",
+            "location": "Istanbul, Turkey",
+            "cta": ""
+          }
+        ]
+      }
+    ]
+  },
+  "hackathons": {
+    "title": "My complete hackathon history",
+    "intro": "This list includes all of the hackathons I have participated in through time.",
+    "sectionTitle": "List of Hackathons",
+    "entries": [
+      {
+        "href": "https://github.com/alicagatay/embrace-hackathon-challenge/",
+        "title": "Microsoft Embrace Midlands Hackathon",
+        "description": "I participated in the Microsoft Embrace Midlands Hackathon 2025, where our 5-member team built an AI-powered voice assistant called CouncilAgent within just 5 hours. The system helps Birmingham residents access housing information by speaking naturally into a mobile app interface. I led frontend/backend integration using Flutter, FastAPI, Azure OpenAI, and Whisper for real-time voice interactions. Our solution earned 3rd place among fifteen university teams and was praised for accessibility, scalability, and alignment with the UN Sustainable Development Goals.",
+        "timePeriod": "April 2025",
+        "location": "Birmingham, United Kingdom",
+        "cta": "GitHub repo of the project we built during the hackathon"
+      }
+    ]
+  },
+  "gear": {
+    "title": "Software I use, gadgets I love, and other things I recommend.",
+    "intro": "A list of the tools and gadgets I currently use to build, design and test software + the tools I currently use to stay productive all day + other random stuff that I just really like in my workflow.",
+    "sections": [
+      {
+        "title": "Workstation",
+        "tools": [
+          {
+            "title": "14” MacBook Pro, M1 Pro, 16GB RAM (2021)",
+            "description": "I was using an Intel-based 16” MacBook Pro prior to this and the difference is night and day. I’ve never heard the fans turn on a single time, even under incredibly heavy loads while working with extensive API calls and running several virtual machines via Docker."
+          },
+          {
+            "title": "Dell S Series S2421HSX 23.8”",
+            "description": "I use this display vertically while working on large codebases. It’s also great for reading long articles and documentation, and it helps while writing my Medium posts."
+          },
+          {
+            "title": "HP 24f Ultraslim Full HD Monitor 23.8”",
+            "description": "This is my main display for research, debugging, and watching videos during breaks, while I use my MacBook display for Slack and other communication tools."
+          }
+        ]
+      },
+      {
+        "title": "Development tools",
+        "tools": [
+          {
+            "title": "Visual Studio Code",
+            "description": "Even without all the fancy IDE features, VS Code is still my favorite editor. I’ve tried many tools over the years, but I always return to VS Code for speed, reliability, and extension support."
+          },
+          {
+            "title": "macOS Terminal",
+            "description": "It may not be the most powerful terminal emulator, but it has the features and customizations I need. I use it for local development, container workflows, and server operations."
+          },
+          {
+            "title": "Docker",
+            "description": "Docker lets me isolate project environments so dependencies don’t conflict. I use it heavily for reproducible local development and multi-service testing."
+          },
+          {
+            "title": "Postman",
+            "description": "I use Postman when I need to test APIs quickly by sending different request types and validating responses."
+          }
+        ]
+      },
+      {
+        "title": "Design",
+        "tools": [
+          {
+            "title": "Excalidraw",
+            "description": "I use Excalidraw for quick wireframes and architecture sketches. It’s simple, collaborative, and very fast for brainstorming."
+          },
+          {
+            "title": "Figma",
+            "description": "Figma is my go-to tool for UI design and interface prototyping."
+          },
+          {
+            "title": "Contrast",
+            "description": "I use Contrast to validate accessibility ratios between colors and quickly sample on-screen colors while designing."
+          }
+        ]
+      },
+      {
+        "title": "Productivity",
+        "tools": [
+          {
+            "title": "Google Calendar",
+            "description": "Google Calendar is my main tool for managing meetings, appointments, events, and tasks. I also use Google Workspace appointment scheduling to share my availability and simplify booking."
+          },
+          {
+            "title": "Google Drive",
+            "description": "Google Drive keeps my personal and work files organised, synced across devices, and available offline when needed."
+          },
+          {
+            "title": "Loom",
+            "description": "I use Loom to record screens, explain ideas asynchronously, and give detailed feedback without scheduling a meeting."
+          }
+        ]
+      },
+      {
+        "title": "Other Stuff",
+        "tools": [
+          {
+            "title": "Kindle Paperwhite",
+            "description": "The Kindle Paperwhite is one of my favorite devices for reading books and long-form content while traveling."
+          },
+          {
+            "title": "Sony WH-1000XM5 Noise Cancelling Wireless Headphones",
+            "description": "I use these for music, meetings, and focused work. They’re comfortable, sound great, and block noise effectively."
+          }
+        ]
+      }
+    ]
+  },
+  "thankYou": {
+    "title": "Thanks for subscribing.",
+    "intro": "I’ll send you an email any time I publish a new blog post, release a new project, or have anything interesting to share that I think you’d want to hear about. You can unsubscribe at any time, no hard feelings."
+  }
+}
