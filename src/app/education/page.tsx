@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
@@ -49,41 +50,34 @@ export const metadata: Metadata = {
     'My complete education history, including my degrees, courses, and certifications.',
 }
 
-export default function Speaking() {
+type EducationEntry = {
+  href: string
+  title: string
+  description: string
+  timePeriod: string
+  location: string
+  cta: string
+}
+
+export default async function Speaking() {
+  let t = await getTranslations('education')
+  let entries = t.raw('entries') as EducationEntry[]
+
   return (
-    <SimpleLayout
-      title="My complete education history"
-      intro="This list includes all my degrees, courses, and certifications."
-    >
+    <SimpleLayout title={t('title')} intro={t('intro')}>
       <div className="space-y-20">
-        <SpeakingSection title="University Degrees">
-          <Appearance
-            href="https://www.bcu.ac.uk/"
-            title="MSc Artificial Intelligence with Professional Placement at the Birmingham City University"
-            description="I am currently pursuing an MSc degree in Artificial Intelligence at Birmingham City University
-            to pursue my passion for Artificial Intelligence and Machine Learning. As part of the programme, I am exploring
-            a variety of modules including Computing for AI, Machine Learning, Applied AI, Deep Learning, Data Visualisation,
-            and the Impact of AI. I am also undertaking an Individual Masters Project as a key component of my studies.
-            In addition, I am currently on track to graduate from this degree with a distinction."
-            timePeriod="September 2024 - Present"
-            location="Birmingham, United Kingdom"
-            cta="About Birmingham City University"
-          />
-          <Appearance
-            href="https://www.birmingham.ac.uk/"
-            title="BSc Computer Science at the University of Birmingham"
-            description="During my Bachelors degree at the University of Birmingham, I have studied various modules about
-            Computer Science in general, including Software Engineering, Data Structures & Algorithms and Mobile & Ubiquitous Computing.
-            In addition, I have also taken introductory modules about Artificial Intelligence such as Machine Learning, Neural Computation and Computer Vision.
-            During my time here, I have also built various projects in my modules, such as my final year dissertation project,
-            where I have built a mobile application that uses Natural Language Processing and Neural Networks
-            in it's backend that can recommend the user a workout depending on the body part they want to train.
-            At the end of my degree on July 2022, I have achieved a 2:2 grade and graduated with an Honours.
-            "
-            timePeriod="September 2019 - July 2022"
-            location="Birmingham, United Kingdom"
-            cta="About the University of Birmingham"
-          />
+        <SpeakingSection title={t('sectionTitle')}>
+          {entries.map((entry) => (
+            <Appearance
+              key={entry.title}
+              href={entry.href}
+              title={entry.title}
+              description={entry.description}
+              timePeriod={entry.timePeriod}
+              location={entry.location}
+              cta={entry.cta}
+            />
+          ))}
         </SpeakingSection>
       </div>
     </SimpleLayout>
