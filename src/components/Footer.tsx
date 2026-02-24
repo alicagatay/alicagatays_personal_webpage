@@ -1,4 +1,5 @@
 import Link from '@/components/Link'
+import { getTranslations } from 'next-intl/server'
 
 import { ContainerInner, ContainerOuter } from '@/components/Container'
 
@@ -19,7 +20,9 @@ function NavLink({
   )
 }
 
-export function Footer() {
+export async function Footer() {
+  let t = await getTranslations('common')
+
   return (
     <footer className="mt-32 flex-none">
       <ContainerOuter>
@@ -27,17 +30,16 @@ export function Footer() {
           <ContainerInner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                <NavLink href="/about">About</NavLink>
-                <NavLink href="/projects">Projects</NavLink>
-                <NavLink href="/education">Education</NavLink>
-                <NavLink href="/work">Work</NavLink>
-                <NavLink href="/hackathons">Hackathons</NavLink>
-                <NavLink href="/gear">Gear</NavLink>
+                <NavLink href="/about">{t('nav.about')}</NavLink>
+                <NavLink href="/projects">{t('nav.projects')}</NavLink>
+                <NavLink href="/education">{t('nav.education')}</NavLink>
+                <NavLink href="/work">{t('nav.work')}</NavLink>
+                <NavLink href="/hackathons">{t('nav.hackathons')}</NavLink>
+                <NavLink href="/gear">{t('nav.gear')}</NavLink>
                 {/* <NavLink href="/work-with-me">Work With Me</NavLink> */}
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Ali Cagatay. All rights
-                reserved.
+                {t('footer.copyright', { year: new Date().getFullYear() })}
               </p>
             </div>
           </ContainerInner>
