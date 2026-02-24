@@ -1,0 +1,282 @@
+{
+  "common": {
+    "menu": "Menü",
+    "navigation": "Gezinme",
+    "closeMenu": "Menüyü kapat",
+    "home": "Ana sayfa",
+    "nav": {
+      "about": "Hakkımda",
+      "projects": "Projeler",
+      "education": "Eğitim",
+      "work": "İş",
+      "hackathons": "Hackathonlar",
+      "gear": "Kullandıklarım"
+    },
+    "theme": {
+      "switchTo": "{theme} temaya geç",
+      "toggle": "Tema değiştir",
+      "light": "açık",
+      "dark": "koyu"
+    },
+    "language": {
+      "toggle": "Dil değiştir",
+      "title": "Dil",
+      "english": "English",
+      "turkish": "Türkçe"
+    },
+    "social": {
+      "instagram": "Instagram'da takip et",
+      "github": "GitHub'da takip et",
+      "linkedin": "LinkedIn'de takip et"
+    },
+    "footer": {
+      "copyright": "© {year} Ali Cagatay. Tüm hakları saklıdır."
+    },
+    "notFound": {
+      "title": "Sayfa bulunamadı",
+      "description": "Üzgünüz, aradığınız sayfayı bulamadık.",
+      "goHome": "Ana sayfaya dön"
+    }
+  },
+  "home": {
+    "title": "Merhaba, ben Ali! Full-stack ürünler ve akıllı sistemler geliştiren bir yazılım mühendisiyim.",
+    "intro": "Full-stack yazılım geliştirme ve akıllı yapay zekâ sistemleri alanında uzmanlaşmış bir yazılım mühendisiyim. Yazılım mühendisliği ile makine öğrenmesini birleştirerek ölçeklenebilir, güvenilir ve gerçek etki yaratan uçtan uca çözümler geliştiriyorum. Karmaşık fikirleri net, üretime hazır yazılımlara dönüştürmeyi seviyorum; bunu yaparken her zaman açıklık, iş birliği ve uzun vadeli değere odaklanıyorum."
+  },
+  "about": {
+    "title": "Şimdiye Kadarki Yolculuğum",
+    "paragraphs": [
+      "Kendimi bildim bileli bir şeyler üretmeyi çok sevdim ve ilk programımı 14 yaşımda yaptım: Scratch'te retro bir yılan oyunu. O andan itibaren yazılım mühendisi olmak istediğimi anladım ve boş zamanlarımda Processing adlı bir programlama diliyle kod yazmayı öğrenmeye başladım.",
+      "Ardından Birmingham Üniversitesi'nde Bilgisayar Bilimi okudum ve yazılım mühendisliği, veri yapıları, algoritmalar, makine öğrenmesi, yapay zekâ ve mobil/ubiquitous computing alanlarında güçlü bir temel kazandım. Bu süreçte, tümör tespiti için beyin taramalarını sınıflandıran bir bilgisayarlı görü algoritması geliştirmek ve kullanıcı mesajlarına göre egzersiz öneren, makine öğrenmesi ile doğal dil işleme kullanan bir mobil uygulama inşa etmek gibi heyecan verici projelerde yer aldım. Eğitimim sırasında ayrıca CodeYourFuture'da öğretim lideri olarak gönüllü çalıştım. CodeYourFuture; mülteciler, sığınmacılar ve düşük gelirli aileler gibi dezavantajlı gruplara full-stack web geliştirme eğitimi sunan bir sivil toplum kuruluşu. Bu deneyim, web ve yazılım geliştirme becerilerimi artırmanın yanı sıra geliştirici ve mentor ekipleriyle etkili iş birliği kurmayı ve teknik konuları teknik olmayan kitlelere anlatmayı öğretti.",
+      "Daha sonra yapay zekâya olan ilgimi derinleştirmek için Birmingham City University'de Yapay Zekâ yüksek lisansına başladım. Bu program sayesinde deep learning, veri görselleştirme, makine öğrenmesi ve uygulamalı yapay zekâ gibi kilit alanlarda uzmanlığımı geliştirdim. Eğitimim boyunca çeşitli yapay zekâ projeleri üzerinde çalıştım ve hackathonlara katılarak konut fiyat tahminleyicileri ve yapay zekâ destekli sesli asistanlar gibi araçlar geliştirdim (detaylar web sitesindeki ilgili sayfalarda bulunabilir). Ayrıca Kollestee UK Global'da bir yıl süren Makine Öğrenmesi Mühendisi stajımı tamamladım ve otomasyon ile robotik sistemler için yenilikçi, yapay zekâ odaklı çözümlerin geliştirilmesine katkı sağladım.",
+      "Şu anda Probuild360'ta altı aylık AI & Data Analytics Software Engineer yerleştirmesindeyim. Burada şirket içi bir ürün geliştiriyor ve bu ürünün yeteneklerini artırmak için yapay zekâ tabanlı sistemlerle entegrasyonu üzerinde çalışıyorum."
+    ]
+  },
+  "projects": {
+    "title": "Dünyada iz bırakma hedefiyle geliştirdiğim işler.",
+    "intro": "Yıllar içinde çok sayıda küçük proje üzerinde çalıştım ama en çok gurur duyduklarım bunlar. Birçoğu açık kaynak olduğu için ilginizi çeken bir şey görürseniz koda göz atabilir, geliştirme fikirleriniz varsa katkı sunabilirsiniz.",
+    "items": {
+      "boardOfDirectors": {
+        "name": "Board of Directors RAG",
+        "description": "İş ve yaşam tarzı YouTuber'larının video dökümlerinden oluşturulmuş bir retrieval-augmented generation sistemi. Sorular sorup, bu içerik üreticilerinin videolarında daha önce söylediklerine dayalı yanıtlar almanızı sağlar.",
+        "websiteLabel": "Proje Sitesi",
+        "githubLabel": "GitHub Deposu"
+      },
+      "microMarketingAssistant": {
+        "name": "Micro Marketing Assistant",
+        "description": "Micro Marketing Assistant, küçük işletmeler ve girişimciler için tasarlanmış minimal ve hızlı bir CRM aracıdır. Satılan veya satılması hedeflenen ürünleri ve bu ürünlerin kimlere satıldığını yönetmeye ve takip etmeye yardımcı olur.",
+        "websiteLabel": "Proje Sitesi",
+        "githubLabel": "GitHub Deposu"
+      },
+      "focusTimer": {
+        "name": "Focus Timer",
+        "description": "Çalışma ve mola oturumları için zamanlayıcı ayarlayabildiğiniz, temiz arayüzlü basit bir web uygulaması.",
+        "websiteLabel": "Proje Sitesi",
+        "githubLabel": "GitHub Deposu"
+      },
+      "metronome": {
+        "name": "Metronom",
+        "description": "Çok yakında.",
+        "websiteLabel": "Proje Sitesi"
+      }
+    }
+  },
+  "education": {
+    "title": "Tüm eğitim geçmişim",
+    "intro": "Bu listede tüm diplomalarım, kurslarım ve sertifikalarım yer alıyor.",
+    "sectionTitle": "Üniversite Dereceleri",
+    "entries": [
+      {
+        "href": "https://www.bcu.ac.uk/",
+        "title": "Birmingham City University'de Profesyonel Yerleştirmeli Yapay Zekâ Yüksek Lisansı",
+        "description": "Yapay zekâ ve makine öğrenmesine olan tutkum doğrultusunda Birmingham City University'de Yapay Zekâ yüksek lisansı yapıyorum. Program kapsamında AI için Computing, Machine Learning, Applied AI, Deep Learning, Data Visualisation ve AI'ın Etkisi gibi çeşitli modülleri takip ediyorum. Eğitimimin önemli bir parçası olarak bireysel yüksek lisans projemi de yürütüyorum. Ayrıca bu programdan üstün başarı (distinction) ile mezun olma yolunda ilerliyorum.",
+        "timePeriod": "Eylül 2024 - Günümüz",
+        "location": "Birmingham, Birleşik Krallık",
+        "cta": "Birmingham City University hakkında"
+      },
+      {
+        "href": "https://www.birmingham.ac.uk/",
+        "title": "University of Birmingham'de Bilgisayar Bilimi Lisansı",
+        "description": "University of Birmingham'deki lisans eğitimim boyunca Yazılım Mühendisliği, Veri Yapıları ve Algoritmalar ile Mobil ve Ubiquitous Computing gibi çeşitli bilgisayar bilimi dersleri aldım. Buna ek olarak Makine Öğrenmesi, Neural Computation ve Computer Vision gibi giriş seviyesi yapay zekâ modüllerini de tamamladım. Eğitim sürecimde birden fazla proje geliştirdim; bunlardan biri de bitirme projemdi: kullanıcının çalıştırmak istediği kas grubuna göre antrenman öneren, arka tarafta Doğal Dil İşleme ve Yapay Sinir Ağları kullanan bir mobil uygulama. Temmuz 2022'de 2:2 Honours derecesiyle mezun oldum.",
+        "timePeriod": "Eylül 2019 - Temmuz 2022",
+        "location": "Birmingham, Birleşik Krallık",
+        "cta": "University of Birmingham hakkında"
+      }
+    ]
+  },
+  "work": {
+    "title": "Çalıştığım şirketlerin ve üzerinde yer aldığım projelerin geçmişi.",
+    "intro": "Bu liste stajlarımı ve gönüllü çalışmalarımı da içeriyor.",
+    "sections": [
+      {
+        "title": "ProBuild360",
+        "appearances": [
+          {
+            "href": "https://www.probuild360.co.uk/",
+            "title": "AI & Data Analytics Software Engineer Placement",
+            "description": "Yakında güncellenecek.",
+            "timePeriod": "Ekim 2025 - Günümüz",
+            "location": "Birmingham, Birleşik Krallık",
+            "cta": "ProBuild360 hakkında daha fazla bilgi"
+          }
+        ]
+      },
+      {
+        "title": "Kollestee UK Global",
+        "appearances": [
+          {
+            "href": "https://kollestee.co.uk/",
+            "title": "Machine Learning Engineer Intern",
+            "description": "Kollestee UK Global'daki Machine Learning Engineer stajımda, şirket içindeki temel yenilikleri destekleyen yapay zekâ odaklı çözümler üretmek amacıyla makine öğrenmesi modellerinin araştırma ve geliştirme süreçlerine liderlik ettim. Ayrıca AI algoritmalarını robotik sistemlere ve ana ürünlere entegre ederek performansı artırdım ve geliştirme süreçlerini daha verimli hâle getirdim. Bunun yanında büyük ölçekli 3B ve 2B veri kümeleri için veri işleme algoritmaları tasarlayıp uyguladım; bu sayede hız ve doğruluk iyileşti, otomasyon ve karar verme yetenekleri anlamlı şekilde gelişti.",
+            "timePeriod": "Haziran 2024 - Eylül 2025",
+            "location": "Birmingham, Birleşik Krallık",
+            "cta": "Kollestee UK Global hakkında daha fazla bilgi"
+          }
+        ]
+      },
+      {
+        "title": "CodeYourFuture",
+        "appearances": [
+          {
+            "href": "https://codeyourfuture.io/",
+            "title": "Teaching Lead",
+            "description": "CodeYourFuture'da Teaching Lead olarak cumartesi derslerinde kurs içeriklerini aktarmaktan sorumluydum. Ayrıca öğrencilerin hafta boyunca teknik gelişim yolculuğunu mentorlukla destekledim.",
+            "timePeriod": "Eylül 2020 - Eylül 2025",
+            "location": "Birmingham, Birleşik Krallık",
+            "cta": "CodeYourFuture ve yaptıkları çalışmalar hakkında daha fazla bilgi"
+          },
+          {
+            "href": "https://codeyourfuture.io/",
+            "title": "Tech Lead",
+            "description": "CodeYourFuture Product Team'de Tech Lead olarak kurumun stajyer ve gönüllü yönetimini kolaylaştıran dahili bir araç geliştirmekten sorumluydum. Geliştiriciler, product owner'lar, QA tester'lar ve scrum master'lardan oluşan 12 kişilik bir ürün ekibiyle birlikte çalıştım.",
+            "timePeriod": "Mart 2023 - Temmuz 2023",
+            "location": "Birmingham, Birleşik Krallık",
+            "cta": "CodeYourFuture ve yaptıkları çalışmalar hakkında daha fazla bilgi"
+          }
+        ]
+      },
+      {
+        "title": "Invitelecom",
+        "appearances": [
+          {
+            "href": "#",
+            "title": "Software Engineer Intern",
+            "description": "Invitelecom'daki stajım sırasında 'Predict The Number' adlı bir Android oyunu geliştirdim ve bir aydan kısa sürede Google Play Store'da yayımladım.",
+            "timePeriod": "Ağustos 2018 - Eylül 2018",
+            "location": "İstanbul, Türkiye",
+            "cta": ""
+          }
+        ]
+      }
+    ]
+  },
+  "hackathons": {
+    "title": "Hackathon geçmişimin tamamı",
+    "intro": "Bu listede zaman içinde katıldığım tüm hackathonlar yer alıyor.",
+    "sectionTitle": "Hackathon Listesi",
+    "entries": [
+      {
+        "href": "https://github.com/alicagatay/embrace-hackathon-challenge/",
+        "title": "Microsoft Embrace Midlands Hackathon",
+        "description": "Microsoft Embrace Midlands Hackathon 2025'e katıldım ve 5 kişilik ekibimizle yalnızca 5 saatte CouncilAgent adında yapay zekâ destekli bir sesli asistan geliştirdik. Sistem, Birmingham sakinlerinin konut bilgilerine mobil uygulama arayüzünde doğal konuşma ile erişmesine yardımcı oluyor. Gerçek zamanlı sesli etkileşimler için Flutter, FastAPI, Azure OpenAI ve Whisper kullanarak frontend/backend entegrasyonuna liderlik ettim. Çözümümüz on beş üniversite takımı arasında 3.'lük elde etti; erişilebilirliği, ölçeklenebilirliği ve BM Sürdürülebilir Kalkınma Amaçları ile uyumu nedeniyle övgü aldı.",
+        "timePeriod": "Nisan 2025",
+        "location": "Birmingham, Birleşik Krallık",
+        "cta": "Hackathonda geliştirdiğimiz projenin GitHub deposu"
+      }
+    ]
+  },
+  "gear": {
+    "title": "Kullandığım yazılımlar, sevdiğim cihazlar ve önerdiğim diğer şeyler.",
+    "intro": "Yazılım geliştirmek, tasarlamak ve test etmek için şu anda kullandığım araçlar + gün boyunca verimli kalmak için kullandığım araçlar + iş akışımda gerçekten sevdiğim diğer şeylerin listesi.",
+    "sections": [
+      {
+        "title": "Çalışma istasyonu",
+        "tools": [
+          {
+            "title": "14” MacBook Pro, M1 Pro, 16GB RAM (2021)",
+            "description": "Bundan önce Intel tabanlı 16” MacBook Pro kullanıyordum ve aradaki fark gerçekten çok büyük. Yoğun API çağrıları ve Docker üzerinden birden çok sanal makine çalıştırırken bile fanların döndüğünü neredeyse hiç duymadım."
+          },
+          {
+            "title": "Dell S Series S2421HSX 23.8”",
+            "description": "Büyük kod tabanlarında çalışırken bu ekranı dikey kullanıyorum. Uzun makale ve dokümantasyon okumak için de çok iyi; Medium yazılarımı yazarken de oldukça yardımcı oluyor."
+          },
+          {
+            "title": "HP 24f Ultraslim Full HD Monitor 23.8”",
+            "description": "Bu monitörü araştırma, hata ayıklama ve molalarda video izlemek için ana ekran olarak kullanıyorum; MacBook ekranımı ise Slack ve diğer iletişim araçları için ayırıyorum."
+          }
+        ]
+      },
+      {
+        "title": "Geliştirme araçları",
+        "tools": [
+          {
+            "title": "Visual Studio Code",
+            "description": "Tüm gelişmiş IDE özellikleri olmasa bile VS Code hâlâ en sevdiğim editör. Yıllar içinde birçok araç denedim ama hız, güvenilirlik ve eklenti ekosistemi nedeniyle hep VS Code'a dönüyorum."
+          },
+          {
+            "title": "macOS Terminal",
+            "description": "En güçlü terminal emülatörü olmayabilir ama ihtiyaç duyduğum özellik ve özelleştirmeleri sunuyor. Yerel geliştirme, container iş akışları ve sunucu operasyonlarında aktif kullanıyorum."
+          },
+          {
+            "title": "Docker",
+            "description": "Docker, proje ortamlarını izole etmemi sağlayarak bağımlılık çakışmalarını önlüyor. Tekrarlanabilir yerel geliştirme ve çok servisli test senaryoları için yoğun kullanıyorum."
+          },
+          {
+            "title": "Postman",
+            "description": "Farklı istek türleri gönderip yanıtları doğrulayarak API'leri hızlıca test etmem gerektiğinde Postman kullanıyorum."
+          }
+        ]
+      },
+      {
+        "title": "Tasarım",
+        "tools": [
+          {
+            "title": "Excalidraw",
+            "description": "Hızlı wireframe'ler ve mimari çizimler için Excalidraw kullanıyorum. Basit, birlikte çalışmaya uygun ve fikir üretimi için çok hızlı bir araç."
+          },
+          {
+            "title": "Figma",
+            "description": "Arayüz tasarımı ve prototipleme için ilk tercihim Figma."
+          },
+          {
+            "title": "Contrast",
+            "description": "Tasarım sırasında renkler arası erişilebilirlik oranlarını doğrulamak ve ekrandan hızlı renk örneği almak için Contrast kullanıyorum."
+          }
+        ]
+      },
+      {
+        "title": "Verimlilik",
+        "tools": [
+          {
+            "title": "Google Calendar",
+            "description": "Toplantılarımı, randevularımı, etkinliklerimi ve görevlerimi yönetmek için ana aracım Google Calendar. Ayrıca uygunluk paylaşımı ve randevu sürecini kolaylaştırmak için Google Workspace randevu planlama özelliğini kullanıyorum."
+          },
+          {
+            "title": "Google Drive",
+            "description": "Google Drive kişisel ve iş dosyalarımı düzenli tutuyor, cihazlar arasında senkronize ediyor ve gerektiğinde çevrimdışı erişim sağlıyor."
+          },
+          {
+            "title": "Loom",
+            "description": "Ekran kaydı almak, fikirleri asenkron anlatmak ve toplantı planlamadan detaylı geri bildirim vermek için Loom kullanıyorum."
+          }
+        ]
+      },
+      {
+        "title": "Diğer",
+        "tools": [
+          {
+            "title": "Kindle Paperwhite",
+            "description": "Kindle Paperwhite, seyahat ederken kitap ve uzun içerikler okumak için en sevdiğim cihazlardan biri."
+          },
+          {
+            "title": "Sony WH-1000XM5 Noise Cancelling Wireless Headphones",
+            "description": "Müzik, toplantılar ve odaklı çalışma için kullanıyorum. Konforlu, ses kalitesi yüksek ve dış sesi etkili şekilde kesiyor."
+          }
+        ]
+      }
+    ]
+  },
+  "thankYou": {
+    "title": "Abone olduğunuz için teşekkürler.",
+    "intro": "Yeni bir blog yazısı yayımladığımda, yeni bir proje yayınladığımda veya ilginizi çekebileceğini düşündüğüm bir şey olduğunda size e-posta göndereceğim. İstediğiniz zaman abonelikten çıkabilirsiniz, sorun değil."
+  }
+}
