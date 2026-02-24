@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from '@/components/Link'
+import { getTranslations } from 'next-intl/server'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoBoardOfDirectors from '@/images/logos/board-of-directors.svg'
@@ -10,65 +11,30 @@ import logoM from '@/images/logos/letter-m.svg'
 
 const projects = [
   {
-    name: 'Board of Directors RAG',
-    description:
-      'A retrieval-augmented generation system built from transcripts of business and lifestyle YouTubers, letting you ask questions and get answers grounded in what those creators have actually said in their videos previously.',
-    links: {
-      website: {
-        href: 'https://board-of-directors-rag.vercel.app/',
-        label: 'Project Website',
-      },
-      github: {
-        href: 'https://github.com/alicagatay/board-of-directors-rag',
-        label: 'GitHub Repo',
-      },
-    },
+    id: 'boardOfDirectors',
+    websiteHref: 'https://board-of-directors-rag.vercel.app/',
+    githubHref: 'https://github.com/alicagatay/board-of-directors-rag',
     logo: logoBoardOfDirectors,
   },
   {
-    name: 'Micro Marketing Assistant',
-    description:
-      'Micro Marketing Assistant is a minimal and fast CRM tool for small businesses and business people that helps them manage and track the products they are selling or trying to sell and to whom they are selling the product into.',
-    links: {
-      website: {
-        href: 'https://www.micro-marketing-assistant.com/',
-        label: 'Project Website',
-      },
-      github: {
-        href: 'https://github.com/alicagatay/micro-marketing-assistant',
-        label: 'GitHub Repo',
-      },
-    },
+    id: 'microMarketingAssistant',
+    websiteHref: 'https://www.micro-marketing-assistant.com/',
+    githubHref: 'https://github.com/alicagatay/micro-marketing-assistant',
     logo: logoM,
   },
   {
-    name: 'Focus Timer',
-    description:
-      'A simple web application with a clean user interface where you can set a timer for your work and break sessions.',
-    links: {
-      website: {
-        href: 'https://focus-timer-sandy.vercel.app/',
-        label: 'Project Website',
-      },
-      github: {
-        href: 'https://github.com/alicagatay/micro-marketing-assistant',
-        label: 'GitHub Repo',
-      },
-    },
+    id: 'focusTimer',
+    websiteHref: 'https://focus-timer-sandy.vercel.app/',
+    githubHref: 'https://github.com/alicagatay/micro-marketing-assistant',
     logo: logoTimer,
   },
   {
-    name: 'Metronome',
-    description: 'Coming soon.',
-    links: {
-      website: {
-        href: '/projects',
-        label: 'Project Website',
-      },
-    },
+    id: 'metronome',
+    websiteHref: '/projects',
+    githubHref: undefined,
     logo: logoMetronome,
   },
-]
+] as const
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -86,18 +52,17 @@ export const metadata: Metadata = {
   description: 'Things I’ve made trying to put my dent in the universe.',
 }
 
-export default function Projects() {
+export default async function Projects() {
+  let t = await getTranslations('projects')
+
   return (
-    <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
-    >
+    <SimpleLayout title={t('title')} intro={t('intro')}>
       <ul
         role="list"
         className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
         {projects.map((project) => (
-          <Card as="li" key={project.name}>
+          <Card as="li" key={project.id}>
             <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 rounded-2xl bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6" />
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image
@@ -113,31 +78,37 @@ export default function Projects() {
                 overlay={false}
                 className="transition group-hover:text-teal-500 dark:group-hover:text-teal-400"
               >
-                {project.name}
+                {t(`items.${project.id}.name`)}
               </Card.Link>
             </h2>
-            <Card.Description>{project.description}</Card.Description>
+            <Card.Description>
+              {t(`items.${project.id}.description`)}
+            </Card.Description>
             <div className="relative z-10 mt-6 flex flex-col gap-3 text-sm font-medium">
-              {project.links.website ? (
+              {project.websiteHref ? (
                 <Link
-                  href={project.links.website.href}
+                  href={project.websiteHref}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
-                  <span className="ml-2">{project.links.website.label}</span>
+                  <span className="ml-2">
+                    {t(`items.${project.id}.websiteLabel`)}
+                  </span>
                 </Link>
               ) : null}
-              {project.links.github ? (
+              {project.githubHref ? (
                 <Link
-                  href={project.links.github.href}
+                  href={project.githubHref}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
-                  <span className="ml-2">{project.links.github.label}</span>
+                  <span className="ml-2">
+                    {t(`items.${project.id}.githubLabel`)}
+                  </span>
                 </Link>
               ) : null}
             </div>
