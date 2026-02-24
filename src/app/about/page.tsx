@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from '@/components/Link'
 import clsx from 'clsx'
+import { getTranslations } from 'next-intl/server'
 
 import { Container } from '@/components/Container'
 import {
@@ -70,7 +71,11 @@ export const metadata: Metadata = {
     'I’m Ali Cagatay. I live in Birmingham, where I code the future.',
 }
 
-export default function About() {
+export default async function About() {
+  let tAbout = await getTranslations('about')
+  let tCommon = await getTranslations('common')
+  let paragraphs = tAbout.raw('paragraphs') as string[]
+
   return (
     <Container className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -86,55 +91,12 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            My Path So Far
+            {tAbout('title')}
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-            <p>
-              I’ve loved making things for as long as I can remember, and I
-              created my first program when I was 14 years old—a retro snake
-              game in Scratch. From that moment on, I knew I wanted to be a
-              software engineer, so I started learning how to code in my free
-              time with a programming language called Processing.
-            </p>
-            <p>
-              I then went on to study Computer Science at the University of
-              Birmingham, where I gained a strong foundation in software
-              engineering, data structures, algorithms, machine learning,
-              artificial intelligence, and mobile & ubiquitous computing. During
-              this time, I worked on exciting projects, such as developing a
-              computer vision algorithm to classify brain scans for tumour
-              detection and building a mobile app that uses machine learning and
-              natural language processing to recommend workouts based on user
-              messages. While pursuing my studies, I also volunteered as a
-              teaching lead at CodeYourFuture, a non-profit organisation that
-              offers full-stack web development training to individuals from
-              disadvantaged backgrounds, including refugees, asylum seekers, and
-              low-income families. This experience not only enhanced my web and
-              software development skills but also taught me how to collaborate
-              effectively with a team of developers and mentors, as well as
-              present technical concepts to non-technical audiences.
-            </p>
-            <p>
-              Later on, I chose to further pursue my interest in Artificial
-              Intelligence by studying for a Master’s degree in Artificial
-              Intelligence at Birmingham City University. This program has
-              allowed me to deepen my knowledge in key areas, including deep
-              learning, data visualisation, machine learning, and applied AI.
-              During my studies, I worked on various AI-related projects and
-              participated in hackathons, developing tools such as house price
-              predictors and AI-powered voice assistants (more details can be
-              found on the respective pages of the website). Additionally, I
-              completed a year-long internship at Kollestee UK Global as a
-              Machine Learning Engineer intern, where I contributed to the
-              development of innovative AI-driven solutions for automation and
-              robotic systems.
-            </p>
-            <p>
-              Currently, I am undertaking a six-month placement with Probuild360
-              as an AI & Data Analytics Software Engineer, where I’m developing
-              an internal product and working on its integration with AI-based
-              systems to enhance its functionality.
-            </p>
+            {paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </div>
         <div className="lg:pl-20">
@@ -144,21 +106,21 @@ export default function About() {
               icon={InstagramIcon}
               className="mt-4"
             >
-              Follow on Instagram
+              {tCommon('social.instagram')}
             </SocialLink>
             <SocialLink
               href="https://github.com/alicagatay"
               icon={GitHubIcon}
               className="mt-4"
             >
-              Follow on GitHub
+              {tCommon('social.github')}
             </SocialLink>
             <SocialLink
               href="https://www.linkedin.com/in/alicagatay/"
               icon={LinkedInIcon}
               className="mt-4"
             >
-              Follow on LinkedIn
+              {tCommon('social.linkedin')}
             </SocialLink>
             <SocialLink
               href="mailto:aliccagatay@gmail.com"
