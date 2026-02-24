@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
@@ -48,29 +49,34 @@ export const metadata: Metadata = {
   description: 'The complete list of hackathons I have participated in.',
 }
 
-export default function Speaking() {
+type HackathonEntry = {
+  href: string
+  title: string
+  description: string
+  timePeriod: string
+  location: string
+  cta: string
+}
+
+export default async function Speaking() {
+  let t = await getTranslations('hackathons')
+  let entries = t.raw('entries') as HackathonEntry[]
+
   return (
-    <SimpleLayout
-      title="My complete hackathon history"
-      intro="This list includes all of the hackathons I have participated in through time."
-    >
+    <SimpleLayout title={t('title')} intro={t('intro')}>
       <div className="space-y-20">
-        <SpeakingSection title="List of Hackathons">
-          <Appearance
-            href="https://github.com/alicagatay/embrace-hackathon-challenge/"
-            title="Microsoft Embrace Midlands Hackathon"
-            description="Participated in the Microsoft Embrace Midlands Hackathon 2025,
-            where our 5-member team built an AI-powered voice assistant called CouncilAgent
-            within just 5 hours. The system helps Birmingham residents access housing information
-            by speaking naturally into a mobile app interface. I led the frontend and backend
-            integration, using Flutter, FastAPI, Azure OpenAI, and Whisper for real-time
-            voice interactions. Our solution earned 3rd place among fifteen university teams
-            and was praised for its accessibility, scalability, and alignment with the UN
-            Sustainable Development Goals."
-            timePeriod="April 2025"
-            location="Birmingham, United Kingdom"
-            cta="Github repo of the project we built during the hackathon"
-          />
+        <SpeakingSection title={t('sectionTitle')}>
+          {entries.map((entry) => (
+            <Appearance
+              key={entry.title}
+              href={entry.href}
+              title={entry.title}
+              description={entry.description}
+              timePeriod={entry.timePeriod}
+              location={entry.location}
+              cta={entry.cta}
+            />
+          ))}
         </SpeakingSection>
       </div>
     </SimpleLayout>
