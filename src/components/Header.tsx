@@ -4,11 +4,13 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from '@/components/Link'
 import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 import avatarImage from '@/images/avatar.jpg'
 
 function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -91,10 +93,12 @@ function MobileNavItem({
 function MobileNavigation(
   props: React.ComponentPropsWithoutRef<typeof Popover>,
 ) {
+  let t = useTranslations('common')
+
   return (
     <Popover {...props}>
       <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-        Menu
+        {t('menu')}
         <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
       </Popover.Button>
       <Transition.Root>
@@ -123,21 +127,27 @@ function MobileNavigation(
             className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
           >
             <div className="flex flex-row-reverse items-center justify-between">
-              <Popover.Button aria-label="Close menu" className="-m-1 p-1">
+              <Popover.Button aria-label={t('closeMenu')} className="-m-1 p-1">
                 <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
               </Popover.Button>
               <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                Navigation
+                {t('navigation')}
               </h2>
             </div>
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-                <MobileNavItem href="/about">About</MobileNavItem>
-                <MobileNavItem href="/projects">Projects</MobileNavItem>
-                <MobileNavItem href="/education">Education</MobileNavItem>
-                <MobileNavItem href="/work">Work</MobileNavItem>
-                <MobileNavItem href="/hackathons">Hackathons</MobileNavItem>
-                <MobileNavItem href="/gear">Gear</MobileNavItem>
+                <MobileNavItem href="/about">{t('nav.about')}</MobileNavItem>
+                <MobileNavItem href="/projects">
+                  {t('nav.projects')}
+                </MobileNavItem>
+                <MobileNavItem href="/education">
+                  {t('nav.education')}
+                </MobileNavItem>
+                <MobileNavItem href="/work">{t('nav.work')}</MobileNavItem>
+                <MobileNavItem href="/hackathons">
+                  {t('nav.hackathons')}
+                </MobileNavItem>
+                <MobileNavItem href="/gear">{t('nav.gear')}</MobileNavItem>
                 {/* <MobileNavItem href="/work-with-me">Work With Me</MobileNavItem> */}
               </ul>
             </nav>
@@ -178,15 +188,17 @@ function NavItem({
 }
 
 function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
+  let t = useTranslations('common')
+
   return (
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="/about">About</NavItem>
-        <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/education">Education</NavItem>
-        <NavItem href="/work">Work</NavItem>
-        <NavItem href="/hackathons">Hackathons</NavItem>
-        <NavItem href="/gear">Gear</NavItem>
+        <NavItem href="/about">{t('nav.about')}</NavItem>
+        <NavItem href="/projects">{t('nav.projects')}</NavItem>
+        <NavItem href="/education">{t('nav.education')}</NavItem>
+        <NavItem href="/work">{t('nav.work')}</NavItem>
+        <NavItem href="/hackathons">{t('nav.hackathons')}</NavItem>
+        <NavItem href="/gear">{t('nav.gear')}</NavItem>
         {/* <NavItem href="/work-with-me">Work With Me</NavItem> */}
       </ul>
     </nav>
@@ -194,6 +206,7 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
 }
 
 function ThemeToggle() {
+  let t = useTranslations('common')
   let { resolvedTheme, setTheme } = useTheme()
   let otherTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
   let [mounted, setMounted] = useState(false)
@@ -205,7 +218,11 @@ function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label={mounted ? `Switch to ${otherTheme} theme` : 'Toggle theme'}
+      aria-label={
+        mounted
+          ? t('theme.switchTo', { theme: t(`theme.${otherTheme}`) })
+          : t('theme.toggle')
+      }
       className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
       onClick={() => setTheme(otherTheme)}
     >
@@ -243,10 +260,12 @@ function Avatar({
 }: Omit<React.ComponentPropsWithoutRef<typeof Link>, 'href'> & {
   large?: boolean
 }) {
+  let t = useTranslations('common')
+
   return (
     <Link
       href="/"
-      aria-label="Home"
+      aria-label={t('home')}
       className={clsx(className, 'pointer-events-auto')}
       {...props}
     >
@@ -446,7 +465,8 @@ export function Header() {
                 <DesktopNavigation className="pointer-events-auto hidden md:block" />
               </div>
               <div className="flex justify-end md:flex-1">
-                <div className="pointer-events-auto">
+                <div className="pointer-events-auto flex items-center gap-4">
+                  <LanguageSwitcher />
                   <ThemeToggle />
                 </div>
               </div>
