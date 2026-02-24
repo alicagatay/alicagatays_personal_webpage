@@ -1,6 +1,7 @@
 import Image, { type ImageProps } from 'next/image'
 import Link from '@/components/Link'
 import clsx from 'clsx'
+import { getTranslations } from 'next-intl/server'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -220,37 +221,33 @@ function Photos() {
 }
 
 export default async function Home() {
+  let tHome = await getTranslations('home')
+  let tCommon = await getTranslations('common')
+
   return (
     <>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Hi, I’m Ali! I’m a software engineer building full‑stack products
-            and intelligent systems.
+            {tHome('title')}
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I am a software engineer specialising in full-stack software
-            development and intelligent AI systems. I combine software
-            engineering and machine learning to build innovative, end-to-end
-            solutions that are scalable, reliable, and built to make a real
-            impact. I thrive on taking complex ideas and shaping them into
-            well-crafted, production-ready software - always with a focus on
-            clarity, collaboration, and long-term value.
+            {tHome('intro')}
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
               href="https://www.instagram.com/_alicagatay/"
-              aria-label="Follow on Instagram"
+              aria-label={tCommon('social.instagram')}
               icon={InstagramIcon}
             />
             <SocialLink
               href="https://github.com/alicagatay"
-              aria-label="Follow on GitHub"
+              aria-label={tCommon('social.github')}
               icon={GitHubIcon}
             />
             <SocialLink
               href="https://www.linkedin.com/in/alicagatay/"
-              aria-label="Follow on LinkedIn"
+              aria-label={tCommon('social.linkedin')}
               icon={LinkedInIcon}
             />
           </div>
