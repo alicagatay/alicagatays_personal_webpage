@@ -106,66 +106,47 @@
   "work": {
     "title": "Çalıştığım şirketlerin ve üzerinde yer aldığım projelerin geçmişi.",
     "intro": "Bu liste stajlarımı ve gönüllü çalışmalarımı da içeriyor.",
-    "sections": [
+    "sectionTitle": "Profesyonel Deneyim",
+    "entries": [
       {
-        "title": "ProBuild360",
-        "appearances": [
-          {
-            "href": "https://www.probuild360.co.uk/",
-            "title": "AI & Data Analytics Software Engineer Placement",
-            "description": "Yakında güncellenecek.",
-            "timePeriod": "Ekim 2025 - Günümüz",
-            "location": "Birmingham, Birleşik Krallık",
-            "cta": "ProBuild360 hakkında daha fazla bilgi"
-          }
-        ]
+        "href": "https://kollestee.co.uk/",
+        "title": "Kollestee UK Global'da AI Engineering & Research Lead",
+        "description": "Lisanslı üçüncü taraf bir etiketleme platformunun yerini alan ve şirketin tekrar eden lisans maliyetlerini ortadan kaldıran çapraz platform (masaüstü ve web) tıbbi görüntüleme aracı Follicle Labeller'ı baştan tasarlayıp geliştirdim. 5 görüntü formatını ve 3 etiketleme türünü destekleyen yapay zekâ destekli bir etiketleme ve takip sistemi kurdum; YOLO11 nesne tespit ve keypoint modellerini entegre ederek 2K, 4K ve 8K klinik kafa derisi görüntülerinde %80'in üzerinde doğruluk elde ettim ve 4 farklı donanım arka uçunda canlı çıkarım sağladım. Şablon eşleştirme, çoklu nesne takibi ve optik akış yöntemlerini birleştirerek tek tek saç greftlerini canlı cerrahi video akışlarında %90'ın üzerinde doğrulukla izleyen gerçek zamanlı bir takip hattı geliştirdim. Aracı Windows, macOS (Intel ve Apple Silicon) ve tarayıcıda tek bir kod tabanından yayımladım; otomatik güncelleme, CI/CD ve Docker tabanlı çıkarım altyapısını da kurguladım. CTO ve Product Owner ile doğrudan çalışarak şirket ürünleri ve robotik sistemler için yeni AI çözümleri üzerinde uygulamalı araştırma ve hızlı prototipleme yürüttüm.",
+        "timePeriod": "Mart 2026 - Günümüz",
+        "location": "Birmingham, Birleşik Krallık",
+        "cta": "Kollestee UK Global hakkında daha fazla bilgi"
       },
       {
-        "title": "Kollestee UK Global",
-        "appearances": [
-          {
-            "href": "https://kollestee.co.uk/",
-            "title": "Machine Learning Engineer Intern",
-            "description": "Kollestee UK Global'daki Machine Learning Engineer stajımda, şirket içindeki temel yenilikleri destekleyen yapay zekâ odaklı çözümler üretmek amacıyla makine öğrenmesi modellerinin araştırma ve geliştirme süreçlerine liderlik ettim. Ayrıca AI algoritmalarını robotik sistemlere ve ana ürünlere entegre ederek performansı artırdım ve geliştirme süreçlerini daha verimli hâle getirdim. Bunun yanında büyük ölçekli 3B ve 2B veri kümeleri için veri işleme algoritmaları tasarlayıp uyguladım; bu sayede hız ve doğruluk iyileşti, otomasyon ve karar verme yetenekleri anlamlı şekilde gelişti.",
-            "timePeriod": "Haziran 2024 - Eylül 2025",
-            "location": "Birmingham, Birleşik Krallık",
-            "cta": "Kollestee UK Global hakkında daha fazla bilgi"
-          }
-        ]
+        "href": "https://www.probuild360.co.uk/",
+        "title": "ProBuild360'da AI & Data Analytics Software Engineer Placement",
+        "description": "Üretimdeki AI modellerini iyileştirdim ve GitHub Actions CI/CD hatları üzerinden güncellenmiş sistemleri yayına alarak çıkarım hatalarını %10 azalttım; şirketin AI sistemlerini RESTful uç noktalar üzerinden mobil uygulamaya entegre ederek %15 daha hızlı veri erişimi sağladım. React Native (Expo) ve TypeScript ile dahili web tabanlı bir iş aracından yola çıkarak ~12 dahili kullanıcıya yönelik çapraz platform bir mobil uygulama geliştirdim; aynı zamanda mevcut Next.js ve TypeScript web uygulamasını sürdürerek web ile mobil arasında özellik eşitliğini korudum. Jest ve React Native Testing Library ile otomatik test paketleri yazıp bunları GitHub Actions CI/CD ile entegre ettim; üretim hata raporlarını %12 oranında azalttım. 6 kişilik bir Agile mühendislik ekibinde yer aldım ve ProBuild360 ile birlikte yürüttüğüm AI sistem optimizasyonu üzerine MSc bitirme tezi araştırmasının bulgularını doğrudan üretim modellerine uyguladım.",
+        "timePeriod": "Ekim 2025 - Mart 2026",
+        "location": "Birmingham, Birleşik Krallık",
+        "cta": "ProBuild360 hakkında daha fazla bilgi"
       },
       {
-        "title": "CodeYourFuture",
-        "appearances": [
-          {
-            "href": "https://codeyourfuture.io/",
-            "title": "Teaching Lead",
-            "description": "CodeYourFuture'da Teaching Lead olarak cumartesi derslerinde kurs içeriklerini aktarmaktan sorumluydum. Ayrıca öğrencilerin hafta boyunca teknik gelişim yolculuğunu mentorlukla destekledim.",
-            "timePeriod": "Eylül 2020 - Eylül 2025",
-            "location": "Birmingham, Birleşik Krallık",
-            "cta": "CodeYourFuture ve yaptıkları çalışmalar hakkında daha fazla bilgi"
-          },
-          {
-            "href": "https://codeyourfuture.io/",
-            "title": "Tech Lead",
-            "description": "CodeYourFuture Product Team'de Tech Lead olarak kurumun stajyer ve gönüllü yönetimini kolaylaştıran dahili bir araç geliştirmekten sorumluydum. Geliştiriciler, product owner'lar, QA tester'lar ve scrum master'lardan oluşan 12 kişilik bir ürün ekibiyle birlikte çalıştım.",
-            "timePeriod": "Mart 2023 - Temmuz 2023",
-            "location": "Birmingham, Birleşik Krallık",
-            "cta": "CodeYourFuture ve yaptıkları çalışmalar hakkında daha fazla bilgi"
-          }
-        ]
+        "href": "https://kollestee.co.uk/",
+        "title": "Kollestee UK Global'da Machine Learning Engineer Intern",
+        "description": "3B nokta bulutu işleme için makine öğrenmesi modellerinin araştırma ve geliştirme süreçlerine liderlik ettim ve şirketin temel ürün yeniliklerini %20 artıran yapay zekâ odaklı çözümler ürettim. Python, TensorFlow, LabelCloud ve Open3D kullanarak makine öğrenmesi algoritmalarını robotik sistemlere ve ana ürünlere entegre ettim; sistem performansını %15 artırırken geliştirme süresini %25 azalttım. Büyük ölçekli 3B ve 2B veri kümeleri için veri işleme hatları kurarak model doğruluğunu %10 ve çıkarım hızını %25 yükselttim; otomasyon ve karar verme yeteneklerini belirgin biçimde geliştirdim.",
+        "timePeriod": "Haziran 2024 - Eylül 2025",
+        "location": "Birmingham, Birleşik Krallık",
+        "cta": "Kollestee UK Global hakkında daha fazla bilgi"
       },
       {
-        "title": "Invitelecom",
-        "appearances": [
-          {
-            "href": "#",
-            "title": "Software Engineer Intern",
-            "description": "Invitelecom'daki stajım sırasında 'Predict The Number' adlı bir Android oyunu geliştirdim ve bir aydan kısa sürede Google Play Store'da yayımladım.",
-            "timePeriod": "Ağustos 2018 - Eylül 2018",
-            "location": "İstanbul, Türkiye",
-            "cta": ""
-          }
-        ]
+        "href": "https://codeyourfuture.io/",
+        "title": "CodeYourFuture'da Volunteer Software Engineering Mentor",
+        "description": "Intro to Programming kursunun dört modülünün tamamında 6'dan fazla kohorta destek veren gönüllü mentor ve eğitmen olarak görev yapıyorum; sprint içeriklerini, canlı kodlama oturumlarını ve Soru-Cevap'ı her ay dört cumartesinin üçünde baş eğitmen ya da yardımcı eğitmen olarak yürütüyorum. Kodlama deneyimi olmayan öğrencilere JavaScript, Python, Git ve GitHub iş akışları, Jest testleri ve SQL temelleri konularında bire bir ve küçük gruplar hâlinde mentorluk yapıyor, teknik kavramları sade bir dile çeviriyorum. Sınıf içinde ve hafta boyunca asenkron olarak öğrencilerin pull request'lerini inceleyip ters yüz edilmiş sınıf ve proje tabanlı öğrenme modelini destekleyen uygulanabilir geri bildirimler veriyorum. BBC, Capgemini, JP Morgan, Slack, NatWest ve Financial Times gibi şirketlerde CYF'nin %70'lik mezun istihdam oranını destekleyen gönüllü ağının bir parçasıyım.",
+        "timePeriod": "Eylül 2020 - Günümüz",
+        "location": "Birmingham, Birleşik Krallık",
+        "cta": "CodeYourFuture ve yaptıkları çalışmalar hakkında daha fazla bilgi"
+      },
+      {
+        "href": "#",
+        "title": "Invitelecom'da Software Engineer Intern",
+        "description": "Invitelecom'daki stajım sırasında 'Predict The Number' adlı bir Android oyunu geliştirdim ve bir aydan kısa sürede Google Play Store'da yayımladım.",
+        "timePeriod": "Ağustos 2018 - Eylül 2018",
+        "location": "İstanbul, Türkiye",
+        "cta": ""
       }
     ]
   },

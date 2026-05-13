@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     'The history of all the companies I’ve been in and the projects I’ve worked on. Includes internships and volunteering work as well.',
 }
 
-type WorkAppearance = {
+type WorkEntry = {
   href: string
   title: string
   description: string
@@ -59,33 +59,26 @@ type WorkAppearance = {
   cta: string
 }
 
-type WorkSection = {
-  title: string
-  appearances: WorkAppearance[]
-}
-
 export default async function Speaking() {
   let t = await getTranslations('work')
-  let sections = t.raw('sections') as WorkSection[]
+  let entries = t.raw('entries') as WorkEntry[]
 
   return (
     <SimpleLayout title={t('title')} intro={t('intro')}>
       <div className="space-y-20">
-        {sections.map((section) => (
-          <SpeakingSection key={section.title} title={section.title}>
-            {section.appearances.map((appearance) => (
-              <Appearance
-                key={`${section.title}-${appearance.title}`}
-                href={appearance.href}
-                title={appearance.title}
-                description={appearance.description}
-                timePeriod={appearance.timePeriod}
-                location={appearance.location}
-                cta={appearance.cta}
-              />
-            ))}
-          </SpeakingSection>
-        ))}
+        <SpeakingSection title={t('sectionTitle')}>
+          {entries.map((entry) => (
+            <Appearance
+              key={entry.title}
+              href={entry.href}
+              title={entry.title}
+              description={entry.description}
+              timePeriod={entry.timePeriod}
+              location={entry.location}
+              cta={entry.cta}
+            />
+          ))}
+        </SpeakingSection>
       </div>
     </SimpleLayout>
   )

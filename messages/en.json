@@ -106,66 +106,47 @@
   "work": {
     "title": "The history of all the companies I’ve been in and the projects I’ve worked on.",
     "intro": "This list includes internships and volunteering work as well.",
-    "sections": [
+    "sectionTitle": "Professional Experience",
+    "entries": [
       {
-        "title": "ProBuild360",
-        "appearances": [
-          {
-            "href": "https://www.probuild360.co.uk/",
-            "title": "AI & Data Analytics Software Engineer Placement",
-            "description": "Will be updated soon.",
-            "timePeriod": "October 2025 - Present",
-            "location": "Birmingham, United Kingdom",
-            "cta": "Learn more about ProBuild360"
-          }
-        ]
+        "href": "https://kollestee.co.uk/",
+        "title": "AI Engineering & Research Lead at Kollestee UK Global",
+        "description": "Architected and developed Follicle Labeller, a cross-platform desktop and web medical imaging tool replacing a licensed third-party annotation platform and eliminating recurring licensing costs. Built an AI-assisted annotation and tracking system supporting 5 image formats and 3 annotation types, integrating YOLO11 detection and keypoint models to achieve 80%+ accuracy on 2K, 4K, and 8K clinical scalp imagery with live inference across 4 hardware backends. Engineered a real-time tracking pipeline following individual hair grafts through live surgical video feeds with 90%+ accuracy, combining template matching, multi-object tracking, and optical flow. Shipped the tool across Windows, macOS (Intel and Apple Silicon), and the browser from a single codebase with auto-update, CI/CD, and Dockerised inference backends. Drove applied research and rapid prototyping of new AI solutions for company products and robotic systems, working directly with the CTO and Product Owner.",
+        "timePeriod": "March 2026 - Present",
+        "location": "Birmingham, United Kingdom",
+        "cta": "Learn more about Kollestee UK Global"
       },
       {
-        "title": "Kollestee UK Global",
-        "appearances": [
-          {
-            "href": "https://kollestee.co.uk/",
-            "title": "Machine Learning Engineer Intern",
-            "description": "In my role as a Machine Learning Engineer Intern at Kollestee UK Global, I led the research and development of machine learning models, focusing on delivering AI-driven solutions that drive key innovations within the company. I also integrated AI algorithms into robotic systems and core products, enhancing their performance and streamlining development processes. Additionally, I designed and implemented data processing algorithms for large 3D and 2D datasets, improving both speed and accuracy, which played a significant role in advancing automation and decision-making capabilities.",
-            "timePeriod": "June 2024 - September 2025",
-            "location": "Birmingham, United Kingdom",
-            "cta": "Learn more about Kollestee UK Global"
-          }
-        ]
+        "href": "https://www.probuild360.co.uk/",
+        "title": "AI & Data Analytics Software Engineer Placement at ProBuild360",
+        "description": "Refined production AI models and deployed updated systems via GitHub Actions CI/CD pipelines, reducing inference errors by 10%, and integrated the company's AI systems into the mobile app via RESTful endpoints for 15% faster data retrieval. Built a cross-platform mobile application from an internal web business tool using React Native (Expo) and TypeScript for ~12 internal users, while enhancing and maintaining the existing Next.js and TypeScript web application to keep feature parity between platforms. Implemented automated Jest and React Native Testing Library suites with GitHub Actions CI/CD integration, reducing production bug reports by 12%. Collaborated within a 6-person Agile engineering team and conducted MSc dissertation research on AI system optimisation in partnership with ProBuild360, applying findings directly to production model improvements.",
+        "timePeriod": "October 2025 - March 2026",
+        "location": "Birmingham, United Kingdom",
+        "cta": "Learn more about ProBuild360"
       },
       {
-        "title": "CodeYourFuture",
-        "appearances": [
-          {
-            "href": "https://codeyourfuture.io/",
-            "title": "Teaching Lead",
-            "description": "As a Teaching Lead at CodeYourFuture, I was responsible for delivering course content to trainees during Saturday classes. I also mentored trainees and supported their technical journey throughout the week.",
-            "timePeriod": "September 2020 - September 2025",
-            "location": "Birmingham, United Kingdom",
-            "cta": "Learn more about CodeYourFuture and the work they do"
-          },
-          {
-            "href": "https://codeyourfuture.io/",
-            "title": "Tech Lead",
-            "description": "As a Tech Lead in the Product Team of CodeYourFuture, I was responsible for developing an internal tool to help the organisation manage trainees and volunteers. I partnered with a product team of 12 people, including developers, product owners, QA testers, and scrum masters.",
-            "timePeriod": "March 2023 - July 2023",
-            "location": "Birmingham, United Kingdom",
-            "cta": "Learn more about CodeYourFuture and the work they do"
-          }
-        ]
+        "href": "https://kollestee.co.uk/",
+        "title": "Machine Learning Engineer Intern at Kollestee UK Global",
+        "description": "Spearheaded research and development of machine learning models for 3D point cloud processing, delivering AI-driven solutions that increased key product innovations by 20%. Integrated machine learning algorithms into robotic systems and core products using Python, TensorFlow, LabelCloud, and Open3D, improving system performance by 15% and reducing development time by 25%. Engineered data processing pipelines for large-scale 3D and 2D datasets, increasing model accuracy by 10% and inference speed by 25%, enhancing automation and decision-making capabilities.",
+        "timePeriod": "June 2024 - September 2025",
+        "location": "Birmingham, United Kingdom",
+        "cta": "Learn more about Kollestee UK Global"
       },
       {
-        "title": "Invitelecom",
-        "appearances": [
-          {
-            "href": "#",
-            "title": "Software Engineer Intern",
-            "description": "During my internship at Invitelecom, I worked on developing an Android game called 'Predict The Number' and published it on the Google Play Store in under a month.",
-            "timePeriod": "August 2018 - September 2018",
-            "location": "Istanbul, Turkey",
-            "cta": ""
-          }
-        ]
+        "href": "https://codeyourfuture.io/",
+        "title": "Volunteer Software Engineering Mentor at CodeYourFuture",
+        "description": "Volunteer mentor and instructor supporting 6+ cohorts across all four modules of the Intro to Programming course, delivering sprint content, live coding, and Q&A as lead or co-lead of Saturday classes three out of four weeks a month. Mentor trainees one-to-one and in small groups on JavaScript, Python, Git and GitHub workflows, Jest testing, and SQL fundamentals, translating technical concepts into plain language for learners with no prior coding experience. Review trainee pull requests in class and asynchronously through the week, providing actionable code feedback that reinforces the flipped-classroom, project-based learning model. Part of the volunteer network supporting CYF's 70% graduate employment rate at companies including BBC, Capgemini, JP Morgan, Slack, NatWest, and the Financial Times.",
+        "timePeriod": "September 2020 - Present",
+        "location": "Birmingham, United Kingdom",
+        "cta": "Learn more about CodeYourFuture and the work they do"
+      },
+      {
+        "href": "#",
+        "title": "Software Engineer Intern at Invitelecom",
+        "description": "During my internship at Invitelecom, I worked on developing an Android game called 'Predict The Number' and published it on the Google Play Store in under a month.",
+        "timePeriod": "August 2018 - September 2018",
+        "location": "Istanbul, Turkey",
+        "cta": ""
       }
     ]
   },
