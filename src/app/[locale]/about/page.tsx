@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from '@/components/Link'
 import clsx from 'clsx'
+import { hasLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 import { Container } from '@/components/Container'
@@ -9,9 +10,9 @@ import {
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
-  MediumIcon,
-  TwitterIcon,
 } from '@/components/SocialIcons'
+import { buildPageMetadata } from '@/lib/metadata'
+import { routing, type Locale } from '@/i18n/routing'
 import portraitImage from '@/images/portrait.jpg'
 
 function SocialLink({
@@ -49,26 +50,34 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function CalendarIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg
-      fill="#90909a"
-      width="22px"
-      height="22px"
-      viewBox="0 0 32 32"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title>calendar-check</title>
-      <path d="M28 4.75h-0.75v-2.75c0-0.69-0.56-1.25-1.25-1.25s-1.25 0.56-1.25 1.25v0 2.75h-17.5v-2.75c0-0.69-0.56-1.25-1.25-1.25s-1.25 0.56-1.25 1.25v0 2.75h-0.75c-1.794 0.002-3.248 1.456-3.25 3.25v19.998c0.002 1.794 1.456 3.248 3.25 3.25h24c1.794-0.001 3.249-1.456 3.25-3.25v-19.998c-0.002-1.794-1.456-3.248-3.25-3.25h-0zM4 7.25h24c0.414 0 0.75 0.336 0.75 0.75v2.75h-25.5v-2.75c0.001-0.414 0.336-0.749 0.75-0.75h0zM28 28.748h-24c-0.414-0-0.75-0.336-0.75-0.75v-14.748h25.5v14.748c-0 0.414-0.336 0.75-0.75 0.75v0zM19.57 16.682l-5.86 6.405-1.323-1.313c-0.226-0.223-0.536-0.361-0.878-0.361-0.69 0-1.25 0.56-1.25 1.25 0 0.345 0.14 0.658 0.366 0.884v0l2.247 2.23 0.022 0.015 0.015 0.021c0.074 0.061 0.159 0.114 0.25 0.156l0.007 0.003c0.037 0.026 0.079 0.053 0.123 0.077l0.007 0.003c0.135 0.056 0.292 0.089 0.457 0.089 0.175 0 0.341-0.037 0.491-0.103l-0.008 0.003c0.053-0.031 0.098-0.061 0.14-0.094l-0.003 0.002c0.102-0.050 0.189-0.11 0.268-0.179l-0.001 0.001 0.015-0.023 0.020-0.014 6.738-7.365c0.203-0.221 0.328-0.518 0.328-0.844 0-0.69-0.559-1.25-1.25-1.25-0.365 0-0.693 0.156-0.921 0.405l-0.001 0.001z"></path>
-    </svg>
-  )
+let aboutCopy: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'About Ali Cagatay',
+    description:
+      'AI engineer based in Birmingham. MSc Artificial Intelligence (Distinction track) at Birmingham City University, BSc Computer Science at the University of Birmingham. Specialising in deep learning, computer vision, and agentic systems.',
+  },
+  tr: {
+    title: 'Ali Cagatay Hakkında',
+    description:
+      'Birmingham\'da yaşayan bir yapay zekâ mühendisi. Birmingham City University\'de Yapay Zekâ yüksek lisansını (Distinction yolunda) ve Birmingham Üniversitesi\'nde Bilgisayar Bilimi lisansını tamamladım. Derin öğrenme, bilgisayarlı görü ve agent tabanlı sistemler üzerinde çalışıyorum.',
+  },
 }
 
-export const metadata: Metadata = {
-  title: 'About',
-  description:
-    'I’m Ali Cagatay. I live in Birmingham, where I code the future.',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  let { locale } = await params
+  if (!hasLocale(routing.locales, locale)) return {}
+  let typedLocale = locale as Locale
+  return buildPageMetadata({
+    locale: typedLocale,
+    path: '/about',
+    title: aboutCopy[typedLocale].title,
+    description: aboutCopy[typedLocale].description,
+    openGraphType: 'profile',
+  })
 }
 
 export default async function About() {
@@ -83,7 +92,7 @@ export default async function About() {
           <div className="max-w-xs px-2.5 lg:max-w-none">
             <Image
               src={portraitImage}
-              alt=""
+              alt="Portrait of Ali Cagatay"
               sizes="(min-width: 1024px) 32rem, 20rem"
               className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
             />
