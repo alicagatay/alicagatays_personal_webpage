@@ -1,12 +1,17 @@
 'use client'
 
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from '@/components/Link'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
-import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
-import { Popover, Transition } from '@headlessui/react'
+import {
+  Popover,
+  PopoverButton,
+  PopoverOverlay,
+  PopoverPanel,
+} from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
@@ -83,9 +88,9 @@ function MobileNavItem({
 }) {
   return (
     <li>
-      <Popover.Button as={Link} href={href} className="block py-2">
+      <PopoverButton as={Link} href={href} className="block py-2">
         {children}
-      </Popover.Button>
+      </PopoverButton>
     </li>
   )
 }
@@ -97,63 +102,44 @@ function MobileNavigation(
 
   return (
     <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+      <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
         {t('menu')}
         <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
-      </Popover.Button>
-      <Transition.Root>
-        <Transition.Child
-          as={Fragment}
-          enter="duration-150 ease-out"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="duration-150 ease-in"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <Popover.Overlay className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80" />
-        </Transition.Child>
-        <Transition.Child
-          as={Fragment}
-          enter="duration-150 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="duration-150 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Popover.Panel
-            focus
-            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
-          >
-            <div className="flex flex-row-reverse items-center justify-between">
-              <Popover.Button aria-label={t('closeMenu')} className="-m-1 p-1">
-                <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
-              </Popover.Button>
-              <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                {t('navigation')}
-              </h2>
-            </div>
-            <nav className="mt-6">
-              <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-                <MobileNavItem href="/about">{t('nav.about')}</MobileNavItem>
-                <MobileNavItem href="/projects">
-                  {t('nav.projects')}
-                </MobileNavItem>
-                <MobileNavItem href="/education">
-                  {t('nav.education')}
-                </MobileNavItem>
-                <MobileNavItem href="/work">{t('nav.work')}</MobileNavItem>
-                <MobileNavItem href="/hackathons">
-                  {t('nav.hackathons')}
-                </MobileNavItem>
-                <MobileNavItem href="/gear">{t('nav.gear')}</MobileNavItem>
-                {/* <MobileNavItem href="/work-with-me">Work With Me</MobileNavItem> */}
-              </ul>
-            </nav>
-          </Popover.Panel>
-        </Transition.Child>
-      </Transition.Root>
+      </PopoverButton>
+      <PopoverOverlay
+        transition
+        className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm transition duration-150 ease-out data-[closed]:opacity-0 dark:bg-black/80"
+      />
+      <PopoverPanel
+        transition
+        focus
+        className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 transition duration-150 ease-out data-[closed]:scale-95 data-[closed]:opacity-0 dark:bg-zinc-900 dark:ring-zinc-800"
+      >
+        <div className="flex flex-row-reverse items-center justify-between">
+          <PopoverButton aria-label={t('closeMenu')} className="-m-1 p-1">
+            <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
+          </PopoverButton>
+          <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+            {t('navigation')}
+          </h2>
+        </div>
+        <nav className="mt-6">
+          <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+            <MobileNavItem href="/about">{t('nav.about')}</MobileNavItem>
+            <MobileNavItem href="/projects">{t('nav.projects')}</MobileNavItem>
+            <MobileNavItem href="/writings">{t('nav.writings')}</MobileNavItem>
+            <MobileNavItem href="/education">
+              {t('nav.education')}
+            </MobileNavItem>
+            <MobileNavItem href="/work">{t('nav.work')}</MobileNavItem>
+            <MobileNavItem href="/hackathons">
+              {t('nav.hackathons')}
+            </MobileNavItem>
+            <MobileNavItem href="/gear">{t('nav.gear')}</MobileNavItem>
+            {/* <MobileNavItem href="/work-with-me">Work With Me</MobileNavItem> */}
+          </ul>
+        </nav>
+      </PopoverPanel>
     </Popover>
   )
 }
@@ -165,7 +151,9 @@ function NavItem({
   href: string
   children: React.ReactNode
 }) {
-  let isActive = usePathname() === href
+  let pathname = usePathname()
+  let locale = useLocale()
+  let isActive = pathname === `/${locale}${href === '/' ? '' : href}`
 
   return (
     <li>
@@ -195,6 +183,7 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
         <NavItem href="/about">{t('nav.about')}</NavItem>
         <NavItem href="/projects">{t('nav.projects')}</NavItem>
+        <NavItem href="/writings">{t('nav.writings')}</NavItem>
         <NavItem href="/education">{t('nav.education')}</NavItem>
         <NavItem href="/work">{t('nav.work')}</NavItem>
         <NavItem href="/hackathons">{t('nav.hackathons')}</NavItem>
@@ -212,6 +201,7 @@ function ThemeToggle() {
   let [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
@@ -284,7 +274,9 @@ function Avatar({
 }
 
 export function Header() {
-  let isHomePage = usePathname() === '/'
+  let pathname = usePathname()
+  let locale = useLocale()
+  let isHomePage = pathname === `/${locale}`
 
   let headerRef = useRef<React.ElementRef<'div'>>(null)
   let avatarRef = useRef<React.ElementRef<'div'>>(null)
