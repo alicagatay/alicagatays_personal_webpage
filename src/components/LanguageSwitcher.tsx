@@ -1,11 +1,14 @@
 'use client'
 
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+} from '@headlessui/react'
 import clsx from 'clsx'
 import { useLocale, useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
 
+import { usePathname, useRouter } from '@/i18n/navigation'
 import { localeCookieName, type Locale, locales } from '@/i18n/routing'
 
 function LanguageIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -30,6 +33,7 @@ export function LanguageSwitcher({ mobile = false }: { mobile?: boolean }) {
   let t = useTranslations('common')
   let locale = useLocale() as Locale
   let router = useRouter()
+  let pathname = usePathname()
 
   let languageLabels: Record<Locale, string> = {
     en: t('language.english'),
@@ -42,8 +46,9 @@ export function LanguageSwitcher({ mobile = false }: { mobile?: boolean }) {
       return
     }
 
+    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `${localeCookieName}=${nextLocale}; path=/; max-age=31536000; samesite=lax`
-    router.refresh()
+    router.replace(pathname, { locale: nextLocale })
     close()
   }
 
@@ -51,7 +56,7 @@ export function LanguageSwitcher({ mobile = false }: { mobile?: boolean }) {
     <Popover className={clsx('relative', mobile && 'w-full')}>
       {({ close }) => (
         <>
-          <Popover.Button
+          <PopoverButton
             type="button"
             aria-label={t('language.toggle')}
             className={clsx(
@@ -69,51 +74,42 @@ export function LanguageSwitcher({ mobile = false }: { mobile?: boolean }) {
             >
               {locale}
             </span>
-          </Popover.Button>
+          </PopoverButton>
 
-          <Transition
-            as={Fragment}
-            enter="transition duration-150 ease-out"
-            enterFrom="opacity-0 translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition duration-100 ease-in"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-1"
+          <PopoverPanel
+            transition
+            className={clsx(
+              'absolute z-50 mt-2 w-40 rounded-2xl bg-white/95 p-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition duration-150 ease-out data-[closed]:translate-y-1 data-[closed]:opacity-0 dark:bg-zinc-800/95 dark:ring-white/10',
+              mobile ? 'left-1/2 -translate-x-1/2' : 'right-0',
+            )}
           >
-            <Popover.Panel
-              className={clsx(
-                'absolute z-50 mt-2 w-40 rounded-2xl bg-white/95 p-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/95 dark:ring-white/10',
-                mobile ? 'left-1/2 -translate-x-1/2' : 'right-0',
-              )}
-            >
-              <p className="px-2 py-1 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                {t('language.title')}
-              </p>
-              <ul className="mt-1 space-y-1">
-                {locales.map((supportedLocale) => {
-                  let isActive = supportedLocale === locale
-                  return (
-                    <li key={supportedLocale}>
-                      <button
-                        type="button"
-                        onClick={() => setLocale(supportedLocale, close)}
-                        className={clsx(
-                          'flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-left text-sm transition',
-                          isActive
-                            ? 'bg-teal-50 text-teal-700 dark:bg-teal-500/10 dark:text-teal-300'
-                            : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-700/50',
-                        )}
-                        aria-current={isActive ? 'true' : undefined}
-                      >
-                        <span>{languageLabels[supportedLocale]}</span>
-                        {isActive && <span>✓</span>}
-                      </button>
-                    </li>
-                  )
-                })}
-              </ul>
-            </Popover.Panel>
-          </Transition>
+            <p className="px-2 py-1 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+              {t('language.title')}
+            </p>
+            <ul className="mt-1 space-y-1">
+              {locales.map((supportedLocale) => {
+                let isActive = supportedLocale === locale
+                return (
+                  <li key={supportedLocale}>
+                    <button
+                      type="button"
+                      onClick={() => setLocale(supportedLocale, close)}
+                      className={clsx(
+                        'flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-left text-sm transition',
+                        isActive
+                          ? 'bg-teal-50 text-teal-700 dark:bg-teal-500/10 dark:text-teal-300'
+                          : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-700/50',
+                      )}
+                      aria-current={isActive ? 'true' : undefined}
+                    >
+                      <span>{languageLabels[supportedLocale]}</span>
+                      {isActive && <span>✓</span>}
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          </PopoverPanel>
         </>
       )}
     </Popover>
