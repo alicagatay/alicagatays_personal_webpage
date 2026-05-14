@@ -1,0 +1,43 @@
+---
+title: Multimodal deep learning for property price prediction in Birmingham
+description: Notes from my MSc dissertation - fusing geo-spatial and temporal features to push beyond regression baselines in the Birmingham housing market.
+date: 2026-04-22
+author: Ali Cagatay
+---
+
+My MSc dissertation at Birmingham City University, in collaboration with ProBuild360, asked a question that turned out to be harder than I expected:
+
+> Can multimodal deep learning beat strong tabular baselines for property price prediction in a constrained geographic market?
+
+The short answer: yes, but not by as much as the literature implies, and the gains only show up once you handle three specific things.
+
+## The baseline matters
+
+A lot of multimodal property-prediction papers compare against weak baselines - linear regression, basic XGBoost with default hyperparameters. That is a low bar.
+
+I started by tuning XGBoost on the structured features (postcode, EPC rating, tenure, build year, transaction history) until it stopped improving. R² of 0.74 on the test set. Most papers in this space report multimodal gains relative to baselines under 0.70. The headroom is smaller than it looks.
+
+## Geo-spatial features need careful encoding
+
+Postcodes have hierarchy: BCC vs B30 vs B30 1AA. Treating them as categorical labels throws away that hierarchy. Treating them as coordinates throws away the local-knowledge signal.
+
+What worked: a two-stream encoder where one branch took embedded postcode districts (BCC, B1, B30 etc) and the other took (latitude, longitude) coordinates, combined with a small MLP. The combined embedding lifted R² by 0.04.
+
+## Temporal data is mostly noise
+
+The Birmingham market between 2018 and 2024 has so many regime shifts (Brexit, COVID, interest-rate cycles) that long-horizon temporal features mostly hurt the model. I ended up using only a 36-month rolling window of price-per-square-foot in the same postcode district. Anything longer added noise without adding signal.
+
+## The fusion architecture
+
+The architecture that won: structured tabular features through a tabular transformer (FT-Transformer), geo-spatial through the two-stream encoder, temporal through a short GRU, fused with a small attention head. Total parameters: about 4M. Trained in 40 minutes on a single A100.
+
+## Final numbers
+
+- XGBoost baseline: R² = 0.74, MAE = £28k
+- Multimodal model: R² = 0.81, MAE = £21k
+
+A 0.07 R² lift and a 25% reduction in MAE. Useful for production, but only because the baseline was already strong.
+
+## What I would do differently
+
+I would have started with the data audit, not the model. A week pulling outliers and mislabeled records would have moved both baselines and the final model more than any architectural choice.
