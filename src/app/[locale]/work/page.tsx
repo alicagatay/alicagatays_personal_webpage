@@ -1,9 +1,12 @@
 import { type Metadata } from 'next'
+import { hasLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { buildPageMetadata } from '@/lib/metadata'
+import { routing, type Locale } from '@/i18n/routing'
 
 function SpeakingSection({
   children,
@@ -44,10 +47,33 @@ function Appearance({
   )
 }
 
-export const metadata: Metadata = {
-  title: 'Work History',
-  description:
-    'The history of all the companies I’ve been in and the projects I’ve worked on. Includes internships and volunteering work as well.',
+let workCopy: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'Work - Ali Cagatay',
+    description:
+      'Work history of Ali Cagatay: AI Engineering & Research Lead at Kollestee UK Global, AI & Data Analytics Software Engineer Placement at ProBuild360, ML Engineer Intern at Kollestee, Volunteer Mentor at CodeYourFuture, and Software Engineer Intern at Invitelecom.',
+  },
+  tr: {
+    title: 'İş Deneyimi - Ali Cagatay',
+    description:
+      'Ali Cagatay\'ın iş geçmişi: Kollestee UK Global\'da Yapay Zekâ Mühendisliği & Araştırma Lideri, ProBuild360\'ta Yapay Zekâ & Veri Analitiği Yazılım Mühendisi, Kollestee\'de Makine Öğrenmesi Mühendisi stajyeri, CodeYourFuture\'da gönüllü mentor ve Invitelecom\'da yazılım mühendisi stajyeri.',
+  },
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  let { locale } = await params
+  if (!hasLocale(routing.locales, locale)) return {}
+  let typedLocale = locale as Locale
+  return buildPageMetadata({
+    locale: typedLocale,
+    path: '/work',
+    title: workCopy[typedLocale].title,
+    description: workCopy[typedLocale].description,
+  })
 }
 
 type WorkEntry = {
