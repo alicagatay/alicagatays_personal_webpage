@@ -32,6 +32,7 @@ export async function Footer() {
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 <NavLink href="/about">{t('nav.about')}</NavLink>
                 <NavLink href="/projects">{t('nav.projects')}</NavLink>
+                <NavLink href="/writings">{t('nav.writings')}</NavLink>
                 <NavLink href="/education">{t('nav.education')}</NavLink>
                 <NavLink href="/work">{t('nav.work')}</NavLink>
                 <NavLink href="/hackathons">{t('nav.hackathons')}</NavLink>
