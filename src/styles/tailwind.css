@@ -1,3 +1,13 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* rehype-pretty-code: map Shiki's --shiki-light / --shiki-dark CSS variables
+   to the active theme. Tailwind Typography's `prose code { color }` would
+   otherwise win the cascade, so we scope to MDX code blocks and add !important. */
+.prose pre code span {
+  color: var(--shiki-light);
+}
+html.dark .prose pre code span {
+  color: var(--shiki-dark);
+}

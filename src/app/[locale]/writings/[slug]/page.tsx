@@ -2,6 +2,9 @@ import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { hasLocale } from 'next-intl'
+import rehypePrettyCode, {
+  type Options as RehypePrettyCodeOptions,
+} from 'rehype-pretty-code'
 
 import { Container } from '@/components/Container'
 import { JsonLd } from '@/components/JsonLd'
@@ -10,6 +13,14 @@ import { buildPageMetadata } from '@/lib/metadata'
 import { getSiteUrl } from '@/lib/site-url'
 import { getWriting, getWritingSlugs } from '@/lib/writings'
 import { routing, type Locale } from '@/i18n/routing'
+
+let rehypePrettyCodeOptions: RehypePrettyCodeOptions = {
+  theme: {
+    light: 'github-light',
+    dark: 'github-dark',
+  },
+  keepBackground: false,
+}
 
 let siteUrl = getSiteUrl()
 
@@ -133,7 +144,14 @@ export default async function WritingPage({
               </time>
             </header>
             <div className="prose prose-zinc mt-8 max-w-none dark:prose-invert">
-              <MDXRemote source={writing.content} />
+              <MDXRemote
+                source={writing.content}
+                options={{
+                  mdxOptions: {
+                    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+                  },
+                }}
+              />
             </div>
           </article>
         </div>
