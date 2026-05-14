@@ -1,9 +1,12 @@
 import { type Metadata } from 'next'
+import { hasLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { buildPageMetadata } from '@/lib/metadata'
+import { routing, type Locale } from '@/i18n/routing'
 
 function SpeakingSection({
   children,
@@ -44,10 +47,33 @@ function Appearance({
   )
 }
 
-export const metadata: Metadata = {
-  title: 'Education History',
-  description:
-    'My complete education history, including my degrees, courses, and certifications.',
+let educationCopy: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'Education - Ali Cagatay',
+    description:
+      'Education history of Ali Cagatay: MSc Artificial Intelligence (Distinction track) at Birmingham City University and BSc Computer Science at the University of Birmingham, with dissertation on multimodal deep learning for property price prediction.',
+  },
+  tr: {
+    title: 'Eğitim - Ali Cagatay',
+    description:
+      'Ali Cagatay\'ın eğitim geçmişi: Birmingham City University\'de Yapay Zekâ yüksek lisansı (Distinction yolunda) ve Birmingham Üniversitesi\'nde Bilgisayar Bilimi lisansı. Bitirme tezi: mülk fiyat tahmini için multimodal derin öğrenme.',
+  },
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  let { locale } = await params
+  if (!hasLocale(routing.locales, locale)) return {}
+  let typedLocale = locale as Locale
+  return buildPageMetadata({
+    locale: typedLocale,
+    path: '/education',
+    title: educationCopy[typedLocale].title,
+    description: educationCopy[typedLocale].description,
+  })
 }
 
 type EducationEntry = {
