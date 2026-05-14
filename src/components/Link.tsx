@@ -1,6 +1,6 @@
-import NextLink from 'next/link'
+import { Link as IntlLink } from '@/i18n/navigation'
 
-type LinkProps = React.ComponentPropsWithoutRef<typeof NextLink>
+type LinkProps = React.ComponentPropsWithoutRef<typeof IntlLink>
 
 type HrefKind = 'internal' | 'http-external' | 'protocol-external'
 
@@ -44,7 +44,7 @@ export default function Link({ href, rel, target, ...props }: LinkProps) {
   }
 
   return (
-    <NextLink
+    <IntlLink
       href={href}
       target={resolvedTarget}
       rel={resolvedRel}
