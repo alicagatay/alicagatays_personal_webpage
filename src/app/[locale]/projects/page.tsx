@@ -116,8 +116,6 @@ export default async function Projects() {
               {project.websiteHref ? (
                 <Link
                   href={project.websiteHref}
-                  target="_blank"
-                  rel="noreferrer"
                   className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
@@ -129,8 +127,6 @@ export default async function Projects() {
               {project.githubHref ? (
                 <Link
                   href={project.githubHref}
-                  target="_blank"
-                  rel="noreferrer"
                   className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
