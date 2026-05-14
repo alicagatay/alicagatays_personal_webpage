@@ -80,7 +80,7 @@ export default async function Writings({
                 </h2>
                 <time
                   dateTime={writing.frontmatter.date}
-                  className="md:hidden relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500"
+                  className="md:hidden relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-500 dark:text-zinc-400"
                   aria-label={formatDate(writing.frontmatter.date, typedLocale)}
                 >
                   <span className="absolute inset-y-0 left-0 flex items-center">
@@ -100,7 +100,7 @@ export default async function Writings({
               </div>
               <time
                 dateTime={writing.frontmatter.date}
-                className="mt-1 hidden text-sm text-zinc-400 dark:text-zinc-500 md:block"
+                className="mt-1 hidden text-sm text-zinc-500 dark:text-zinc-400 md:block"
               >
                 {formatDate(writing.frontmatter.date, typedLocale)}
               </time>

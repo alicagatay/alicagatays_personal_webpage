@@ -39,7 +39,7 @@ export async function Footer() {
                 <NavLink href="/gear">{t('nav.gear')}</NavLink>
                 {/* <NavLink href="/work-with-me">Work With Me</NavLink> */}
               </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
                 {t('footer.copyright', { year: new Date().getFullYear() })}
               </p>
             </div>
