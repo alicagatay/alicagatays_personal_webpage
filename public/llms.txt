@@ -14,12 +14,6 @@ Ali holds a BSc in Computer Science from the University of Birmingham and is com
 - [Hackathons](https://alicagatay.xyz/en/hackathons): Includes the Microsoft Embrace Midlands Hackathon 2025, where his team built CouncilAgent - a voice AI assistant for Birmingham City Council - in five hours and finished 3rd out of fifteen university teams.
 - [Gear](https://alicagatay.xyz/en/gear): The software, hardware, and tools Ali uses day to day, including a 14-inch MacBook Pro (M1 Pro), Dell and HP external displays, VS Code, Docker, Figma, Sony WH-1000XM5 headphones, and a Kindle Paperwhite.
 
-## Writings
-
-- [How I think about agentic systems in production](https://alicagatay.xyz/en/writings/how-i-think-about-agentic-systems): Three constraints - fail loudly, prioritise retrieval over generation, build evals before features - drawn from building Follicle Labeller and CouncilAgent.
-- [Multimodal deep learning for property price prediction in Birmingham](https://alicagatay.xyz/en/writings/multimodal-deep-learning-for-property-prices): Notes from Ali's MSc dissertation. Fusing tabular features (FT-Transformer), geo-spatial features (two-stream postcode + coordinate encoder), and temporal features (GRU over a 36-month window) lifted R² from 0.74 (XGBoost baseline) to 0.81 and cut MAE from £28k to £21k.
-- [Shipping a deep-learning feature at Kollestee, end-to-end](https://alicagatay.xyz/en/writings/shipping-an-ai-feature-at-kollestee): The story of Follicle Labeller - YOLO11 detection plus DeepSORT plus optical flow, deployed across Windows, macOS, and the browser from a single codebase, achieving 80%+ detection accuracy on 8K imagery and 90%+ tracking accuracy on surgical video.
-
 ## Specialisms
 
 - Deep learning (PyTorch, TensorFlow, Keras)
@@ -46,5 +40,4 @@ English, Turkish. The site is available at https://alicagatay.xyz/en (English) a
 
 ## Optional
 
-- [RSS feed of writings](https://alicagatay.xyz/feed.xml)
 - [Sitemap](https://alicagatay.xyz/sitemap.xml)
