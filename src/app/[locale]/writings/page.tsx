@@ -73,12 +73,10 @@ export default async function Writings({
             >
               <div className="md:col-span-3 group relative flex flex-col items-start">
                 <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                  <Link
-                    href={`/writings/${writing.slug}`}
-                    className="transition hover:text-teal-500 dark:hover:text-teal-400"
-                  >
+                  <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+                  <span className="relative z-10">
                     {writing.frontmatter.title}
-                  </Link>
+                  </span>
                 </h2>
                 <time
                   dateTime={writing.frontmatter.date}
@@ -93,12 +91,12 @@ export default async function Writings({
                 <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
                   {writing.frontmatter.description}
                 </p>
-                <span
-                  aria-hidden="true"
-                  className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
+                <Link
+                  href={`/writings/${writing.slug}`}
+                  className="relative z-20 mt-4 flex items-center text-sm font-medium text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400"
                 >
                   {typedLocale === 'tr' ? 'Devamı' : 'Read more'}
-                </span>
+                </Link>
               </div>
               <time
                 dateTime={writing.frontmatter.date}

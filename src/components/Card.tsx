@@ -73,12 +73,10 @@ Card.Link = function CardLink({
 
 Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
   as,
-  href,
   className,
   children,
-}: Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'href'> & {
+}: Omit<React.ComponentPropsWithoutRef<T>, 'as'> & {
   as?: T
-  href?: string
   className?: string
 }) {
   let Component = as ?? 'h2'
@@ -90,7 +88,8 @@ Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
         className,
       )}
     >
-      {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+      <span className="relative z-10">{children}</span>
     </Component>
   )
 }
@@ -107,15 +106,30 @@ Card.Description = function CardDescription({
   )
 }
 
-Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
+Card.Cta = function CardCta({
+  children,
+  href,
+}: {
+  children: React.ReactNode
+  href?: string
+}) {
+  let className =
+    'relative z-20 mt-4 flex items-center text-sm font-medium text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400'
+
+  if (!href) {
+    return (
+      <div aria-hidden="true" className={className}>
+        {children}
+        <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+      </div>
+    )
+  }
+
   return (
-    <div
-      aria-hidden="true"
-      className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
-    >
+    <Link href={href} className={className}>
       {children}
       <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
-    </div>
+    </Link>
   )
 }
 

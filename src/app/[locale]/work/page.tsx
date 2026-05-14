@@ -36,13 +36,11 @@ function Appearance({
 }) {
   return (
     <Card as="article">
-      <Card.Title as="h3" href={href}>
-        {title}
-      </Card.Title>
+      <Card.Title as="h3">{title}</Card.Title>
       <Card.Eyebrow decorate>{timePeriod}</Card.Eyebrow>
       <Card.Eyebrow decorate>{location}</Card.Eyebrow>
       <Card.Description>{description}</Card.Description>
-      <Card.Cta>{cta}</Card.Cta>
+      <Card.Cta href={href}>{cta}</Card.Cta>
     </Card>
   )
 }
