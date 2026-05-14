@@ -1,9 +1,12 @@
 import { type Metadata } from 'next'
+import { hasLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { buildPageMetadata } from '@/lib/metadata'
+import { routing, type Locale } from '@/i18n/routing'
 
 function SpeakingSection({
   children,
@@ -44,9 +47,33 @@ function Appearance({
   )
 }
 
-export const metadata: Metadata = {
-  title: 'Hackathon Participation History',
-  description: 'The complete list of hackathons I have participated in.',
+let hackathonsCopy: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'Hackathons - Ali Cagatay',
+    description:
+      'Hackathons Ali Cagatay has participated in, including the Microsoft Embrace Midlands Hackathon 2025 where his team built CouncilAgent - a voice AI assistant for Birmingham City Council - and finished 3rd out of fifteen university teams.',
+  },
+  tr: {
+    title: 'Hackathonlar - Ali Cagatay',
+    description:
+      'Ali Cagatay\'ın katıldığı hackathonlar - aralarında, ekibinin Birmingham City Council için sesli yapay zekâ asistanı CouncilAgent\'ı geliştirip on beş üniversite takımı arasında üçüncü olduğu Microsoft Embrace Midlands Hackathon 2025 de var.',
+  },
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  let { locale } = await params
+  if (!hasLocale(routing.locales, locale)) return {}
+  let typedLocale = locale as Locale
+  return buildPageMetadata({
+    locale: typedLocale,
+    path: '/hackathons',
+    title: hackathonsCopy[typedLocale].title,
+    description: hackathonsCopy[typedLocale].description,
+  })
 }
 
 type HackathonEntry = {
