@@ -10,7 +10,8 @@
       "education": "Education",
       "work": "Work",
       "hackathons": "Hackathons",
-      "gear": "Gear"
+      "gear": "Gear",
+      "writings": "Writings"
     },
     "theme": {
       "switchTo": "Switch to {theme} theme",
