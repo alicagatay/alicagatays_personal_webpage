@@ -1,9 +1,13 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from '@/components/Link'
+import { hasLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
+
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { buildPageMetadata } from '@/lib/metadata'
+import { routing, type Locale } from '@/i18n/routing'
 import logoBoardOfDirectors from '@/images/logos/board-of-directors.svg'
 import logoTimer from '@/images/logos/timer.svg'
 import logoMetronome from '@/images/logos/metronome.svg'
@@ -47,9 +51,33 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-export const metadata: Metadata = {
-  title: 'Projects',
-  description: 'Things I’ve made trying to put my dent in the universe.',
+let projectsCopy: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'Projects - Ali Cagatay',
+    description:
+      'Side projects by Ali Cagatay: a multi-agent RAG over 484 YouTube transcripts (Board of Directors RAG), a minimal CRM for small businesses (Micro Marketing Assistant), a Pomodoro Focus Timer, and a Metronome web app.',
+  },
+  tr: {
+    title: 'Projeler - Ali Cagatay',
+    description:
+      'Ali Cagatay\'ın yan projeleri: 484 YouTube video dökümü üzerinde çalışan çok-ajanlı bir RAG sistemi (Board of Directors RAG), küçük işletmeler için minimal bir CRM (Micro Marketing Assistant), bir Pomodoro Focus Timer ve bir Metronome web uygulaması.',
+  },
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  let { locale } = await params
+  if (!hasLocale(routing.locales, locale)) return {}
+  let typedLocale = locale as Locale
+  return buildPageMetadata({
+    locale: typedLocale,
+    path: '/projects',
+    title: projectsCopy[typedLocale].title,
+    description: projectsCopy[typedLocale].description,
+  })
 }
 
 export default async function Projects() {
@@ -67,7 +95,7 @@ export default async function Projects() {
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image
                 src={project.logo}
-                alt=""
+                alt={`${t(`items.${project.id}.name`)} logo`}
                 className="h-8 w-8"
                 unoptimized
               />
