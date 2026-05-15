@@ -50,19 +50,6 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-let aboutCopy: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'About Ali Cagatay',
-    description:
-      'AI engineer based in Birmingham. MSc Artificial Intelligence (Distinction track) at Birmingham City University, BSc Computer Science at the University of Birmingham. Specialising in deep learning, computer vision, and agentic systems.',
-  },
-  tr: {
-    title: 'Ali Cagatay Hakkında',
-    description:
-      'Birmingham\'da yaşayan bir yapay zekâ mühendisi. Birmingham City University\'de Yapay Zekâ yüksek lisansını (Distinction yolunda) ve Birmingham Üniversitesi\'nde Bilgisayar Bilimi lisansını tamamladım. Derin öğrenme, bilgisayarlı görü ve agent tabanlı sistemler üzerinde çalışıyorum.',
-  },
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -71,11 +58,12 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({ locale: typedLocale, namespace: 'about.meta' })
   return buildPageMetadata({
     locale: typedLocale,
     path: '/about',
-    title: aboutCopy[typedLocale].title,
-    description: aboutCopy[typedLocale].description,
+    title: t('title'),
+    description: t('description'),
     openGraphType: 'profile',
   })
 }

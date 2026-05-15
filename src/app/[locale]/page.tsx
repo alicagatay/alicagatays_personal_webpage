@@ -23,19 +23,6 @@ import image5 from '@/images/photos/image-5.jpg'
 
 let siteUrl = getSiteUrl()
 
-let homeCopy: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'Ali Cagatay - AI Engineer in Birmingham',
-    description:
-      'I am Ali Cagatay, an AI engineer in Birmingham specialising in deep learning, computer vision, agentic systems, and full-stack software engineering. I take research-grade AI from notebook to production.',
-  },
-  tr: {
-    title: 'Ali Cagatay - Birmingham\'da Yapay Zekâ Mühendisi',
-    description:
-      'Ben Ali Cagatay, Birmingham\'da derin öğrenme, bilgisayarlı görü, agent tabanlı sistemler ve full-stack yazılım mühendisliği alanlarında uzmanlaşmış bir yapay zekâ mühendisiyim. Araştırma seviyesindeki yapay zekâyı üretime taşıyorum.',
-  },
-}
-
 function SocialLink({
   icon: Icon,
   ...props
@@ -85,11 +72,11 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({ locale: typedLocale, namespace: 'home.meta' })
   return buildPageMetadata({
     locale: typedLocale,
     path: '/',
-    title: homeCopy[typedLocale].title,
-    description: homeCopy[typedLocale].description,
+    description: t('description'),
     openGraphType: 'profile',
   })
 }
@@ -105,13 +92,7 @@ export default async function Home({
   let tHome = await getTranslations('home')
   let tCommon = await getTranslations('common')
 
-  let photoAlts = [
-    'Ali Cagatay working on a laptop',
-    'Ali Cagatay with teammates at a hackathon',
-    'Ali Cagatay presenting at a tech event',
-    'Ali Cagatay at the University of Birmingham',
-    'Ali Cagatay enjoying a moment outdoors',
-  ]
+  let photoAlts = tHome.raw('photoAlts') as string[]
 
   let personSchema = {
     '@context': 'https://schema.org',
@@ -122,7 +103,7 @@ export default async function Home({
       givenName: 'Ali',
       familyName: 'Cagatay',
       jobTitle: 'AI Engineer',
-      description: homeCopy[locale as Locale].description,
+      description: tHome('meta.description'),
       image: `${siteUrl}/opengraph-image`,
       url: `${siteUrl}/${locale}`,
       address: {

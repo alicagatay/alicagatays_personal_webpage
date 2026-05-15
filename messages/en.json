@@ -39,11 +39,30 @@
       "goHome": "Go back home"
     }
   },
+  "siteMeta": {
+    "titleTemplate": "%s - Ali Cagatay",
+    "titleDefault": "Ali Cagatay - AI Engineer in Birmingham",
+    "description": "Ali Cagatay is an AI engineer in Birmingham specialising in deep learning, computer vision, agentic systems, and full-stack software engineering."
+  },
   "home": {
+    "meta": {
+      "description": "I am Ali Cagatay, an AI engineer in Birmingham specialising in deep learning, computer vision, agentic systems, and full-stack software engineering. I take research-grade AI from notebook to production."
+    },
     "title": "Hi, I’m Ali! I’m an AI engineer building intelligent systems and full-stack software products.",
-    "intro": "I am an AI engineer specialising in deep learning, computer vision, agentic systems, and full-stack software development. I integrate artificial intelligence with full-stack software engineering to create scalable and reliable end-to-end products that make a real impact. I thrive on taking complex ideas from research to production, shaping them into well-crafted, reliable AI systems with a focus on clarity, collaboration, and long-term value."
+    "intro": "I am an AI engineer specialising in deep learning, computer vision, agentic systems, and full-stack software development. I integrate artificial intelligence with full-stack software engineering to create scalable and reliable end-to-end products that make a real impact. I thrive on taking complex ideas from research to production, shaping them into well-crafted, reliable AI systems with a focus on clarity, collaboration, and long-term value.",
+    "photoAlts": [
+      "Ali Cagatay working on a laptop",
+      "Ali Cagatay with teammates at a hackathon",
+      "Ali Cagatay presenting at a tech event",
+      "Ali Cagatay at the University of Birmingham",
+      "Ali Cagatay enjoying a moment outdoors"
+    ]
   },
   "about": {
+    "meta": {
+      "title": "About",
+      "description": "AI engineer based in Birmingham. MSc Artificial Intelligence (Distinction track) at Birmingham City University, BSc Computer Science at the University of Birmingham. Specialising in deep learning, computer vision, and agentic systems."
+    },
     "title": "My Path So Far",
     "paragraphs": [
       "I’ve loved making things for as long as I can remember, and I created my first program when I was 14 years old - a retro snake game in Scratch. From that moment on, I knew I wanted to be a software engineer, so I started learning how to code in my free time with a programming language called Processing.",
@@ -53,6 +72,10 @@
     ]
   },
   "projects": {
+    "meta": {
+      "title": "Projects",
+      "description": "Side projects by Ali Cagatay: a multi-agent RAG over 484 YouTube transcripts (Board of Directors RAG), a minimal CRM for small businesses (Micro Marketing Assistant), a Pomodoro Focus Timer, and a Metronome web app."
+    },
     "title": "Things I’ve made trying to put my dent in the universe.",
     "intro": "I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.",
     "items": {
@@ -82,6 +105,10 @@
     }
   },
   "education": {
+    "meta": {
+      "title": "Education",
+      "description": "Education history of Ali Cagatay: MSc Artificial Intelligence (Distinction track) at Birmingham City University and BSc Computer Science at the University of Birmingham, with dissertation on multimodal deep learning for property price prediction."
+    },
     "title": "My complete education history",
     "intro": "This list includes all my degrees, courses, and certifications.",
     "sectionTitle": "University Degrees",
@@ -105,6 +132,10 @@
     ]
   },
   "work": {
+    "meta": {
+      "title": "Work",
+      "description": "Work history of Ali Cagatay: AI Engineering & Research Lead at Kollestee UK Global, AI & Data Analytics Software Engineer Placement at ProBuild360, ML Engineer Intern at Kollestee, Volunteer Mentor at CodeYourFuture, and Software Engineer Intern at Invitelecom."
+    },
     "title": "The history of all the companies I’ve been in and the projects I’ve worked on.",
     "intro": "This list includes internships and volunteering work as well.",
     "sectionTitle": "Professional Experience",
@@ -152,6 +183,10 @@
     ]
   },
   "hackathons": {
+    "meta": {
+      "title": "Hackathons",
+      "description": "Hackathons Ali Cagatay has participated in, including the Microsoft Embrace Midlands Hackathon 2025 where his team built CouncilAgent - a voice AI assistant for Birmingham City Council - and finished 3rd out of fifteen university teams."
+    },
     "title": "My complete hackathon history",
     "intro": "This list includes all of the hackathons I have participated in through time.",
     "sectionTitle": "List of Hackathons",
@@ -167,6 +202,10 @@
     ]
   },
   "gear": {
+    "meta": {
+      "title": "Gear",
+      "description": "Software, hardware, and tools Ali Cagatay uses day to day: 14-inch MacBook Pro (M1 Pro), Dell and HP external displays, VS Code, Docker, Figma, Sony WH-1000XM5 headphones, and a Kindle Paperwhite."
+    },
     "title": "Software I use, gadgets I love, and other things I recommend.",
     "intro": "A list of the tools and gadgets I currently use to build, design and test software + the tools I currently use to stay productive all day + other random stuff that I just really like in my workflow.",
     "sections": [
@@ -257,8 +296,31 @@
       }
     ]
   },
+  "writings": {
+    "meta": {
+      "title": "Writings",
+      "description": "An occasional writing spot by Ali Cagatay - thoughts on AI, software engineering, and the odd bit of tech news. Not a regular blog; updated whenever something is worth sharing."
+    },
+    "title": "Writings",
+    "intro": "A casual corner where I jot down whatever I’ve been thinking about - usually AI, software engineering, or a bit of tech news that caught my eye. Not a regular blog. I write when something feels worth sharing, which is occasionally rather than on a schedule.",
+    "readMore": "Read more",
+    "backToWritings": "Back to writings"
+  },
   "thankYou": {
+    "meta": {
+      "title": "You’re subscribed",
+      "description": "Thanks for subscribing to my newsletter."
+    },
     "title": "Thanks for subscribing.",
     "intro": "I’ll send you an email any time I publish a new blog post, release a new project, or have anything interesting to share that I think you’d want to hear about. You can unsubscribe at any time, no hard feelings."
+  },
+  "workWithMe": {
+    "meta": {
+      "title": "Work With Me",
+      "description": "Book a call with Ali Cagatay to discuss an MVP, mobile or web application development, or an AI-powered product idea."
+    },
+    "title": "Let’s work together to create something amazing.",
+    "intro": "Do you have a minimum viable product (MVP) for a web or mobile application that needs to be completed soon? Or perhaps you have innovative designs for an app but need a skilled developer to bring them to life? Maybe you have a promising project idea for your business but lack the technical expertise to turn it into reality. If any of these situations sound familiar, I’m here to help. Book a call with me, and let’s have a detailed conversation about your vision and how I can support you in making it happen. During our session, we’ll dive into your specific needs and goals, allowing me to fully understand your project and how I can contribute to its success. Whether you’re finalising an MVP that requires quick development, transforming your designs into a live, functional product, or starting a new project from the ground up, I’ll work with you to craft a clear and efficient plan that ensures everything is on track for success. This consultation is an opportunity for us to connect, explore your ideas, and see how I can help bring your digital goals to life. When booking your time slot, please provide as much detail as possible so that we can have a productive and focused conversation. I’m excited to learn more about your project and look forward to helping you bring it to completion with dedication, expertise, and professionalism.",
+    "scheduleCta": "Schedule a meeting with me."
   }
 }

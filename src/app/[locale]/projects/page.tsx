@@ -51,19 +51,6 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-let projectsCopy: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'Projects - Ali Cagatay',
-    description:
-      'Side projects by Ali Cagatay: a multi-agent RAG over 484 YouTube transcripts (Board of Directors RAG), a minimal CRM for small businesses (Micro Marketing Assistant), a Pomodoro Focus Timer, and a Metronome web app.',
-  },
-  tr: {
-    title: 'Projeler - Ali Cagatay',
-    description:
-      'Ali Cagatay\'ın yan projeleri: 484 YouTube video dökümü üzerinde çalışan çok-ajanlı bir RAG sistemi (Board of Directors RAG), küçük işletmeler için minimal bir CRM (Micro Marketing Assistant), bir Pomodoro Focus Timer ve bir Metronome web uygulaması.',
-  },
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -72,11 +59,15 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({
+    locale: typedLocale,
+    namespace: 'projects.meta',
+  })
   return buildPageMetadata({
     locale: typedLocale,
     path: '/projects',
-    title: projectsCopy[typedLocale].title,
-    description: projectsCopy[typedLocale].description,
+    title: t('title'),
+    description: t('description'),
   })
 }
 

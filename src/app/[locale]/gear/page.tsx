@@ -36,19 +36,6 @@ function Tool({
   )
 }
 
-let gearCopy: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'Gear - Ali Cagatay',
-    description:
-      'Software, hardware, and tools Ali Cagatay uses day to day: 14-inch MacBook Pro (M1 Pro), Dell and HP external displays, VS Code, Docker, Figma, Sony WH-1000XM5 headphones, and a Kindle Paperwhite.',
-  },
-  tr: {
-    title: 'Kullandıklarım - Ali Cagatay',
-    description:
-      'Ali Cagatay\'ın günlük olarak kullandığı yazılım, donanım ve araçlar: 14 inç MacBook Pro (M1 Pro), Dell ve HP harici monitörler, VS Code, Docker, Figma, Sony WH-1000XM5 kulaklık ve Kindle Paperwhite.',
-  },
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -57,11 +44,12 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({ locale: typedLocale, namespace: 'gear.meta' })
   return buildPageMetadata({
     locale: typedLocale,
     path: '/gear',
-    title: gearCopy[typedLocale].title,
-    description: gearCopy[typedLocale].description,
+    title: t('title'),
+    description: t('description'),
   })
 }
 

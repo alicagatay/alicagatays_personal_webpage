@@ -39,11 +39,30 @@
       "goHome": "Ana sayfaya dön"
     }
   },
+  "siteMeta": {
+    "titleTemplate": "%s - Ali Cagatay",
+    "titleDefault": "Ali Cagatay - Birmingham'da Yapay Zekâ Mühendisi",
+    "description": "Ali Cagatay, Birmingham'da derin öğrenme, bilgisayarlı görü, agent tabanlı sistemler ve full-stack yazılım mühendisliği alanlarında uzmanlaşmış bir yapay zekâ mühendisidir."
+  },
   "home": {
+    "meta": {
+      "description": "Ben Ali Cagatay, Birmingham'da derin öğrenme, bilgisayarlı görü, agent tabanlı sistemler ve full-stack yazılım mühendisliği alanlarında uzmanlaşmış bir yapay zekâ mühendisiyim. Araştırma seviyesindeki yapay zekâyı üretime taşıyorum."
+    },
     "title": "Merhaba, ben Ali! Akıllı sistemler ve full-stack yazılım ürünleri geliştiren bir yapay zekâ mühendisiyim.",
-    "intro": "Deep learning, computer vision, agentic sistemler ve full-stack yazılım geliştirme alanlarında uzmanlaşmış bir yapay zekâ mühendisiyim. Yapay zekâyı full-stack yazılım mühendisliğiyle entegre ederek gerçek etki yaratan, ölçeklenebilir ve güvenilir uçtan uca ürünler geliştiriyorum. Karmaşık fikirleri araştırma aşamasından üretime taşıyıp özenle tasarlanmış, güvenilir yapay zekâ sistemlerine dönüştürmeyi seviyorum; bunu yaparken her zaman açıklık, iş birliği ve uzun vadeli değere odaklanıyorum."
+    "intro": "Deep learning, computer vision, agentic sistemler ve full-stack yazılım geliştirme alanlarında uzmanlaşmış bir yapay zekâ mühendisiyim. Yapay zekâyı full-stack yazılım mühendisliğiyle entegre ederek gerçek etki yaratan, ölçeklenebilir ve güvenilir uçtan uca ürünler geliştiriyorum. Karmaşık fikirleri araştırma aşamasından üretime taşıyıp özenle tasarlanmış, güvenilir yapay zekâ sistemlerine dönüştürmeyi seviyorum; bunu yaparken her zaman açıklık, iş birliği ve uzun vadeli değere odaklanıyorum.",
+    "photoAlts": [
+      "Ali Cagatay dizüstü bilgisayarda çalışırken",
+      "Ali Cagatay bir hackathonda takım arkadaşlarıyla",
+      "Ali Cagatay bir teknoloji etkinliğinde sunum yaparken",
+      "Ali Cagatay Birmingham Üniversitesi'nde",
+      "Ali Cagatay açık havada keyifli bir an yaşarken"
+    ]
   },
   "about": {
+    "meta": {
+      "title": "Hakkımda",
+      "description": "Birmingham'da yaşayan bir yapay zekâ mühendisi. Birmingham City University'de Yapay Zekâ yüksek lisansını (Distinction yolunda) ve Birmingham Üniversitesi'nde Bilgisayar Bilimi lisansını tamamladım. Derin öğrenme, bilgisayarlı görü ve agent tabanlı sistemler üzerinde çalışıyorum."
+    },
     "title": "Şimdiye Kadarki Yolculuğum",
     "paragraphs": [
       "Kendimi bildim bileli bir şeyler üretmeyi çok sevdim ve ilk programımı 14 yaşımda yaptım: Scratch'te retro bir yılan oyunu. O andan itibaren yazılım mühendisi olmak istediğimi anladım ve boş zamanlarımda Processing adlı bir programlama diliyle kod yazmayı öğrenmeye başladım.",
@@ -53,6 +72,10 @@
     ]
   },
   "projects": {
+    "meta": {
+      "title": "Projeler",
+      "description": "Ali Cagatay'ın yan projeleri: 484 YouTube video dökümü üzerinde çalışan çok-ajanlı bir RAG sistemi (Board of Directors RAG), küçük işletmeler için minimal bir CRM (Micro Marketing Assistant), bir Pomodoro Focus Timer ve bir Metronome web uygulaması."
+    },
     "title": "Dünyada iz bırakma hedefiyle geliştirdiğim işler.",
     "intro": "Yıllar içinde çok sayıda küçük proje üzerinde çalıştım ama en çok gurur duyduklarım bunlar. Birçoğu açık kaynak olduğu için ilginizi çeken bir şey görürseniz koda göz atabilir, geliştirme fikirleriniz varsa katkı sunabilirsiniz.",
     "items": {
@@ -82,6 +105,10 @@
     }
   },
   "education": {
+    "meta": {
+      "title": "Eğitim",
+      "description": "Ali Cagatay'ın eğitim geçmişi: Birmingham City University'de Yapay Zekâ yüksek lisansı (Distinction yolunda) ve Birmingham Üniversitesi'nde Bilgisayar Bilimi lisansı. Bitirme tezi: mülk fiyat tahmini için multimodal derin öğrenme."
+    },
     "title": "Tüm eğitim geçmişim",
     "intro": "Bu listede tüm diplomalarım, kurslarım ve sertifikalarım yer alıyor.",
     "sectionTitle": "Üniversite Dereceleri",
@@ -105,6 +132,10 @@
     ]
   },
   "work": {
+    "meta": {
+      "title": "İş Deneyimi",
+      "description": "Ali Cagatay'ın iş geçmişi: Kollestee UK Global'da Yapay Zekâ Mühendisliği & Araştırma Lideri, ProBuild360'ta Yapay Zekâ & Veri Analitiği Yazılım Mühendisi, Kollestee'de Makine Öğrenmesi Mühendisi stajyeri, CodeYourFuture'da gönüllü mentor ve Invitelecom'da yazılım mühendisi stajyeri."
+    },
     "title": "Çalıştığım şirketlerin ve üzerinde yer aldığım projelerin geçmişi.",
     "intro": "Bu liste stajlarımı ve gönüllü çalışmalarımı da içeriyor.",
     "sectionTitle": "Profesyonel Deneyim",
@@ -152,6 +183,10 @@
     ]
   },
   "hackathons": {
+    "meta": {
+      "title": "Hackathonlar",
+      "description": "Ali Cagatay'ın katıldığı hackathonlar - aralarında, ekibinin Birmingham City Council için sesli yapay zekâ asistanı CouncilAgent'ı geliştirip on beş üniversite takımı arasında üçüncü olduğu Microsoft Embrace Midlands Hackathon 2025 de var."
+    },
     "title": "Hackathon geçmişimin tamamı",
     "intro": "Bu listede zaman içinde katıldığım tüm hackathonlar yer alıyor.",
     "sectionTitle": "Hackathon Listesi",
@@ -167,6 +202,10 @@
     ]
   },
   "gear": {
+    "meta": {
+      "title": "Kullandıklarım",
+      "description": "Ali Cagatay'ın günlük olarak kullandığı yazılım, donanım ve araçlar: 14 inç MacBook Pro (M1 Pro), Dell ve HP harici monitörler, VS Code, Docker, Figma, Sony WH-1000XM5 kulaklık ve Kindle Paperwhite."
+    },
     "title": "Kullandığım yazılımlar, sevdiğim cihazlar ve önerdiğim diğer şeyler.",
     "intro": "Yazılım geliştirmek, tasarlamak ve test etmek için şu anda kullandığım araçlar + gün boyunca verimli kalmak için kullandığım araçlar + iş akışımda gerçekten sevdiğim diğer şeylerin listesi.",
     "sections": [
@@ -257,8 +296,31 @@
       }
     ]
   },
+  "writings": {
+    "meta": {
+      "title": "Yazılar",
+      "description": "Ali Cagatay'ın ara sıra yazdığı bir köşe - yapay zekâ, yazılım mühendisliği ve teknoloji üzerine düşünceler. Düzenli bir blog değil; paylaşmaya değer bir şey olduğunda güncellenir."
+    },
+    "title": "Yazılar",
+    "intro": "Aklımdan geçenleri yazdığım rahat bir köşe - genellikle yapay zekâ, yazılım mühendisliği ya da dikkatimi çeken birkaç teknoloji haberi üzerine. Düzenli bir blog değil. Paylaşmaya değer bir şey olduğunda yazıyorum, yani sık sık değil.",
+    "readMore": "Devamı",
+    "backToWritings": "Yazılara dön"
+  },
   "thankYou": {
+    "meta": {
+      "title": "Aboneliğiniz tamamlandı",
+      "description": "Bültenime abone olduğunuz için teşekkürler."
+    },
     "title": "Abone olduğunuz için teşekkürler.",
     "intro": "Yeni bir blog yazısı yayımladığımda, yeni bir proje yayınladığımda veya ilginizi çekebileceğini düşündüğüm bir şey olduğunda size e-posta göndereceğim. İstediğiniz zaman abonelikten çıkabilirsiniz, sorun değil."
+  },
+  "workWithMe": {
+    "meta": {
+      "title": "Birlikte Çalışalım",
+      "description": "MVP, mobil veya web uygulama geliştirme ya da yapay zekâ destekli bir ürün fikrini konuşmak için Ali Cagatay ile bir görüşme planlayın."
+    },
+    "title": "Birlikte harika bir şeyler yaratalım.",
+    "intro": "Yakında tamamlanması gereken bir web veya mobil uygulama için minimum uygulanabilir bir ürününüz (MVP) mü var? Belki yenilikçi uygulama tasarımlarınız var ama bunları hayata geçirecek deneyimli bir geliştiriciye ihtiyaç duyuyorsunuz. Ya da işletmeniz için umut verici bir proje fikriniz var ancak fikri gerçeğe dönüştürecek teknik birikim sizde yok. Bu durumlardan herhangi biri size tanıdık geliyorsa, yardımcı olmak için buradayım. Benimle bir görüşme planlayın; vizyonunuzu ve bunu hayata geçirmenize nasıl destek olabileceğimi enine boyuna konuşalım. Görüşme sırasında ihtiyaçlarınızı ve hedeflerinizi detaylıca ele alacağız; böylece projenizi tam olarak anlayıp başarısına nasıl katkıda bulunabileceğimi netleştirebilirim. Hızlı geliştirme gerektiren bir MVP'yi tamamlamak, tasarımlarınızı canlı ve işlevsel bir ürüne dönüştürmek ya da sıfırdan yeni bir proje başlatmak istiyor olun, sizinle birlikte her şeyin başarı yolunda ilerlemesini sağlayacak net ve verimli bir plan hazırlayacağım. Bu görüşme; bağlantı kurmamız, fikirlerinizi keşfetmemiz ve dijital hedeflerinizi hayata geçirmenize nasıl yardımcı olabileceğimi görmemiz için bir fırsat. Görüşme saatinizi ayırırken mümkün olduğunca çok ayrıntı paylaşırsanız konuşmamız çok daha üretken ve odaklı olur. Projeniz hakkında daha fazlasını öğrenmek için sabırsızlanıyorum; tamamlanmasına özveriyle, uzmanlıkla ve profesyonellikle destek olmayı dört gözle bekliyorum.",
+    "scheduleCta": "Benimle bir görüşme planlayın."
   }
 }

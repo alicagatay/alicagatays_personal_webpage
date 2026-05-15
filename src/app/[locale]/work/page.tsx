@@ -45,19 +45,6 @@ function Appearance({
   )
 }
 
-let workCopy: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'Work - Ali Cagatay',
-    description:
-      'Work history of Ali Cagatay: AI Engineering & Research Lead at Kollestee UK Global, AI & Data Analytics Software Engineer Placement at ProBuild360, ML Engineer Intern at Kollestee, Volunteer Mentor at CodeYourFuture, and Software Engineer Intern at Invitelecom.',
-  },
-  tr: {
-    title: 'İş Deneyimi - Ali Cagatay',
-    description:
-      'Ali Cagatay\'ın iş geçmişi: Kollestee UK Global\'da Yapay Zekâ Mühendisliği & Araştırma Lideri, ProBuild360\'ta Yapay Zekâ & Veri Analitiği Yazılım Mühendisi, Kollestee\'de Makine Öğrenmesi Mühendisi stajyeri, CodeYourFuture\'da gönüllü mentor ve Invitelecom\'da yazılım mühendisi stajyeri.',
-  },
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -66,11 +53,12 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({ locale: typedLocale, namespace: 'work.meta' })
   return buildPageMetadata({
     locale: typedLocale,
     path: '/work',
-    title: workCopy[typedLocale].title,
-    description: workCopy[typedLocale].description,
+    title: t('title'),
+    description: t('description'),
   })
 }
 

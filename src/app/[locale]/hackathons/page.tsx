@@ -45,19 +45,6 @@ function Appearance({
   )
 }
 
-let hackathonsCopy: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'Hackathons - Ali Cagatay',
-    description:
-      'Hackathons Ali Cagatay has participated in, including the Microsoft Embrace Midlands Hackathon 2025 where his team built CouncilAgent - a voice AI assistant for Birmingham City Council - and finished 3rd out of fifteen university teams.',
-  },
-  tr: {
-    title: 'Hackathonlar - Ali Cagatay',
-    description:
-      'Ali Cagatay\'ın katıldığı hackathonlar - aralarında, ekibinin Birmingham City Council için sesli yapay zekâ asistanı CouncilAgent\'ı geliştirip on beş üniversite takımı arasında üçüncü olduğu Microsoft Embrace Midlands Hackathon 2025 de var.',
-  },
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -66,11 +53,15 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({
+    locale: typedLocale,
+    namespace: 'hackathons.meta',
+  })
   return buildPageMetadata({
     locale: typedLocale,
     path: '/hackathons',
-    title: hackathonsCopy[typedLocale].title,
-    description: hackathonsCopy[typedLocale].description,
+    title: t('title'),
+    description: t('description'),
   })
 }
 

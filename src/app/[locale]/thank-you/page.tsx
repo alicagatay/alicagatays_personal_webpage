@@ -6,17 +6,6 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { buildPageMetadata } from '@/lib/metadata'
 import { routing, type Locale } from '@/i18n/routing'
 
-let thankYouCopy: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'You’re subscribed - Ali Cagatay',
-    description: 'Thanks for subscribing to my newsletter.',
-  },
-  tr: {
-    title: 'Aboneliğiniz tamamlandı - Ali Cagatay',
-    description: 'Bültenime abone olduğunuz için teşekkürler.',
-  },
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -25,11 +14,15 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({
+    locale: typedLocale,
+    namespace: 'thankYou.meta',
+  })
   let base = buildPageMetadata({
     locale: typedLocale,
     path: '/thank-you',
-    title: thankYouCopy[typedLocale].title,
-    description: thankYouCopy[typedLocale].description,
+    title: t('title'),
+    description: t('description'),
   })
   return {
     ...base,

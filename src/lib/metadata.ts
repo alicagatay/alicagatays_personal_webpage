@@ -5,7 +5,7 @@ import { locales, type Locale } from '@/i18n/routing'
 export type PageMetaInput = {
   locale: Locale
   path: string
-  title: string
+  title?: string
   description: string
   openGraphType?: 'website' | 'article' | 'profile'
 }
@@ -30,9 +30,10 @@ export function buildPageMetadata({
   let normalised = path === '/' ? '' : path
   let canonical = `/${locale}${normalised}`
   let alternates = buildAlternates(path)
+  let brandedTitle = title ? `${title} - Ali Cagatay` : undefined
 
   return {
-    title,
+    ...(title ? { title } : {}),
     description,
     alternates: {
       canonical,
@@ -40,7 +41,7 @@ export function buildPageMetadata({
     },
     openGraph: {
       type: openGraphType,
-      title,
+      ...(brandedTitle ? { title: brandedTitle } : {}),
       description,
       url: canonical,
       siteName: 'Ali Cagatay',
@@ -56,7 +57,7 @@ export function buildPageMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      ...(brandedTitle ? { title: brandedTitle } : {}),
       description,
       images: ['/opengraph-image'],
     },

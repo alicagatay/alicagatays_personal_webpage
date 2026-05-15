@@ -1,31 +1,12 @@
 import { type Metadata } from 'next'
 import { hasLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
 import Link from '@/components/Link'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { buildPageMetadata } from '@/lib/metadata'
 import { getAllWritings } from '@/lib/writings'
 import { routing, type Locale } from '@/i18n/routing'
-
-let writingsCopy: Record<
-  Locale,
-  { title: string; intro: string; description: string }
-> = {
-  en: {
-    title: 'Writings',
-    intro:
-      'A casual corner where I jot down whatever I’ve been thinking about - usually AI, software engineering, or a bit of tech news that caught my eye. Not a regular blog. I write when something feels worth sharing, which is occasionally rather than on a schedule.',
-    description:
-      'An occasional writing spot by Ali Cagatay - thoughts on AI, software engineering, and the odd bit of tech news. Not a regular blog; updated whenever something is worth sharing.',
-  },
-  tr: {
-    title: 'Yazılar',
-    intro:
-      'Aklımdan geçenleri yazdığım rahat bir köşe - genellikle yapay zekâ, yazılım mühendisliği ya da dikkatimi çeken birkaç teknoloji haberi üzerine. Düzenli bir blog değil. Paylaşmaya değer bir şey olduğunda yazıyorum, yani sık sık değil.',
-    description:
-      'Ali Cagatay\'ın ara sıra yazdığı bir köşe - yapay zekâ, yazılım mühendisliği ve teknoloji üzerine düşünceler. Düzenli bir blog değil; paylaşmaya değer bir şey olduğunda güncellenir.',
-  },
-}
 
 export async function generateMetadata({
   params,
@@ -35,11 +16,15 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({
+    locale: typedLocale,
+    namespace: 'writings.meta',
+  })
   return buildPageMetadata({
     locale: typedLocale,
     path: '/writings',
-    title: `${writingsCopy[typedLocale].title} - Ali Cagatay`,
-    description: writingsCopy[typedLocale].description,
+    title: t('title'),
+    description: t('description'),
   })
 }
 
@@ -57,13 +42,11 @@ export default async function Writings({
 }) {
   let { locale } = await params
   let typedLocale = locale as Locale
+  let t = await getTranslations({ locale: typedLocale, namespace: 'writings' })
   let writings = await getAllWritings()
 
   return (
-    <SimpleLayout
-      title={writingsCopy[typedLocale].title}
-      intro={writingsCopy[typedLocale].intro}
-    >
+    <SimpleLayout title={t('title')} intro={t('intro')}>
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">
           {writings.map((writing) => (
@@ -95,7 +78,7 @@ export default async function Writings({
                   href={`/writings/${writing.slug}`}
                   className="relative z-20 mt-4 flex items-center text-sm font-medium text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400"
                 >
-                  {typedLocale === 'tr' ? 'Devamı' : 'Read more'}
+                  {t('readMore')}
                 </Link>
               </div>
               <time

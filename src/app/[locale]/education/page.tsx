@@ -45,19 +45,6 @@ function Appearance({
   )
 }
 
-let educationCopy: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'Education - Ali Cagatay',
-    description:
-      'Education history of Ali Cagatay: MSc Artificial Intelligence (Distinction track) at Birmingham City University and BSc Computer Science at the University of Birmingham, with dissertation on multimodal deep learning for property price prediction.',
-  },
-  tr: {
-    title: 'Eğitim - Ali Cagatay',
-    description:
-      'Ali Cagatay\'ın eğitim geçmişi: Birmingham City University\'de Yapay Zekâ yüksek lisansı (Distinction yolunda) ve Birmingham Üniversitesi\'nde Bilgisayar Bilimi lisansı. Bitirme tezi: mülk fiyat tahmini için multimodal derin öğrenme.',
-  },
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -66,11 +53,15 @@ export async function generateMetadata({
   let { locale } = await params
   if (!hasLocale(routing.locales, locale)) return {}
   let typedLocale = locale as Locale
+  let t = await getTranslations({
+    locale: typedLocale,
+    namespace: 'education.meta',
+  })
   return buildPageMetadata({
     locale: typedLocale,
     path: '/education',
-    title: educationCopy[typedLocale].title,
-    description: educationCopy[typedLocale].description,
+    title: t('title'),
+    description: t('description'),
   })
 }
 
