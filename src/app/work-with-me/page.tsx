@@ -18,7 +18,7 @@ export default function WorkWithMe() {
       <div className="flex justify-center">
         <Link
           href="https://calendar.app.google/kp9sapugpyAugvnQA"
-          className="inline-flex items-center rounded-md border border-transparent bg-teal-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+          className="inline-flex items-center rounded-md border border-transparent bg-teal-700 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
         >
           Schedule a meeting with me.
         </Link>
