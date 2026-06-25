@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from '@/components/Link'
-import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import {
@@ -15,8 +14,43 @@ import {
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 import avatarImage from '@/images/avatar.jpg'
+
+type NavLinkItem = { href: string; label: string }
+
+const navItems: NavLinkItem[] = [
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/writings', label: 'Writings' },
+  { href: '/education', label: 'Education' },
+  { href: '/work', label: 'Work' },
+  { href: '/hackathons', label: 'Hackathons' },
+  { href: '/gear', label: 'Gear' },
+  { href: '/work-with-me', label: 'Work With Me' },
+]
+
+// Run the priority+ measurement synchronously before paint on the client (so the
+// nav never flashes overflowing), while degrading to useEffect during SSR.
+let useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+
+// True on devices with a real pointer (mouse/trackpad) where hover is meaningful;
+// false on touch devices (phones/tablets), where we keep tap-to-open.
+function useCanHover() {
+  let [canHover, setCanHover] = useState(false)
+
+  useEffect(() => {
+    let mq = window.matchMedia('(hover: hover) and (pointer: fine)')
+    function update() {
+      setCanHover(mq.matches)
+    }
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  return canHover
+}
 
 function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -98,48 +132,76 @@ function MobileNavItem({
 function MobileNavigation(
   props: React.ComponentPropsWithoutRef<typeof Popover>,
 ) {
-  let t = useTranslations('common')
+  let canHover = useCanHover()
+  let buttonRef = useRef<HTMLButtonElement>(null)
+  let closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(
+    () => () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current)
+    },
+    [],
+  )
 
   return (
     <Popover {...props}>
-      <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-        {t('menu')}
-        <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
-      </PopoverButton>
-      <PopoverOverlay
-        transition
-        className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm transition duration-150 ease-out data-[closed]:opacity-0 dark:bg-black/80"
-      />
-      <PopoverPanel
-        transition
-        focus
-        className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 transition duration-150 ease-out data-[closed]:scale-95 data-[closed]:opacity-0 dark:bg-zinc-900 dark:ring-zinc-800"
-      >
-        <div className="flex flex-row-reverse items-center justify-between">
-          <PopoverButton aria-label={t('closeMenu')} className="-m-1 p-1">
-            <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
-          </PopoverButton>
-          <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-            {t('navigation')}
-          </h2>
-        </div>
-        <nav className="mt-6">
-          <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-            <MobileNavItem href="/about">{t('nav.about')}</MobileNavItem>
-            <MobileNavItem href="/projects">{t('nav.projects')}</MobileNavItem>
-            <MobileNavItem href="/writings">{t('nav.writings')}</MobileNavItem>
-            <MobileNavItem href="/education">
-              {t('nav.education')}
-            </MobileNavItem>
-            <MobileNavItem href="/work">{t('nav.work')}</MobileNavItem>
-            <MobileNavItem href="/hackathons">
-              {t('nav.hackathons')}
-            </MobileNavItem>
-            <MobileNavItem href="/gear">{t('nav.gear')}</MobileNavItem>
-            {/* <MobileNavItem href="/work-with-me">Work With Me</MobileNavItem> */}
-          </ul>
-        </nav>
-      </PopoverPanel>
+      {({ open, close }) => {
+        function cancelClose() {
+          if (closeTimer.current) clearTimeout(closeTimer.current)
+        }
+        function openOnHover() {
+          if (!canHover) return
+          cancelClose()
+          if (!open) buttonRef.current?.click()
+        }
+        function scheduleClose() {
+          if (!canHover) return
+          cancelClose()
+          closeTimer.current = setTimeout(() => close(), 150)
+        }
+        return (
+          <>
+            <PopoverButton
+              ref={buttonRef}
+              onMouseEnter={openOnHover}
+              onMouseLeave={scheduleClose}
+              className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+            >
+              Menu
+              <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
+            </PopoverButton>
+            <PopoverOverlay
+              transition
+              className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm transition duration-150 ease-out data-[closed]:opacity-0 dark:bg-black/80"
+            />
+            <PopoverPanel
+              transition
+              focus
+              onMouseEnter={cancelClose}
+              onMouseLeave={scheduleClose}
+              className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 transition duration-150 ease-out data-[closed]:scale-95 data-[closed]:opacity-0 dark:bg-zinc-900 dark:ring-zinc-800"
+            >
+              <div className="flex flex-row-reverse items-center justify-between">
+                <PopoverButton aria-label="Close menu" className="-m-1 p-1">
+                  <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
+                </PopoverButton>
+                <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                  Navigation
+                </h2>
+              </div>
+              <nav className="mt-6">
+                <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+                  {navItems.map((item) => (
+                    <MobileNavItem key={item.href} href={item.href}>
+                      {item.label}
+                    </MobileNavItem>
+                  ))}
+                </ul>
+              </nav>
+            </PopoverPanel>
+          </>
+        )
+      }}
     </Popover>
   )
 }
@@ -152,15 +214,14 @@ function NavItem({
   children: React.ReactNode
 }) {
   let pathname = usePathname()
-  let locale = useLocale()
-  let isActive = pathname === `/${locale}${href === '/' ? '' : href}`
+  let isActive = pathname === href
 
   return (
     <li>
       <Link
         href={href}
         className={clsx(
-          'relative block px-3 py-2 transition',
+          'relative block whitespace-nowrap px-3 py-2 transition',
           isActive
             ? 'text-teal-500 dark:text-teal-400'
             : 'hover:text-teal-500 dark:hover:text-teal-400',
@@ -175,27 +236,177 @@ function NavItem({
   )
 }
 
-function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
-  let t = useTranslations('common')
+// The overflow "More" dropdown: holds the nav links that don't fit inline.
+// Opens on hover for pointer devices; stays tap-to-open on touch.
+function MoreMenu({ items }: { items: NavLinkItem[] }) {
+  let pathname = usePathname()
+  let canHover = useCanHover()
+  let hasActive = items.some((item) => pathname === item.href)
+  let buttonRef = useRef<HTMLButtonElement>(null)
+  let closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(
+    () => () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current)
+    },
+    [],
+  )
 
   return (
-    <nav {...props}>
-      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="/about">{t('nav.about')}</NavItem>
-        <NavItem href="/projects">{t('nav.projects')}</NavItem>
-        <NavItem href="/writings">{t('nav.writings')}</NavItem>
-        <NavItem href="/education">{t('nav.education')}</NavItem>
-        <NavItem href="/work">{t('nav.work')}</NavItem>
-        <NavItem href="/hackathons">{t('nav.hackathons')}</NavItem>
-        <NavItem href="/gear">{t('nav.gear')}</NavItem>
-        {/* <NavItem href="/work-with-me">Work With Me</NavItem> */}
+    <li>
+      <Popover className="relative">
+        {({ open, close }) => {
+          function handleEnter() {
+            if (!canHover) return
+            if (closeTimer.current) clearTimeout(closeTimer.current)
+            if (!open) buttonRef.current?.click()
+          }
+          function handleLeave() {
+            if (!canHover) return
+            if (closeTimer.current) clearTimeout(closeTimer.current)
+            closeTimer.current = setTimeout(() => close(), 120)
+          }
+          return (
+            <div onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+              <PopoverButton
+                ref={buttonRef}
+                className={clsx(
+                  'group flex items-center gap-1 whitespace-nowrap px-3 py-2 transition focus:outline-none',
+                  hasActive
+                    ? 'text-teal-500 dark:text-teal-400'
+                    : 'hover:text-teal-500 dark:hover:text-teal-400',
+                )}
+              >
+                More
+                <ChevronDownIcon className="h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
+              </PopoverButton>
+              <PopoverPanel
+                transition
+                className="absolute right-0 top-full z-50 mt-2 w-44 rounded-2xl bg-white/95 p-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition duration-150 ease-out data-[closed]:translate-y-1 data-[closed]:opacity-0 dark:bg-zinc-800/95 dark:ring-white/10"
+              >
+                <ul className="space-y-1">
+                  {items.map((item) => {
+                    let isActive = pathname === item.href
+                    return (
+                      <li key={item.href}>
+                        <PopoverButton
+                          as={Link}
+                          href={item.href}
+                          className={clsx(
+                            'block rounded-lg px-3 py-1.5 text-sm transition',
+                            isActive
+                              ? 'bg-teal-50 text-teal-700 dark:bg-teal-500/10 dark:text-teal-300'
+                              : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-700/50',
+                          )}
+                        >
+                          {item.label}
+                        </PopoverButton>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </PopoverPanel>
+            </div>
+          )
+        }}
+      </Popover>
+    </li>
+  )
+}
+
+// Priority+ navigation: shows as many links as fit on one line and tucks the
+// overflow behind a "More" dropdown, recomputing as the available width changes.
+function DesktopNavigation({ className }: { className?: string }) {
+  let containerRef = useRef<HTMLDivElement>(null)
+  let measureRef = useRef<HTMLUListElement>(null)
+  let [visibleCount, setVisibleCount] = useState(navItems.length)
+
+  useIsomorphicLayoutEffect(() => {
+    let container = containerRef.current
+    let measure = measureRef.current
+    if (!container || !measure) return
+
+    function recompute() {
+      if (!container || !measure) return
+      if (container.clientWidth === 0) return // hidden (mobile breakpoint)
+
+      let itemEls = Array.from(
+        measure.querySelectorAll<HTMLElement>('[data-nav-item]'),
+      )
+      let moreEl = measure.querySelector<HTMLElement>('[data-nav-more]')
+      let widths = itemEls.map((el) => el.offsetWidth)
+      let moreWidth = moreEl ? moreEl.offsetWidth : 0
+      // Reserve the pill's horizontal padding (px-3 -> 24px) plus a small buffer.
+      let budget = container.clientWidth - 24 - 8
+
+      let total = widths.reduce((sum, w) => sum + w, 0)
+      if (total <= budget) {
+        setVisibleCount(navItems.length)
+        return
+      }
+
+      let used = moreWidth
+      let count = 0
+      for (let w of widths) {
+        if (used + w <= budget) {
+          used += w
+          count += 1
+        } else {
+          break
+        }
+      }
+      setVisibleCount(count)
+    }
+
+    recompute()
+    let observer = new ResizeObserver(recompute)
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
+
+  let visible = navItems.slice(0, visibleCount)
+  let overflow = navItems.slice(visibleCount)
+
+  return (
+    <div
+      ref={containerRef}
+      className={clsx('relative justify-center', className)}
+    >
+      {/* Hidden measurement row: always holds every item + the More button so we
+          can read their natural widths regardless of what is currently shown. */}
+      <ul
+        ref={measureRef}
+        aria-hidden="true"
+        className="pointer-events-none invisible absolute left-0 top-0 flex px-3 text-sm font-medium"
+      >
+        {navItems.map((item) => (
+          <li key={item.href} data-nav-item>
+            <span className="block whitespace-nowrap px-3 py-2">
+              {item.label}
+            </span>
+          </li>
+        ))}
+        <li data-nav-more>
+          <span className="flex items-center gap-1 px-3 py-2">
+            More
+            <span className="block w-2" />
+          </span>
+        </li>
       </ul>
-    </nav>
+
+      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+        {visible.map((item) => (
+          <NavItem key={item.href} href={item.href}>
+            {item.label}
+          </NavItem>
+        ))}
+        {overflow.length > 0 && <MoreMenu items={overflow} />}
+      </ul>
+    </div>
   )
 }
 
 function ThemeToggle() {
-  let t = useTranslations('common')
   let { resolvedTheme, setTheme } = useTheme()
   let otherTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
   let [mounted, setMounted] = useState(false)
@@ -208,11 +419,7 @@ function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label={
-        mounted
-          ? t('theme.switchTo', { theme: t(`theme.${otherTheme}`) })
-          : t('theme.toggle')
-      }
+      aria-label={mounted ? `Switch to ${otherTheme} theme` : 'Toggle theme'}
       className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
       onClick={() => setTheme(otherTheme)}
     >
@@ -250,12 +457,10 @@ function Avatar({
 }: Omit<React.ComponentPropsWithoutRef<typeof Link>, 'href'> & {
   large?: boolean
 }) {
-  let t = useTranslations('common')
-
   return (
     <Link
       href="/"
-      aria-label={t('home')}
+      aria-label="Home"
       className={clsx(className, 'pointer-events-auto')}
       {...props}
     >
@@ -275,8 +480,7 @@ function Avatar({
 
 export function Header() {
   let pathname = usePathname()
-  let locale = useLocale()
-  let isHomePage = pathname === `/${locale}`
+  let isHomePage = pathname === '/'
 
   let headerRef = useRef<React.ElementRef<'div'>>(null)
   let avatarRef = useRef<React.ElementRef<'div'>>(null)
@@ -445,20 +649,19 @@ export function Header() {
             }}
           >
             <div className="relative flex gap-4">
-              <div className="flex flex-1">
+              <div className="flex flex-none">
                 {!isHomePage && (
                   <AvatarContainer>
                     <Avatar />
                   </AvatarContainer>
                 )}
               </div>
-              <div className="flex flex-1 justify-end md:justify-center">
+              <div className="flex min-w-0 flex-1 justify-end">
                 <MobileNavigation className="pointer-events-auto md:hidden" />
-                <DesktopNavigation className="pointer-events-auto hidden md:block" />
+                <DesktopNavigation className="pointer-events-auto hidden w-full md:flex" />
               </div>
-              <div className="flex justify-end md:flex-1">
+              <div className="flex flex-none justify-end">
                 <div className="pointer-events-auto flex items-center gap-4">
-                  <LanguageSwitcher />
                   <ThemeToggle />
                 </div>
               </div>
