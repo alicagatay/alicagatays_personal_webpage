@@ -1,41 +1,59 @@
-import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from '@/components/Link'
-import { hasLocale } from 'next-intl'
-import { getTranslations } from 'next-intl/server'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { buildPageMetadata } from '@/lib/metadata'
-import { routing, type Locale } from '@/i18n/routing'
 import logoBoardOfDirectors from '@/images/logos/board-of-directors.svg'
 import logoTimer from '@/images/logos/timer.svg'
 import logoMetronome from '@/images/logos/metronome.svg'
 import logoM from '@/images/logos/letter-m.svg'
 
+export const metadata = buildPageMetadata({
+  path: '/projects',
+  title: 'Projects',
+  description:
+    'Side projects by Ali Cagatay: a multi-agent RAG over 484 YouTube transcripts (Board of Directors RAG), a minimal CRM for small businesses (Micro Marketing Assistant), a Pomodoro Focus Timer, and a Metronome web app.',
+})
+
 const projects = [
   {
-    id: 'boardOfDirectors',
+    name: 'Board of Directors RAG',
+    description:
+      'A retrieval-augmented generation system built from transcripts of business and lifestyle YouTubers, letting you ask questions and get answers grounded in what those creators have actually said in their videos previously.',
     websiteHref: 'https://board-of-directors-rag.vercel.app/',
+    websiteLabel: 'Project Website',
     githubHref: 'https://github.com/alicagatay/board-of-directors-rag',
+    githubLabel: 'GitHub Repo',
     logo: logoBoardOfDirectors,
   },
   {
-    id: 'microMarketingAssistant',
+    name: 'Micro Marketing Assistant',
+    description:
+      'Micro Marketing Assistant is a minimal and fast CRM tool for small businesses and business people that helps them manage and track the products they are selling or trying to sell and to whom they are selling the product into.',
     websiteHref: 'https://www.micro-marketing-assistant.com/',
+    websiteLabel: 'Project Website',
     githubHref: 'https://github.com/alicagatay/micro-marketing-assistant',
+    githubLabel: 'GitHub Repo',
     logo: logoM,
   },
   {
-    id: 'focusTimer',
+    name: 'Focus Timer',
+    description:
+      'A simple web application with a clean user interface where you can set a timer for your work and break sessions.',
     websiteHref: 'https://focus-timer-sandy.vercel.app/',
+    websiteLabel: 'Project Website',
     githubHref: 'https://github.com/alicagatay/micro-marketing-assistant',
+    githubLabel: 'GitHub Repo',
     logo: logoTimer,
   },
   {
-    id: 'metronome',
+    name: 'Metronome',
+    description: 'Coming soon.',
     websiteHref: '/projects',
+    websiteLabel: 'Project Website',
     githubHref: undefined,
+    githubLabel: undefined,
     logo: logoMetronome,
   },
 ] as const
@@ -51,42 +69,23 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
-  let { locale } = await params
-  if (!hasLocale(routing.locales, locale)) return {}
-  let typedLocale = locale as Locale
-  let t = await getTranslations({
-    locale: typedLocale,
-    namespace: 'projects.meta',
-  })
-  return buildPageMetadata({
-    locale: typedLocale,
-    path: '/projects',
-    title: t('title'),
-    description: t('description'),
-  })
-}
-
-export default async function Projects() {
-  let t = await getTranslations('projects')
-
+export default function Projects() {
   return (
-    <SimpleLayout title={t('title')} intro={t('intro')}>
+    <SimpleLayout
+      title="Things I’ve made trying to put my dent in the universe."
+      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+    >
       <ul
         role="list"
         className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
         {projects.map((project) => (
-          <Card as="li" key={project.id}>
+          <Card as="li" key={project.name}>
             <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 rounded-2xl bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6" />
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image
                 src={project.logo}
-                alt={`${t(`items.${project.id}.name`)} logo`}
+                alt={`${project.name} logo`}
                 className="h-8 w-8"
                 unoptimized
               />
@@ -97,12 +96,10 @@ export default async function Projects() {
                 overlay={false}
                 className="transition group-hover:text-teal-500 dark:group-hover:text-teal-400"
               >
-                {t(`items.${project.id}.name`)}
+                {project.name}
               </Card.Link>
             </h2>
-            <Card.Description>
-              {t(`items.${project.id}.description`)}
-            </Card.Description>
+            <Card.Description>{project.description}</Card.Description>
             <div className="relative z-10 mt-6 flex flex-col gap-3 text-sm font-medium">
               {project.websiteHref ? (
                 <Link
@@ -110,9 +107,7 @@ export default async function Projects() {
                   className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
-                  <span className="ml-2">
-                    {t(`items.${project.id}.websiteLabel`)}
-                  </span>
+                  <span className="ml-2">{project.websiteLabel}</span>
                 </Link>
               ) : null}
               {project.githubHref ? (
@@ -121,9 +116,7 @@ export default async function Projects() {
                   className="inline-flex items-center rounded-full border border-zinc-200 px-3 py-1 text-zinc-700 transition hover:text-teal-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:text-teal-400"
                 >
                   <LinkIcon className="h-5 w-5 flex-none" />
-                  <span className="ml-2">
-                    {t(`items.${project.id}.githubLabel`)}
-                  </span>
+                  <span className="ml-2">{project.githubLabel}</span>
                 </Link>
               ) : null}
             </div>

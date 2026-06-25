@@ -27,7 +27,7 @@ export async function GET() {
   })
 
   for (let writing of writings) {
-    let postUrl = `${siteUrl}/en/writings/${writing.slug}`
+    let postUrl = `${siteUrl}/writings/${writing.slug}`
     feed.addItem({
       title: writing.frontmatter.title,
       id: postUrl,

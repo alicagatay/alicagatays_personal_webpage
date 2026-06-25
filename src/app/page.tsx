@@ -1,8 +1,5 @@
-import { type Metadata } from 'next'
 import Image from 'next/image'
 import clsx from 'clsx'
-import { hasLocale } from 'next-intl'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import Link from '@/components/Link'
 import { Container } from '@/components/Container'
@@ -14,7 +11,6 @@ import {
 } from '@/components/SocialIcons'
 import { buildPageMetadata } from '@/lib/metadata'
 import { getSiteUrl } from '@/lib/site-url'
-import { routing, type Locale } from '@/i18n/routing'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -22,6 +18,23 @@ import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
 
 let siteUrl = getSiteUrl()
+
+let metaDescription =
+  'I am Ali Cagatay, an AI engineer in Birmingham specialising in deep learning, computer vision, agentic systems, and full-stack software engineering. I take research-grade AI from notebook to production.'
+
+let photoAlts = [
+  'Ali Cagatay working on a laptop',
+  'Ali Cagatay with teammates at a hackathon',
+  'Ali Cagatay presenting at a tech event',
+  'Ali Cagatay at the University of Birmingham',
+  'Ali Cagatay enjoying a moment outdoors',
+]
+
+export const metadata = buildPageMetadata({
+  path: '/',
+  description: metaDescription,
+  openGraphType: 'profile',
+})
 
 function SocialLink({
   icon: Icon,
@@ -64,108 +77,86 @@ function Photos({ alts }: { alts: string[] }) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
-  let { locale } = await params
-  if (!hasLocale(routing.locales, locale)) return {}
-  let typedLocale = locale as Locale
-  let t = await getTranslations({ locale: typedLocale, namespace: 'home.meta' })
-  return buildPageMetadata({
-    locale: typedLocale,
-    path: '/',
-    description: t('description'),
-    openGraphType: 'profile',
-  })
+let personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Ali Cagatay',
+    givenName: 'Ali',
+    familyName: 'Cagatay',
+    jobTitle: 'AI Engineer',
+    description: metaDescription,
+    image: `${siteUrl}/opengraph-image`,
+    url: siteUrl,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Birmingham',
+      addressCountry: 'GB',
+    },
+    alumniOf: [
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Birmingham City University',
+        url: 'https://www.bcu.ac.uk/',
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'University of Birmingham',
+        url: 'https://www.birmingham.ac.uk/',
+      },
+    ],
+    knowsAbout: [
+      'Artificial Intelligence',
+      'Deep Learning',
+      'Computer Vision',
+      'Machine Learning',
+      'Agentic Systems',
+      'Full-stack Software Engineering',
+      'Retrieval-Augmented Generation',
+      'Multimodal AI',
+    ],
+    sameAs: [
+      'https://github.com/alicagatay',
+      'https://www.linkedin.com/in/alicagatay/',
+      'https://www.instagram.com/_alicagatay/',
+    ],
+  },
 }
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}) {
-  let { locale } = await params
-  setRequestLocale(locale)
-
-  let tHome = await getTranslations('home')
-  let tCommon = await getTranslations('common')
-
-  let photoAlts = tHome.raw('photoAlts') as string[]
-
-  let personSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfilePage',
-    mainEntity: {
-      '@type': 'Person',
-      name: 'Ali Cagatay',
-      givenName: 'Ali',
-      familyName: 'Cagatay',
-      jobTitle: 'AI Engineer',
-      description: tHome('meta.description'),
-      image: `${siteUrl}/opengraph-image`,
-      url: `${siteUrl}/${locale}`,
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Birmingham',
-        addressCountry: 'GB',
-      },
-      alumniOf: [
-        {
-          '@type': 'CollegeOrUniversity',
-          name: 'Birmingham City University',
-          url: 'https://www.bcu.ac.uk/',
-        },
-        {
-          '@type': 'CollegeOrUniversity',
-          name: 'University of Birmingham',
-          url: 'https://www.birmingham.ac.uk/',
-        },
-      ],
-      knowsAbout: [
-        'Artificial Intelligence',
-        'Deep Learning',
-        'Computer Vision',
-        'Machine Learning',
-        'Agentic Systems',
-        'Full-stack Software Engineering',
-        'Retrieval-Augmented Generation',
-        'Multimodal AI',
-      ],
-      sameAs: [
-        'https://github.com/alicagatay',
-        'https://www.linkedin.com/in/alicagatay/',
-        'https://www.instagram.com/_alicagatay/',
-      ],
-    },
-  }
-
+export default function Home() {
   return (
     <>
       <JsonLd id="schema-person" data={personSchema} />
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            {tHome('title')}
+            Hi, I’m Ali! I’m an AI engineer building intelligent systems and
+            full-stack software products.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            {tHome('intro')}
+            I am an AI engineer specialising in deep learning, computer vision,
+            agentic systems, and full-stack software development. I integrate
+            artificial intelligence with full-stack software engineering to
+            create scalable and reliable end-to-end products that make a real
+            impact. I thrive on taking complex ideas from research to
+            production, shaping them into well-crafted, reliable AI systems with
+            a focus on clarity, collaboration, and long-term value.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
               href="https://www.instagram.com/_alicagatay/"
-              aria-label={tCommon('social.instagram')}
+              aria-label="Follow on Instagram"
               icon={InstagramIcon}
             />
             <SocialLink
               href="https://github.com/alicagatay"
-              aria-label={tCommon('social.github')}
+              aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
               href="https://www.linkedin.com/in/alicagatay/"
-              aria-label={tCommon('social.linkedin')}
+              aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
           </div>

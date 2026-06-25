@@ -1,5 +1,4 @@
 import Link from '@/components/Link'
-import { getTranslations } from 'next-intl/server'
 
 import { ContainerInner, ContainerOuter } from '@/components/Container'
 
@@ -20,9 +19,7 @@ function NavLink({
   )
 }
 
-export async function Footer() {
-  let t = await getTranslations('common')
-
+export function Footer() {
   return (
     <footer className="mt-32 flex-none">
       <ContainerOuter>
@@ -30,17 +27,17 @@ export async function Footer() {
           <ContainerInner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                <NavLink href="/about">{t('nav.about')}</NavLink>
-                <NavLink href="/projects">{t('nav.projects')}</NavLink>
-                <NavLink href="/writings">{t('nav.writings')}</NavLink>
-                <NavLink href="/education">{t('nav.education')}</NavLink>
-                <NavLink href="/work">{t('nav.work')}</NavLink>
-                <NavLink href="/hackathons">{t('nav.hackathons')}</NavLink>
-                <NavLink href="/gear">{t('nav.gear')}</NavLink>
-                {/* <NavLink href="/work-with-me">Work With Me</NavLink> */}
+                <NavLink href="/about">About</NavLink>
+                <NavLink href="/projects">Projects</NavLink>
+                <NavLink href="/writings">Writings</NavLink>
+                <NavLink href="/education">Education</NavLink>
+                <NavLink href="/work">Work</NavLink>
+                <NavLink href="/hackathons">Hackathons</NavLink>
+                <NavLink href="/gear">Gear</NavLink>
+                <NavLink href="/work-with-me">Work With Me</NavLink>
               </div>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                {t('footer.copyright', { year: new Date().getFullYear() })}
+                © {new Date().getFullYear()} Ali Cagatay. All rights reserved.
               </p>
             </div>
           </ContainerInner>
