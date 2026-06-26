@@ -1,23 +1,28 @@
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
+import Link from '@/components/Link'
+import { Column } from '@/components/Column'
 
 export default function NotFound() {
   return (
-    <Container className="flex h-full items-center pt-16 sm:pt-32">
-      <div className="flex flex-col items-center">
-        <p className="text-base font-semibold text-zinc-500 dark:text-zinc-400">
+    <main className="pt-24 pb-32 sm:pt-32">
+      <Column>
+        <p className="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">
           404
         </p>
-        <h1 className="mt-4 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
           Page not found
         </h1>
-        <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-          Sorry, we couldn’t find the page you’re looking for.
+        <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
+          Sorry, I couldn&rsquo;t find that page.
         </p>
-        <Button href="/" variant="secondary" className="mt-4">
-          Go back home
-        </Button>
-      </div>
-    </Container>
+        <p className="mt-10 text-sm">
+          <Link
+            href="/"
+            className="text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
+          >
+            ← Back home
+          </Link>
+        </p>
+      </Column>
+    </main>
   )
 }

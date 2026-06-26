@@ -4,8 +4,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { Providers } from '@/app/providers'
 import { JsonLd } from '@/components/JsonLd'
-import { Layout } from '@/components/Layout'
 import { SuppressNextThemesScriptWarning } from '@/components/SuppressNextThemesScriptWarning'
+import { ThemeToggle } from '@/components/ThemeToggle'
 import { getSiteUrl } from '@/lib/site-url'
 
 import '@/styles/tailwind.css'
@@ -76,16 +76,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
-        className="flex h-full bg-zinc-50 dark:bg-black"
+        className="bg-paper text-zinc-900 antialiased dark:bg-ink dark:text-zinc-100"
         suppressHydrationWarning
       >
         <SuppressNextThemesScriptWarning />
         <Providers>
-          <div className="flex w-full">
-            <Layout>{children}</Layout>
-          </div>
+          <ThemeToggle />
+          {children}
           <Analytics />
           <SpeedInsights />
         </Providers>

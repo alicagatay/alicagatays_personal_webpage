@@ -1,34 +1,19 @@
-import Image from 'next/image'
-import clsx from 'clsx'
-
 import Link from '@/components/Link'
-import { Container } from '@/components/Container'
+import { Column } from '@/components/Column'
+import { Row } from '@/components/Row'
+import { Entry } from '@/components/Entry'
+import { LinkList, type LinkListItem } from '@/components/LinkList'
 import { JsonLd } from '@/components/JsonLd'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-} from '@/components/SocialIcons'
 import { buildPageMetadata } from '@/lib/metadata'
 import { getSiteUrl } from '@/lib/site-url'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
+import { getAllWritings } from '@/lib/writings'
 
 let siteUrl = getSiteUrl()
 
 let metaDescription =
   'I am Ali Cagatay, an AI engineer in Birmingham specialising in deep learning, computer vision, agentic systems, and full-stack software engineering. I take research-grade AI from notebook to production.'
 
-let photoAlts = [
-  'Ali Cagatay working on a laptop',
-  'Ali Cagatay with teammates at a hackathon',
-  'Ali Cagatay presenting at a tech event',
-  'Ali Cagatay at the University of Birmingham',
-  'Ali Cagatay enjoying a moment outdoors',
-]
+let calendarHref = 'https://calendar.app.google/kp9sapugpyAugvnQA'
 
 export const metadata = buildPageMetadata({
   path: '/',
@@ -36,46 +21,104 @@ export const metadata = buildPageMetadata({
   openGraphType: 'profile',
 })
 
-function SocialLink({
-  icon: Icon,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof Link> & {
-  icon: React.ComponentType<{ className?: string }>
-}) {
-  return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </Link>
-  )
-}
+let work = [
+  {
+    title: 'AI Engineering & Research Lead — Kollestee UK Global',
+    meta: '2026 — now',
+    href: 'https://kollestee.co.uk/',
+    linkLabel: 'kollestee.co.uk',
+    blurb:
+      'Architected Follicle Labeller (YOLO11 detection + keypoints with classical computer vision) to replace a licensed annotation platform — 80%+ accuracy on 2K–8K clinical imagery and real-time graft tracking through surgical video at 90%+, shipped to Windows, macOS and the browser from one codebase. Drives applied AI research and prototyping alongside the CTO and Product Owner.',
+  },
+  {
+    title: 'AI & Data Analytics Software Engineer — ProBuild360',
+    meta: '2025 — 2026',
+    href: 'https://www.probuild360.co.uk/',
+    linkLabel: 'probuild360.co.uk',
+    blurb:
+      'Refined production AI models and shipped them through GitHub Actions CI/CD, then built a cross-platform React Native app from an internal Next.js tool and kept feature parity across web and mobile for ~12 users. Added Jest and React Native Testing Library suites that cut bug reports ~12%, within a 6-person Agile team.',
+  },
+  {
+    title: 'Machine Learning Engineer Intern — Kollestee UK Global',
+    meta: '2024 — 2025',
+    href: 'https://kollestee.co.uk/',
+    linkLabel: 'kollestee.co.uk',
+    blurb:
+      'Built ML models for 3D point-cloud processing and integrated them into robotic systems with Python, TensorFlow and Open3D, improving system performance ~15%. Engineered data pipelines for large 3D and 2D datasets, raising model accuracy ~10% and inference speed ~25%.',
+  },
+  {
+    title: 'Volunteer Software Engineering Mentor — CodeYourFuture',
+    meta: '2020 — now',
+    href: 'https://codeyourfuture.io/',
+    linkLabel: 'codeyourfuture.io',
+    blurb:
+      'Mentor and lead/co-lead of Saturday classes across the Intro to Programming course — teaching JavaScript, Python, Git, Jest and SQL to career-changers with no prior coding experience, and reviewing their pull requests in class and through the week.',
+  },
+  {
+    title: 'Software Engineer Intern — Invitelecom',
+    meta: '2018',
+    blurb:
+      "Built and published an Android game, 'Predict The Number', to the Google Play Store in under a month.",
+  },
+]
 
-function Photos({ alts }: { alts: string[] }) {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
-  let images = [image1, image2, image3, image4, image5]
+let projects: LinkListItem[] = [
+  {
+    title: 'Board of Directors RAG',
+    href: 'https://board-of-directors-rag.vercel.app/',
+    secondary: {
+      label: 'code',
+      href: 'https://github.com/alicagatay/board-of-directors-rag',
+    },
+    blurb:
+      "A multi-agent RAG over 484 transcripts from 18 creators — ask a question and get answers grounded in what they've actually said.",
+  },
+  {
+    title: 'Micro Marketing Assistant',
+    href: 'https://www.micro-marketing-assistant.com/',
+    secondary: {
+      label: 'code',
+      href: 'https://github.com/alicagatay/micro-marketing-assistant',
+    },
+    blurb:
+      "A fast, minimal CRM that helps small businesses track what they're selling and who they're selling it to.",
+  },
+  {
+    title: 'Focus Timer',
+    href: 'https://focus-timer-sandy.vercel.app/',
+    secondary: {
+      label: 'code',
+      href: 'https://github.com/alicagatay/focus-timer',
+    },
+    blurb: 'A clean Pomodoro timer for work and break sessions.',
+  },
+]
 
-  return (
-    <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {images.map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length],
-            )}
-          >
-            <Image
-              src={image}
-              alt={alts[imageIndex] ?? 'Ali Cagatay'}
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
+let education = [
+  {
+    title: 'MSc Artificial Intelligence — Birmingham City University',
+    meta: '2024 — now · Distinction track',
+    href: 'https://www.bcu.ac.uk/',
+    linkLabel: 'bcu.ac.uk',
+    blurb:
+      'Deep learning, applied AI and data visualisation. Dissertation with ProBuild360: multimodal deep learning for Birmingham house-price prediction, fusing geospatial and temporal data.',
+  },
+  {
+    title: 'BSc Computer Science — University of Birmingham',
+    meta: '2019 — 2022',
+    href: 'https://www.birmingham.ac.uk/',
+    linkLabel: 'birmingham.ac.uk',
+    blurb:
+      'Software engineering, data structures & algorithms, and intro AI (machine learning, neural computation, computer vision). Final-year project: an NLP and neural-network mobile app that recommends workouts.',
+  },
+]
+
+let social = [
+  { label: 'GitHub', href: 'https://github.com/alicagatay' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alicagatay/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/_alicagatay/' },
+  { label: 'Email', href: 'mailto:aliccagatay@gmail.com' },
+]
 
 let personSchema = {
   '@context': 'https://schema.org',
@@ -93,6 +136,11 @@ let personSchema = {
       '@type': 'PostalAddress',
       addressLocality: 'Birmingham',
       addressCountry: 'GB',
+    },
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Kollestee UK Global',
+      url: 'https://kollestee.co.uk/',
     },
     alumniOf: [
       {
@@ -124,45 +172,140 @@ let personSchema = {
   },
 }
 
-export default function Home() {
+let plainLink =
+  'underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 hover:decoration-teal-700 dark:decoration-zinc-600 dark:hover:text-teal-400 dark:hover:decoration-teal-400'
+
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'short',
+  })
+}
+
+export default async function Home() {
+  let writings = (await getAllWritings()).slice(0, 3)
+
+  let writingItems: LinkListItem[] = writings.map((writing) => ({
+    title: writing.frontmatter.title,
+    href: `/writings/${writing.slug}`,
+    meta: formatDate(writing.frontmatter.date),
+    blurb: writing.frontmatter.description,
+  }))
+
   return (
-    <>
+    <main className="pt-24 pb-32 sm:pt-32">
       <JsonLd id="schema-person" data={personSchema} />
-      <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Hi, I’m Ali! I’m an AI engineer building intelligent systems and
-            full-stack software products.
+      <Column>
+        <header>
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Ali Cagatay
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I am an AI engineer specialising in deep learning, computer vision,
-            agentic systems, and full-stack software development. I integrate
-            artificial intelligence with full-stack software engineering to
-            create scalable and reliable end-to-end products that make a real
-            impact. I thrive on taking complex ideas from research to
-            production, shaping them into well-crafted, reliable AI systems with
-            a focus on clarity, collaboration, and long-term value.
+          <p className="mt-2 text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">
+            AI Engineer · Software Builder · Founder
           </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://www.instagram.com/_alicagatay/"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com/alicagatay"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/in/alicagatay/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
-          </div>
+          <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
+            I build AI systems and ship them as real products — currently AI
+            Engineering &amp; Research Lead at Kollestee, where I built Follicle
+            Labeller, a cross-platform medical-imaging tool. Before that,
+            computer vision and ML across two startups, an MSc in AI, and five
+            years mentoring at CodeYourFuture.
+          </p>
+        </header>
+
+        <div className="mt-16 space-y-14 sm:mt-20">
+          <Row label="Work" id="work">
+            <div className="space-y-8">
+              {work.map((entry) => (
+                <Entry
+                  key={entry.title}
+                  title={entry.title}
+                  meta={entry.meta}
+                  href={entry.href}
+                  linkLabel={entry.linkLabel}
+                >
+                  {entry.blurb}
+                </Entry>
+              ))}
+            </div>
+          </Row>
+
+          <Row label="Projects" id="projects">
+            <LinkList items={projects} />
+          </Row>
+
+          <Row label="Education" id="education">
+            <div className="space-y-8">
+              {education.map((entry) => (
+                <Entry
+                  key={entry.title}
+                  title={entry.title}
+                  meta={entry.meta}
+                  href={entry.href}
+                  linkLabel={entry.linkLabel}
+                >
+                  {entry.blurb}
+                </Entry>
+              ))}
+            </div>
+          </Row>
+
+          <Row label="Recognition">
+            <Entry
+              title="Microsoft Embrace Midlands Hackathon — 3rd of 15 teams"
+              meta="2025"
+              href="https://github.com/alicagatay/embrace-hackathon-challenge/"
+              linkLabel="repo"
+            >
+              Built CouncilAgent, a voice AI assistant that helps Birmingham
+              residents access housing information, in 5 hours with a 5-person
+              team — Flutter, FastAPI, Azure OpenAI and Whisper.
+            </Entry>
+          </Row>
+
+          <Row label="Writing">
+            {writingItems.length > 0 ? (
+              <LinkList items={writingItems} />
+            ) : (
+              <p className="text-zinc-600 dark:text-zinc-400">
+                <Link href="/writings" className={plainLink}>
+                  Occasional notes on AI and software engineering ↗
+                </Link>
+              </p>
+            )}
+          </Row>
+
+          <Row label="Elsewhere">
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-zinc-600 dark:text-zinc-400">
+              {social.map((item, index) => (
+                <span key={item.label} className="flex items-center gap-x-3">
+                  {index > 0 ? (
+                    <span aria-hidden className="text-zinc-300 dark:text-zinc-600">
+                      ·
+                    </span>
+                  ) : null}
+                  <Link href={item.href} className={plainLink}>
+                    {item.label}
+                  </Link>
+                </span>
+              ))}
+            </p>
+          </Row>
+
+          <Row label="Work with me" id="contact">
+            <p className="text-zinc-600 dark:text-zinc-400">
+              I take on focused builds — MVPs, AI features, and mobile or web
+              apps. If that sounds like you, tell me a bit about the project and
+              let&rsquo;s talk.
+            </p>
+            <Link
+              href={calendarHref}
+              className="mt-4 inline-flex items-center rounded-md bg-teal-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 focus:ring-offset-paper dark:focus:ring-offset-ink"
+            >
+              Book a call ↗
+            </Link>
+          </Row>
         </div>
-      </Container>
-      <Photos alts={photoAlts} />
-    </>
+      </Column>
+    </main>
   )
 }
