@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       'Personal site of Ali Cagatay, AI engineer in Birmingham specialising in deep learning, computer vision, and agentic systems.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#000000',
-    theme_color: '#18181b',
+    background_color: '#f4f3ee',
+    theme_color: '#f4f3ee',
     icons: [
       {
         src: '/favicon.ico',
