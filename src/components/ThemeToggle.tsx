@@ -41,7 +41,7 @@ function MoonIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-// A single, quiet theme toggle pinned to the top-right corner — the only
+// A single, quiet theme toggle pinned to the top-right corner - the only
 // chrome on the page.
 export function ThemeToggle() {
   let { resolvedTheme, setTheme } = useTheme()
@@ -58,7 +58,7 @@ export function ThemeToggle() {
       type="button"
       aria-label={mounted ? `Switch to ${otherTheme} theme` : 'Toggle theme'}
       onClick={() => setTheme(otherTheme)}
-      className="fixed right-4 top-4 z-50 rounded-full p-2 text-zinc-400 transition hover:text-zinc-700 sm:right-6 sm:top-6 dark:text-zinc-500 dark:hover:text-zinc-200"
+      className="fixed right-4 top-4 z-50 rounded-full p-2 text-zinc-400 transition hover:text-zinc-700 dark:text-zinc-500 dark:hover:text-zinc-200 sm:right-6 sm:top-6"
     >
       <SunIcon className="h-5 w-5 stroke-current dark:hidden" />
       <MoonIcon className="hidden h-5 w-5 stroke-current dark:block" />

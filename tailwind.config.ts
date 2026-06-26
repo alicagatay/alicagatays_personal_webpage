@@ -11,7 +11,7 @@ export default {
     extend: {
       colors: {
         // Warm "paper" cream for light mode and a warm near-black "ink" for
-        // dark mode — the single biggest cue of the minimalist redesign.
+        // dark mode - the single biggest cue of the minimalist redesign.
         paper: '#f4f3ee',
         ink: '#16150f',
       },
