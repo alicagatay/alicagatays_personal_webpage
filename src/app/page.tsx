@@ -23,39 +23,39 @@ export const metadata = buildPageMetadata({
 
 let work = [
   {
-    title: 'AI Engineering & Research Lead — Kollestee UK Global',
-    meta: '2026 — now',
+    title: 'AI Engineering & Research Lead - Kollestee UK Global',
+    meta: '2026 - now',
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
       'Built Follicle Labeller, a cross-platform medical-imaging tool that replaced a licensed platform and tracks hair grafts through live surgical video.',
   },
   {
-    title: 'AI & Data Analytics Software Engineer — ProBuild360',
-    meta: '2025 — 2026',
+    title: 'AI & Data Analytics Software Engineer - ProBuild360',
+    meta: '2025 - 2026',
     href: 'https://www.probuild360.co.uk/',
     linkLabel: 'probuild360.co.uk',
     blurb:
       "Refined the production AI models and built the company's cross-platform mobile app from its internal web tool.",
   },
   {
-    title: 'Machine Learning Engineer Intern — Kollestee UK Global',
-    meta: '2024 — 2025',
+    title: 'Machine Learning Engineer Intern - Kollestee UK Global',
+    meta: '2024 - 2025',
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
       "Built ML models for 3D point-cloud processing and wired them into the company's robotics and core products.",
   },
   {
-    title: 'Volunteer Software Engineering Mentor — CodeYourFuture',
-    meta: '2020 — now',
+    title: 'Volunteer Software Engineering Mentor - CodeYourFuture',
+    meta: '2020 - now',
     href: 'https://codeyourfuture.io/',
     linkLabel: 'codeyourfuture.io',
     blurb:
       'I teach JavaScript, Python and Git to career-changers and review their code, most Saturdays.',
   },
   {
-    title: 'Software Engineer Intern — Invitelecom',
+    title: 'Software Engineer Intern - Invitelecom',
     meta: '2018',
     blurb:
       'Built and shipped an Android game to the Play Store in under a month.',
@@ -71,13 +71,13 @@ let projects: LinkListItem[] = [
       href: 'https://github.com/alicagatay/board-of-directors-rag',
     },
     blurb:
-      "A multi-agent RAG over 484 creator transcripts — ask a question and get answers grounded in what they've actually said.",
+      "A multi-agent RAG over 484 creator transcripts - ask a question and get answers grounded in what they've actually said.",
   },
   {
     title: 'CouncilAgent',
     href: 'https://github.com/alicagatay/embrace-hackathon-challenge/',
     blurb:
-      'A voice AI assistant for Birmingham City Council, built in 5 hours — 3rd of 15 teams at the Microsoft hackathon.',
+      'A voice AI assistant for Birmingham City Council, built in 5 hours - 3rd of 15 teams at the Microsoft hackathon.',
   },
   {
     title: 'Micro Marketing Assistant',
@@ -101,20 +101,20 @@ let projects: LinkListItem[] = [
 
 let education = [
   {
-    title: 'MSc Artificial Intelligence — Birmingham City University',
-    meta: '2024 — 2026 · Distinction',
+    title: 'MSc Artificial Intelligence - Birmingham City University',
+    meta: '2024 - 2026 · Distinction',
     href: 'https://www.bcu.ac.uk/',
     linkLabel: 'bcu.ac.uk',
     blurb:
       'Deep learning and applied AI, plus a dissertation on multimodal property-price prediction with ProBuild360.',
   },
   {
-    title: 'BSc Computer Science — University of Birmingham',
-    meta: '2019 — 2022',
+    title: 'BSc Computer Science - University of Birmingham',
+    meta: '2019 - 2022',
     href: 'https://www.birmingham.ac.uk/',
     linkLabel: 'birmingham.ac.uk',
     blurb:
-      'Software engineering, algorithms, and my first AI courses — machine learning, neural computation, computer vision.',
+      'Software engineering, algorithms, and my first AI courses - machine learning, neural computation, computer vision.',
   },
 ]
 
@@ -201,7 +201,7 @@ export default async function Home() {
   }))
 
   return (
-    <main className="pt-24 pb-32 sm:pt-32">
+    <main className="pb-32 pt-24 sm:pt-32">
       <JsonLd id="schema-person" data={personSchema} />
       <Column>
         <header>
@@ -212,11 +212,16 @@ export default async function Home() {
             AI Engineer · Software Builder · Founder
           </p>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-            I build AI systems and ship them as products — right now as AI
-            Engineering &amp; Research Lead at Kollestee UK Global, where I built
-            Follicle Labeller, a medical-imaging tool now used in live surgery.
-            Before that, computer vision and ML across two startups and an MSc in
-            AI. The rest of the time I build my own products.
+            I build and ship products from scratch - from AI systems to
+            full-stack software. I currently work as an AI Engineering &amp;
+            Research Lead at Kollestee UK Global, where I lead research and
+            development efforts and am building Follicle Labeller, a medical
+            imaging and annotation tool used to detect hair follicles and grafts
+            on the human scalp. Previously, I worked as a Software Engineer and
+            Machine Learning Engineer across startups and mid-sized companies,
+            while earning a BSc in Computer Science and an MSc in Artificial
+            Intelligence. Outside of work, I build and ship my own tools that
+            help me work much faster and more efficiently.
           </p>
         </header>
 
@@ -241,7 +246,7 @@ export default async function Home() {
             <LinkList items={projects} />
           </Row>
 
-          <Row label="Stack">
+          <Row label="Tech Stack">
             <p className="text-zinc-600 dark:text-zinc-400">{stack}</p>
           </Row>
 
@@ -261,13 +266,14 @@ export default async function Home() {
             </div>
           </Row>
 
-          <Row label="Writing">
+          <Row label="Writings">
             {writingItems.length > 0 ? (
               <LinkList items={writingItems} />
             ) : (
               <p className="text-zinc-600 dark:text-zinc-400">
                 <Link href="/writings" className={plainLink}>
-                  Occasional notes on AI and software engineering ↗
+                  Occasional notes on AI, software engineering, product
+                  building, founding, and more ↗
                 </Link>
               </p>
             )}
@@ -278,7 +284,10 @@ export default async function Home() {
               {social.map((item, index) => (
                 <span key={item.label} className="flex items-center gap-x-3">
                   {index > 0 ? (
-                    <span aria-hidden className="text-zinc-300 dark:text-zinc-600">
+                    <span
+                      aria-hidden
+                      className="text-zinc-300 dark:text-zinc-600"
+                    >
                       ·
                     </span>
                   ) : null}
@@ -292,7 +301,7 @@ export default async function Home() {
 
           <Row label="Work with me" id="contact">
             <p className="text-zinc-600 dark:text-zinc-400">
-              I take on focused builds — MVPs, AI features, and mobile or web
+              I take on focused builds - MVPs, AI features, and mobile or web
               apps. If that sounds like you, tell me a bit about the project and
               let&rsquo;s talk.
             </p>

@@ -29,16 +29,17 @@ export default async function Writings() {
   }))
 
   return (
-    <main className="pt-24 pb-32 sm:pt-32">
+    <main className="pb-32 pt-24 sm:pt-32">
       <Column>
         <header>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Writing
+            Writings
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-            Occasional notes on whatever I&rsquo;ve been thinking about — usually
-            AI, software engineering, or a bit of tech news. I write when
-            something feels worth sharing, not on a schedule.
+            Occasional notes on whatever I&rsquo;ve been thinking about -
+            usually AI, software engineering, product building, founding, or a
+            bit of tech news. I write when something feels worth sharing, not on
+            a schedule.
           </p>
         </header>
 
@@ -47,7 +48,7 @@ export default async function Writings() {
             <LinkList items={items} />
           ) : (
             <p className="text-zinc-500 dark:text-zinc-400">
-              Nothing here yet — check back soon.
+              Nothing here yet - check back soon.
             </p>
           )}
         </div>
