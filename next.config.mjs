@@ -21,6 +21,9 @@ const nextConfig = {
       { source: '/hackathons', destination: '/', permanent: true },
       { source: '/gear', destination: '/', permanent: true },
       { source: '/work-with-me', destination: '/#contact', permanent: true },
+      // Old bilingual (next-intl) /en + /tr URLs Google still has indexed.
+      { source: '/en/:path*', destination: '/', permanent: true },
+      { source: '/tr/:path*', destination: '/', permanent: true },
     ]
   },
 }
