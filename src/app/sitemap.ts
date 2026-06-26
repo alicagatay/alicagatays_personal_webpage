@@ -11,14 +11,7 @@ let routes: Array<{
   priority: number
 }> = [
   { path: '', changeFrequency: 'monthly', priority: 1.0 },
-  { path: '/about', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/work', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/work-with-me', changeFrequency: 'monthly', priority: 0.7 },
-  { path: '/projects', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/writings', changeFrequency: 'weekly', priority: 0.8 },
-  { path: '/education', changeFrequency: 'yearly', priority: 0.7 },
-  { path: '/hackathons', changeFrequency: 'yearly', priority: 0.6 },
-  { path: '/gear', changeFrequency: 'yearly', priority: 0.5 },
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

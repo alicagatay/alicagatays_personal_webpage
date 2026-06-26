@@ -17,18 +17,17 @@ export default function OpenGraphImage() {
           flexDirection: 'column',
           justifyContent: 'center',
           padding: '80px',
-          background:
-            'linear-gradient(135deg, #09090b 0%, #18181b 50%, #0d9488 100%)',
-          color: 'white',
+          background: '#f4f3ee',
+          color: '#16150f',
           fontFamily: 'sans-serif',
         }}
       >
         <div
           style={{
-            fontSize: 32,
+            fontSize: 30,
             fontWeight: 500,
-            opacity: 0.7,
-            letterSpacing: '0.05em',
+            color: '#a1a1aa',
+            letterSpacing: '0.18em',
             textTransform: 'uppercase',
           }}
         >
@@ -52,7 +51,7 @@ export default function OpenGraphImage() {
             fontWeight: 700,
             lineHeight: 1.1,
             letterSpacing: '-0.02em',
-            color: '#5eead4',
+            color: '#0f766e',
           }}
         >
           building intelligent systems.
@@ -61,7 +60,7 @@ export default function OpenGraphImage() {
           style={{
             marginTop: 40,
             fontSize: 28,
-            opacity: 0.8,
+            color: '#52525b',
             lineHeight: 1.4,
           }}
         >
@@ -74,11 +73,11 @@ export default function OpenGraphImage() {
             justifyContent: 'space-between',
             alignItems: 'center',
             fontSize: 24,
-            opacity: 0.6,
+            color: '#71717a',
           }}
         >
           <span>alicagatay.xyz</span>
-          <span>Birmingham, UK</span>
+          <span>AI Engineer · Software Builder · Founder</span>
         </div>
       </div>
     ),

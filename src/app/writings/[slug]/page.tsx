@@ -5,7 +5,7 @@ import rehypePrettyCode, {
   type Options as RehypePrettyCodeOptions,
 } from 'rehype-pretty-code'
 
-import { Container } from '@/components/Container'
+import { Column } from '@/components/Column'
 import { JsonLd } from '@/components/JsonLd'
 import Link from '@/components/Link'
 import { buildPageMetadata } from '@/lib/metadata'
@@ -92,59 +92,39 @@ export default async function WritingPage({
   }
 
   return (
-    <Container className="mt-16 lg:mt-32">
+    <main className="pt-24 pb-32 sm:pt-32">
       <JsonLd id={`schema-blog-${slug}`} data={blogPostingSchema} />
-      <div className="xl:relative">
-        <div className="mx-auto max-w-2xl">
-          <Link
-            href="/writings"
-            aria-label="Back to writings"
-            className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:hover:border-zinc-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:left-0 xl:mt-0"
-          >
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-              className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
+      <Column>
+        <Link
+          href="/writings"
+          className="text-sm text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
+        >
+          ← Writing
+        </Link>
+        <article className="mt-10">
+          <header className="flex flex-col">
+            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              {writing.frontmatter.title}
+            </h1>
+            <time
+              dateTime={writing.frontmatter.date}
+              className="order-first text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500"
             >
-              <path
-                d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-          <article>
-            <header className="flex flex-col">
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                {writing.frontmatter.title}
-              </h1>
-              <time
-                dateTime={writing.frontmatter.date}
-                className="order-first flex items-center text-base text-zinc-500 dark:text-zinc-400"
-              >
-                <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                <span className="ml-3">
-                  {formatDate(writing.frontmatter.date)}
-                </span>
-              </time>
-            </header>
-            <div className="prose-zinc prose mt-8 max-w-none dark:prose-invert">
-              <MDXRemote
-                source={writing.content}
-                options={{
-                  mdxOptions: {
-                    rehypePlugins: [
-                      [rehypePrettyCode, rehypePrettyCodeOptions],
-                    ],
-                  },
-                }}
-              />
-            </div>
-          </article>
-        </div>
-      </div>
-    </Container>
+              {formatDate(writing.frontmatter.date)}
+            </time>
+          </header>
+          <div className="prose-zinc prose mt-8 max-w-none dark:prose-invert">
+            <MDXRemote
+              source={writing.content}
+              options={{
+                mdxOptions: {
+                  rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+                },
+              }}
+            />
+          </div>
+        </article>
+      </Column>
+    </main>
   )
 }
