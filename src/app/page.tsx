@@ -28,7 +28,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      'Architected Follicle Labeller (YOLO11 detection + keypoints with classical computer vision) to replace a licensed annotation platform — 80%+ accuracy on 2K–8K clinical imagery and real-time graft tracking through surgical video at 90%+, shipped to Windows, macOS and the browser from one codebase. Drives applied AI research and prototyping alongside the CTO and Product Owner.',
+      'Built Follicle Labeller, a cross-platform medical-imaging tool that replaced a licensed platform and tracks hair grafts through live surgical video.',
   },
   {
     title: 'AI & Data Analytics Software Engineer — ProBuild360',
@@ -36,7 +36,7 @@ let work = [
     href: 'https://www.probuild360.co.uk/',
     linkLabel: 'probuild360.co.uk',
     blurb:
-      'Refined production AI models and shipped them through GitHub Actions CI/CD, then built a cross-platform React Native app from an internal Next.js tool and kept feature parity across web and mobile for ~12 users. Added Jest and React Native Testing Library suites that cut bug reports ~12%, within a 6-person Agile team.',
+      "Refined the production AI models and built the company's cross-platform mobile app from its internal web tool.",
   },
   {
     title: 'Machine Learning Engineer Intern — Kollestee UK Global',
@@ -44,7 +44,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      'Built ML models for 3D point-cloud processing and integrated them into robotic systems with Python, TensorFlow and Open3D, improving system performance ~15%. Engineered data pipelines for large 3D and 2D datasets, raising model accuracy ~10% and inference speed ~25%.',
+      "Built ML models for 3D point-cloud processing and wired them into the company's robotics and core products.",
   },
   {
     title: 'Volunteer Software Engineering Mentor — CodeYourFuture',
@@ -52,13 +52,13 @@ let work = [
     href: 'https://codeyourfuture.io/',
     linkLabel: 'codeyourfuture.io',
     blurb:
-      'Mentor and lead/co-lead of Saturday classes across the Intro to Programming course — teaching JavaScript, Python, Git, Jest and SQL to career-changers with no prior coding experience, and reviewing their pull requests in class and through the week.',
+      'I teach JavaScript, Python and Git to career-changers and review their code, most Saturdays.',
   },
   {
     title: 'Software Engineer Intern — Invitelecom',
     meta: '2018',
     blurb:
-      "Built and published an Android game, 'Predict The Number', to the Google Play Store in under a month.",
+      'Built and shipped an Android game to the Play Store in under a month.',
   },
 ]
 
@@ -71,7 +71,13 @@ let projects: LinkListItem[] = [
       href: 'https://github.com/alicagatay/board-of-directors-rag',
     },
     blurb:
-      "A multi-agent RAG over 484 transcripts from 18 creators — ask a question and get answers grounded in what they've actually said.",
+      "A multi-agent RAG over 484 creator transcripts — ask a question and get answers grounded in what they've actually said.",
+  },
+  {
+    title: 'CouncilAgent',
+    href: 'https://github.com/alicagatay/embrace-hackathon-challenge/',
+    blurb:
+      'A voice AI assistant for Birmingham City Council, built in 5 hours — 3rd of 15 teams at the Microsoft hackathon.',
   },
   {
     title: 'Micro Marketing Assistant',
@@ -80,8 +86,7 @@ let projects: LinkListItem[] = [
       label: 'code',
       href: 'https://github.com/alicagatay/micro-marketing-assistant',
     },
-    blurb:
-      "A fast, minimal CRM that helps small businesses track what they're selling and who they're selling it to.",
+    blurb: 'A fast, minimal CRM for small businesses.',
   },
   {
     title: 'Focus Timer',
@@ -90,18 +95,18 @@ let projects: LinkListItem[] = [
       label: 'code',
       href: 'https://github.com/alicagatay/focus-timer',
     },
-    blurb: 'A clean Pomodoro timer for work and break sessions.',
+    blurb: 'A clean Pomodoro timer for work and breaks.',
   },
 ]
 
 let education = [
   {
     title: 'MSc Artificial Intelligence — Birmingham City University',
-    meta: '2024 — now · Distinction track',
+    meta: '2024 — 2026 · Distinction',
     href: 'https://www.bcu.ac.uk/',
     linkLabel: 'bcu.ac.uk',
     blurb:
-      'Deep learning, applied AI and data visualisation. Dissertation with ProBuild360: multimodal deep learning for Birmingham house-price prediction, fusing geospatial and temporal data.',
+      'Deep learning and applied AI, plus a dissertation on multimodal property-price prediction with ProBuild360.',
   },
   {
     title: 'BSc Computer Science — University of Birmingham',
@@ -109,9 +114,12 @@ let education = [
     href: 'https://www.birmingham.ac.uk/',
     linkLabel: 'birmingham.ac.uk',
     blurb:
-      'Software engineering, data structures & algorithms, and intro AI (machine learning, neural computation, computer vision). Final-year project: an NLP and neural-network mobile app that recommends workouts.',
+      'Software engineering, algorithms, and my first AI courses — machine learning, neural computation, computer vision.',
   },
 ]
+
+let stack =
+  'Python, TypeScript · PyTorch, TensorFlow, OpenCV · Next.js, React Native, FastAPI · Docker, PostgreSQL'
 
 let social = [
   { label: 'GitHub', href: 'https://github.com/alicagatay' },
@@ -204,12 +212,11 @@ export default async function Home() {
             AI Engineer · Software Builder · Founder
           </p>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-            I build AI systems and ship them as real products — currently AI
+            I build AI systems and ship them as products — right now as AI
             Engineering &amp; Research Lead at Kollestee UK Global, where I built
-            Follicle Labeller, a cross-platform medical-imaging tool. Before
-            that,
-            computer vision and ML across two startups, an MSc in AI, and five
-            years mentoring at CodeYourFuture.
+            Follicle Labeller, a medical-imaging tool now used in live surgery.
+            Before that, computer vision and ML across two startups and an MSc in
+            AI. The rest of the time I build my own products.
           </p>
         </header>
 
@@ -234,6 +241,10 @@ export default async function Home() {
             <LinkList items={projects} />
           </Row>
 
+          <Row label="Stack">
+            <p className="text-zinc-600 dark:text-zinc-400">{stack}</p>
+          </Row>
+
           <Row label="Education" id="education">
             <div className="space-y-8">
               {education.map((entry) => (
@@ -248,19 +259,6 @@ export default async function Home() {
                 </Entry>
               ))}
             </div>
-          </Row>
-
-          <Row label="Recognition">
-            <Entry
-              title="Microsoft Embrace Midlands Hackathon — 3rd of 15 teams"
-              meta="2025"
-              href="https://github.com/alicagatay/embrace-hackathon-challenge/"
-              linkLabel="repo"
-            >
-              Built CouncilAgent, a voice AI assistant that helps Birmingham
-              residents access housing information, in 5 hours with a 5-person
-              team — Flutter, FastAPI, Azure OpenAI and Whisper.
-            </Entry>
           </Row>
 
           <Row label="Writing">
