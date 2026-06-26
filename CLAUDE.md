@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal website for Ali Cagatay (alicagatay.xyz). Next.js 16 App Router + React 19 + TypeScript + Tailwind CSS, deployed to Vercel. The site is **English-only** — there is no internationalization layer.
 
-The site is a **single minimalist landing page** in the style of [cormachayden.com](https://www.cormachayden.com/): one narrow centered column on a warm cream / ink background, tiny uppercase `LABEL → value` rows, generous whitespace, and no cards/shadows/carousel/avatar/nav. The only separate sub-tree is the `/writings` blog. See [the design memory](.claude/) note: stay inside this minimalist frame when editing — don't reintroduce cards, carousels, or heavy navigation.
+The site is a **single, radically minimalist landing page**: one narrow centered column on a warm cream / ink background, tiny uppercase `LABEL → value` rows, generous whitespace, and no cards/shadows/carousel/avatar/nav. The only separate sub-tree is the `/writings` blog. Stay inside this minimalist frame when editing — don't reintroduce cards, carousels, or heavy navigation.
 
 ## Commands
 
@@ -43,7 +43,7 @@ The root [layout.tsx](src/app/layout.tsx) owns `<html lang="en">` / `<body class
 A handful of small primitives in [src/components/](src/components) build every page:
 
 - [`Column`](src/components/Column.tsx) — the shared `mx-auto max-w-[640px] px-6` reading column.
-- [`Row`](src/components/Row.tsx) — a Cormac-style `LABEL → value` definition row: tiny uppercase label in a fixed left column on desktop, stacking above the value on mobile.
+- [`Row`](src/components/Row.tsx) — a `LABEL → value` definition row: tiny uppercase label in a fixed left column on desktop, stacking above the value on mobile.
 - [`Entry`](src/components/Entry.tsx) — a detailed work / education / recognition item (title + right-aligned meta + tightened blurb + optional external link).
 - [`LinkList`](src/components/LinkList.tsx) — a scannable "title → blurb" list used for projects and writing (title links out; optional secondary link like `code`).
 - [`ThemeToggle`](src/components/ThemeToggle.tsx) — the only UI control, pinned top-right.

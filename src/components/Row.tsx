@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-// A Cormac-style "LABEL → value" definition row: a tiny uppercase label in a
+// A minimalist "LABEL → value" definition row: a tiny uppercase label in a
 // fixed left column on desktop, stacking above the value on mobile.
 export function Row({
   label,
