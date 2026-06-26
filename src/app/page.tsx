@@ -205,8 +205,9 @@ export default async function Home() {
           </p>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
             I build AI systems and ship them as real products — currently AI
-            Engineering &amp; Research Lead at Kollestee, where I built Follicle
-            Labeller, a cross-platform medical-imaging tool. Before that,
+            Engineering &amp; Research Lead at Kollestee UK Global, where I built
+            Follicle Labeller, a cross-platform medical-imaging tool. Before
+            that,
             computer vision and ML across two startups, an MSc in AI, and five
             years mentoring at CodeYourFuture.
           </p>
