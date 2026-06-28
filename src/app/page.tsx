@@ -309,7 +309,7 @@ export default async function Home() {
               software applications - and take them all the way to something
               people can use. Wherever it&rsquo;s at - a rough idea, a design,
               or a half-built product that needs finishing - tell me about it,
-              and let&rsquo;s talk.
+              and let&rsquo;s have a chat.
             </p>
             <Link
               href={calendarHref}
