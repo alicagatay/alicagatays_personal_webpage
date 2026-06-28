@@ -301,9 +301,15 @@ export default async function Home() {
 
           <Row label="Work with me" id="contact">
             <p className="text-zinc-600 dark:text-zinc-400">
-              I take on focused builds - MVPs, AI features, and mobile or web
-              apps. If that sounds like you, tell me a bit about the project and
-              let&rsquo;s talk.
+              Do you have an idea you want built into a real, working product?
+              An AI feature you want done properly, not bolted on? Or something
+              you&rsquo;re trying to get off the ground but need someone to
+              actually build and ship it? That&rsquo;s the kind of work I love. I
+              build products from scratch - from AI systems to full-stack
+              software applications - and take them all the way to something
+              people can use. Wherever it&rsquo;s at - a rough idea, a design,
+              or a half-built product that needs finishing - tell me about it,
+              and let&rsquo;s talk.
             </p>
             <Link
               href={calendarHref}
