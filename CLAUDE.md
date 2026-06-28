@@ -19,7 +19,7 @@ npm run lint    # eslint . (flat config in eslint.config.mjs, extends eslint-con
 
 No test runner is configured. Prettier runs via the `prettier` binary (`npx prettier --write .`); class ordering comes from `prettier-plugin-tailwindcss`.
 
-`NEXT_PUBLIC_SITE_URL` is the only required env var (see `.env.example`); it feeds `getSiteUrl()` ([src/lib/site-url.ts](src/lib/site-url.ts)), which in turn feeds the metadata base, canonical URLs, sitemap, robots, RSS feed, and JSON-LD. The RSS `alternates` link is set in [src/app/layout.tsx](src/app/layout.tsx).
+`NEXT_PUBLIC_SITE_URL` is the only env var required to build and render (see `.env.example`); it feeds `getSiteUrl()` ([src/lib/site-url.ts](src/lib/site-url.ts)), which in turn feeds the metadata base, canonical URLs, sitemap, robots, RSS feed, and JSON-LD. The RSS `alternates` link is set in [src/app/layout.tsx](src/app/layout.tsx). The "Work with me" enquiry form additionally needs `RESEND_API_KEY` to actually send mail, and optionally `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` to rate-limit it (see the contact form notes below); both degrade gracefully when unset.
 
 ## Architecture
 
@@ -52,7 +52,11 @@ Visual system: warm cream `paper` (`#f4f3ee`) light / warm `ink` (`#16150f`) dar
 
 ### Where copy lives
 
-Page copy is **inlined directly in each page** - there are no `messages/*.json` files and no translation layer. The home page's content lives in typed local arrays at the top of [src/app/page.tsx](src/app/page.tsx) (`work`, `projects`, `education`, `social`) plus the calendar `href`; adding or editing content means editing those arrays (or adding a new `Row`). Every page is a Server Component; the home and `/writings` pages are `async` because they read writings via `getAllWritings()`.
+Page copy is **inlined directly in each page** - there are no `messages/*.json` files and no translation layer. The home page's content lives in typed local arrays at the top of [src/app/page.tsx](src/app/page.tsx) (`work`, `projects`, `education`, `social`); adding or editing content means editing those arrays (or adding a new `Row`). Every page is a Server Component; the home and `/writings` pages are `async` because they read writings via `getAllWritings()`. The exception is the "Work with me" row, which renders the client [`ContactForm`](src/components/ContactForm.tsx) (see below).
+
+### Contact form
+
+The "Work with me" row's CTA is an in-page enquiry form (it replaced the old "Book a call" calendar link). The client [`ContactForm`](src/components/ContactForm.tsx) collects Name / Surname / Email / Reason / message and posts to the `submitEnquiry` **Server Action** in [src/lib/contact.ts](src/lib/contact.ts), which validates server-side (presence, an allow-listed `reason`, length caps, a basic email shape) and sends the enquiry via the **Resend** SDK to the owner's inbox, with `replyTo` set to the sender. Abuse controls layer up: a `display:none` honeypot (`company` field), the server-side length caps, and an optional per-IP + global-daily rate limit in [src/lib/rate-limit.ts](src/lib/rate-limit.ts) (Upstash Redis). Resend and Upstash both **degrade gracefully when their env vars are unset** - the form still renders and validates, it just can't send (shows a friendly "email me directly" message) or isn't throttled. `submitEnquiry` returns a `ContactState` that the form reflects as an inline error or a success confirmation (with a "Send another enquiry" reset). Keep the form inside the minimalist frame: underline-style fields, the teal submit button, no card.
 
 ### Metadata
 
