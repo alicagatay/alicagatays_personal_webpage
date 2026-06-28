@@ -117,7 +117,7 @@ let education = [
     href: 'https://www.birmingham.ac.uk/',
     linkLabel: 'birmingham.ac.uk',
     blurb:
-      'My BSc came out of loving to build things since I was a kid, and it gave me my core software-engineering foundations - data structures and algorithms, software engineering, and mobile and ubiquitous computing. It was also my first real taste of AI, through modules in machine learning, neural computation and computer vision, and projects like a computer-vision model that classifies brain scans for tumour detection. My final-year project brought the two together: a mobile app that uses NLP and neural networks to recommend workouts based on the muscle you want to train. I graduated with a 2:2 Honours.',
+      'My BSc came out of loving to build things since I was a kid, and it gave me my core software-engineering foundations - data structures and algorithms, software engineering, and mobile and ubiquitous computing. It was also my first real taste of AI, through modules in machine learning, neural computation and computer vision, and projects like a computer-vision model that classifies brain scans for tumour detection. My final-year project brought the two together: a mobile app that uses NLP and neural networks to recommend workouts based on the muscle you want to train. I graduated with a 2:2 and an Honours.',
   },
 ]
 
