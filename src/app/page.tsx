@@ -24,15 +24,15 @@ export const metadata = buildPageMetadata({
 let work = [
   {
     title: 'AI Engineering & Research Lead - Kollestee UK Global',
-    meta: '2026 - now',
+    meta: 'Mar 2026 - now',
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      'Building Follicle Labeller, a medical imaging and annotation tool used to detect hair follicles and grafts on the human scalp.',
+      "Building Follicle Labeller, a cross-platform medical imaging and annotation tool that detects hair follicles and grafts on the human scalp and tracks them through live surgery, while leading applied AI research across the company's products and robotics.",
   },
   {
     title: 'AI & Data Analytics Software Engineer - ProBuild360',
-    meta: '2025 - 2026',
+    meta: 'Oct 2025 - Mar 2026',
     href: 'https://www.probuild360.co.uk/',
     linkLabel: 'probuild360.co.uk',
     blurb:
@@ -40,25 +40,25 @@ let work = [
   },
   {
     title: 'Machine Learning Engineer Intern - Kollestee UK Global',
-    meta: '2024 - 2025',
+    meta: 'Jun 2024 - Sep 2025',
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      "Built ML models for 3D point-cloud processing and wired them into the company's robotics and core products.",
+      "Researched and built ML models for 3D point-cloud processing, integrated them into the company's robotics and core products, and engineered the data pipelines that fed them.",
   },
   {
     title: 'Volunteer Software Engineering Mentor - CodeYourFuture',
-    meta: '2020 - now',
+    meta: 'Sep 2020 - now',
     href: 'https://codeyourfuture.io/',
     linkLabel: 'codeyourfuture.io',
     blurb:
-      'I teach JavaScript, Python and Git to career-changers and review their code, most Saturdays.',
+      'I lead and co-lead Saturday classes on the Intro to Programming course, teaching JavaScript, Python, Git, Jest and SQL to career-changers with no coding background, and reviewing their code in class and through the week.',
   },
   {
     title: 'Software Engineer Intern - Invitelecom',
-    meta: '2018',
+    meta: 'Aug 2018 - Sep 2018',
     blurb:
-      'Built and shipped an Android game to the Play Store in under a month.',
+      "Built and shipped an Android game, 'Predict The Number', to the Play Store in under a month.",
   },
 ]
 
@@ -71,13 +71,13 @@ let projects: LinkListItem[] = [
       href: 'https://github.com/alicagatay/board-of-directors-rag',
     },
     blurb:
-      "A multi-agent RAG over 484 creator transcripts - ask a question and get answers grounded in what they've actually said.",
+      "A multi-agent RAG over 484 YouTube transcripts from 18 creators - it routes each question to the right creator's persona and answers in their voice, grounded in what they've actually said.",
   },
   {
     title: 'CouncilAgent',
     href: 'https://github.com/alicagatay/embrace-hackathon-challenge/',
     blurb:
-      'A voice AI assistant for Birmingham City Council, built in 5 hours - 3rd of 15 teams at the Microsoft hackathon.',
+      'A voice AI assistant for Birmingham City Council that answers housing questions out loud - a Flutter app over an Azure OpenAI and Whisper backend, built in 5 hours with a 5-person team and placed 3rd of 15 at the Microsoft hackathon.',
   },
   {
     title: 'Micro Marketing Assistant',
@@ -86,7 +86,8 @@ let projects: LinkListItem[] = [
       label: 'code',
       href: 'https://github.com/alicagatay/micro-marketing-assistant',
     },
-    blurb: 'A fast, minimal CRM for small businesses.',
+    blurb:
+      "A fast, minimal CRM that helps small businesses track the products they're selling and who they're selling them to.",
   },
   {
     title: 'Focus Timer',
@@ -95,31 +96,30 @@ let projects: LinkListItem[] = [
       label: 'code',
       href: 'https://github.com/alicagatay/focus-timer',
     },
-    blurb: 'A clean Pomodoro timer for work and breaks.',
+    blurb:
+      'A clean, no-frills Pomodoro timer for timing work and break sessions.',
   },
 ]
 
 let education = [
   {
-    title: 'MSc Artificial Intelligence - Birmingham City University',
-    meta: '2024 - 2026 · Distinction',
+    title:
+      'MSc Artificial Intelligence with Professional Placement - Birmingham City University',
+    meta: 'Sep 2024 - Mar 2026',
     href: 'https://www.bcu.ac.uk/',
     linkLabel: 'bcu.ac.uk',
     blurb:
-      'Deep learning and applied AI, plus a dissertation on multimodal property-price prediction with ProBuild360.',
+      "I did my MSc to go deeper into AI after the field really clicked for me, spending the year on machine learning, deep learning, applied AI, data visualisation and the wider impact of AI. The professional-placement part put me inside ProBuild360 as an AI engineer, shipping production models alongside the coursework. For my dissertation I built a multimodal deep-learning model that predicts property prices across the Birmingham housing market by fusing geospatial and temporal data. It's where most of my deep-learning and applied-AI foundations come from, and I finished with a Distinction.",
   },
   {
     title: 'BSc Computer Science - University of Birmingham',
-    meta: '2019 - 2022',
+    meta: 'Sep 2019 - Jul 2022',
     href: 'https://www.birmingham.ac.uk/',
     linkLabel: 'birmingham.ac.uk',
     blurb:
-      'Software engineering, algorithms, and my first AI courses - machine learning, neural computation, computer vision.',
+      'My BSc came out of loving to build things since I was a kid, and it gave me my core software-engineering foundations - data structures and algorithms, software engineering, and mobile and ubiquitous computing. It was also my first real taste of AI, through modules in machine learning, neural computation and computer vision, and projects like a computer-vision model that classifies brain scans for tumour detection. My final-year project brought the two together: a mobile app that uses NLP and neural networks to recommend workouts based on the muscle you want to train. I graduated with a 2:2 Honours.',
   },
 ]
-
-let stack =
-  'Python, TypeScript · PyTorch, TensorFlow, OpenCV · Next.js, React Native, FastAPI · Docker, PostgreSQL'
 
 let social = [
   { label: 'GitHub', href: 'https://github.com/alicagatay' },
@@ -213,15 +213,19 @@ export default async function Home() {
           </p>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
             I build and ship products from scratch - from AI systems to
-            full-stack software. I currently work as an AI Engineering &amp;
-            Research Lead at Kollestee UK Global, where I lead research and
-            development efforts and am building Follicle Labeller, a medical
-            imaging and annotation tool used to detect hair follicles and grafts
-            on the human scalp. Previously, I worked as a Software Engineer and
-            Machine Learning Engineer across startups and mid-sized companies,
-            while earning a BSc in Computer Science and an MSc in Artificial
-            Intelligence. Outside of work, I build and ship my own tools that
-            help me work much faster and more efficiently.
+            full-stack software applications. Some of what I am building right
+            now or have built previously runs in live surgeries, and some of it
+            powers live property-price prediction algorithms in apps people rely
+            on daily - about as unforgiving as software gets. I currently work
+            as an AI Engineering &amp; Research Lead at Kollestee UK Global,
+            where I lead research and development efforts and am building
+            Follicle Labeller, a medical imaging and annotation tool used to
+            detect hair follicles and grafts on the human scalp. Previously, I
+            worked as a Software Engineer and Machine Learning Engineer across
+            startups and mid-sized companies, while earning a BSc in Computer
+            Science and an MSc in Artificial Intelligence. Outside of work, I
+            build and ship my own tools that help me work much faster and more
+            efficiently.
           </p>
         </header>
 
@@ -244,10 +248,6 @@ export default async function Home() {
 
           <Row label="Projects" id="projects">
             <LinkList items={projects} />
-          </Row>
-
-          <Row label="Tech Stack">
-            <p className="text-zinc-600 dark:text-zinc-400">{stack}</p>
           </Row>
 
           <Row label="Education" id="education">
