@@ -28,7 +28,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      'Built Follicle Labeller, a cross-platform medical-imaging tool that replaced a licensed platform and tracks hair grafts through live surgical video.',
+      'Building Follicle Labeller, a medical imaging and annotation tool used to detect hair follicles and grafts on the human scalp.',
   },
   {
     title: 'AI & Data Analytics Software Engineer - ProBuild360',
@@ -36,7 +36,7 @@ let work = [
     href: 'https://www.probuild360.co.uk/',
     linkLabel: 'probuild360.co.uk',
     blurb:
-      "Refined the production AI models and built the company's cross-platform mobile app from its internal web tool.",
+      "Built the company's internal cross-platform app for managing its properties, projects and clients, plus a neural network that predicts property prices and finds properties worth investing in, then integrated the two so the team could find and manage everything in one place.",
   },
   {
     title: 'Machine Learning Engineer Intern - Kollestee UK Global',
