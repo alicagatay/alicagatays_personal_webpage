@@ -3,6 +3,7 @@ import { Column } from '@/components/Column'
 import { Row } from '@/components/Row'
 import { Entry } from '@/components/Entry'
 import { LinkList, type LinkListItem } from '@/components/LinkList'
+import { ContactForm } from '@/components/ContactForm'
 import { JsonLd } from '@/components/JsonLd'
 import { buildPageMetadata } from '@/lib/metadata'
 import { getSiteUrl } from '@/lib/site-url'
@@ -12,8 +13,6 @@ let siteUrl = getSiteUrl()
 
 let metaDescription =
   'I am Ali Cagatay, an AI engineer in Birmingham specialising in deep learning, computer vision, agentic systems, and full-stack software engineering. I take research-grade AI from notebook to production.'
-
-let calendarHref = 'https://calendar.app.google/kp9sapugpyAugvnQA'
 
 export const metadata = buildPageMetadata({
   path: '/',
@@ -304,19 +303,14 @@ export default async function Home() {
               Do you have an idea you want built into a real, working product?
               An AI feature you want done properly, not bolted on? Or something
               you&rsquo;re trying to get off the ground but need someone to
-              actually build and ship it? That&rsquo;s the kind of work I love. I
-              build products from scratch - from AI systems to full-stack
+              actually build and ship it? That&rsquo;s the kind of work I love.
+              I build products from scratch - from AI systems to full-stack
               software applications - and take them all the way to something
               people can use. Wherever it&rsquo;s at - a rough idea, a design,
               or a half-built product that needs finishing - tell me about it,
               and let&rsquo;s have a chat.
             </p>
-            <Link
-              href={calendarHref}
-              className="mt-4 inline-flex items-center rounded-md bg-teal-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 focus:ring-offset-paper dark:focus:ring-offset-ink"
-            >
-              Book a call ↗
-            </Link>
+            <ContactForm />
           </Row>
         </div>
       </Column>
