@@ -1,3 +1,4 @@
+import { ContributionTooltip } from '@/components/ContributionTooltip'
 import type { ContributionCalendar, ContributionDay } from '@/lib/github'
 
 // One swappable 5-tuple of complete literal class strings (Tailwind scans
@@ -20,11 +21,11 @@ let LEVEL_CLASSES = [
 //   'fill-[#116329] dark:fill-[#56d364]',
 // ]
 
-let cellSize = 10
-let gap = 3
+let cellSize = 16
+let gap = 4
 let step = cellSize + gap
-let gutterLeft = 28
-let gutterTop = 16
+let gutterLeft = 46
+let gutterTop = 28
 
 function formatDayTitle(day: ContributionDay) {
   let date = new Date(`${day.date}T00:00:00Z`).toLocaleDateString('en-GB', {
@@ -84,71 +85,74 @@ export function ContributionGraph({
       {/* rtl scroller: narrow screens open on the most recent weeks, no JS.
           tabIndex makes it keyboard-scrollable in browsers (Safari) that don't
           focus child-less scroll containers implicitly. */}
-      <div
-        dir="rtl"
-        tabIndex={0}
-        role="region"
-        aria-label="GitHub contribution graph, scrollable"
-        className="max-w-full overflow-x-auto"
-      >
-        {/* Scales to the full column width; the wrapper's min-w keeps cells
-            readable on narrow screens, where the rtl container scrolls
-            (min-w must sit on the wrapper - overflow spilling from a child
-            on the start side of an rtl scroller is unreachable). */}
-        <div dir="ltr" className="min-w-[560px]">
-          <svg
-            viewBox={`0 0 ${width} ${height}`}
-            role="img"
-            aria-label={`${total} contributions in the last year`}
-            className="block h-auto w-full"
-          >
-            {monthLabels.map((entry) => (
-              <text
-                key={`${entry.label}-${entry.weekIndex}`}
-                x={gutterLeft + entry.weekIndex * step}
-                y={10}
-                className="fill-zinc-400 text-[10px] dark:fill-zinc-500"
-              >
-                {entry.label}
-              </text>
-            ))}
-            {['Mon', 'Wed', 'Fri'].map((label, index) => (
-              <text
-                key={label}
-                x={0}
-                y={gutterTop + (index * 2 + 1) * step + cellSize - 2}
-                className="fill-zinc-400 text-[10px] dark:fill-zinc-500"
-              >
-                {label}
-              </text>
-            ))}
-            {weeks.map((week, weekIndex) =>
-              // Cells are positioned by weekday, never array index - the
-              // first and last weeks of the window are usually partial.
-              week.map((day) => (
-                <rect
-                  key={day.date}
-                  x={gutterLeft + weekIndex * step}
-                  y={gutterTop + day.weekday * step}
-                  width={cellSize}
-                  height={cellSize}
-                  rx={2}
-                  className={LEVEL_CLASSES[day.level]}
+      <ContributionTooltip>
+        <div
+          dir="rtl"
+          tabIndex={0}
+          role="region"
+          aria-label="GitHub contribution graph, scrollable"
+          className="max-w-full overflow-x-auto"
+        >
+          {/* Rendered at its intrinsic size (wider than the column) inside the
+            rtl scroll container - w-fit keeps the wrapper's box as wide as
+            the SVG, since overflow spilling from a child on the start side
+            of an rtl scroller is unreachable. */}
+          <div dir="ltr" className="w-fit">
+            <svg
+              width={width}
+              height={height}
+              viewBox={`0 0 ${width} ${height}`}
+              role="img"
+              aria-label={`${total} contributions in the last year`}
+              className="block"
+            >
+              {monthLabels.map((entry) => (
+                <text
+                  key={`${entry.label}-${entry.weekIndex}`}
+                  x={gutterLeft + entry.weekIndex * step}
+                  y={16}
+                  className="fill-zinc-400 text-[15px] dark:fill-zinc-500"
                 >
-                  <title>{formatDayTitle(day)}</title>
-                </rect>
-              )),
-            )}
-          </svg>
+                  {entry.label}
+                </text>
+              ))}
+              {['Mon', 'Wed', 'Fri'].map((label, index) => (
+                <text
+                  key={label}
+                  x={0}
+                  y={gutterTop + (index * 2 + 1) * step + cellSize - 4}
+                  className="fill-zinc-400 text-[15px] dark:fill-zinc-500"
+                >
+                  {label}
+                </text>
+              ))}
+              {weeks.map((week, weekIndex) =>
+                // Cells are positioned by weekday, never array index - the
+                // first and last weeks of the window are usually partial.
+                week.map((day) => (
+                  <rect
+                    key={day.date}
+                    x={gutterLeft + weekIndex * step}
+                    y={gutterTop + day.weekday * step}
+                    width={cellSize}
+                    height={cellSize}
+                    rx={3}
+                    data-tooltip={formatDayTitle(day)}
+                    className={LEVEL_CLASSES[day.level]}
+                  />
+                )),
+              )}
+            </svg>
+          </div>
         </div>
-      </div>
-      <div className="mt-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-xs text-zinc-400 dark:text-zinc-500">
+      </ContributionTooltip>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm text-zinc-400 dark:text-zinc-500">
         <p>{total} contributions in the last year</p>
         <div aria-hidden className="flex items-center gap-1">
           <span>Less</span>
           {LEVEL_CLASSES.map((levelClass) => (
-            <svg key={levelClass} width={10} height={10} className="block">
-              <rect width={10} height={10} rx={2} className={levelClass} />
+            <svg key={levelClass} width={12} height={12} className="block">
+              <rect width={12} height={12} rx={3} className={levelClass} />
             </svg>
           ))}
           <span>More</span>
