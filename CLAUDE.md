@@ -19,7 +19,7 @@ npm run lint    # eslint . (flat config in eslint.config.mjs, extends eslint-con
 
 No test runner is configured. Prettier runs via the `prettier` binary (`npx prettier --write .`); class ordering comes from `prettier-plugin-tailwindcss`.
 
-`NEXT_PUBLIC_SITE_URL` is the only env var required to build and render (see `.env.example`); it feeds `getSiteUrl()` ([src/lib/site-url.ts](src/lib/site-url.ts)), which in turn feeds the metadata base, canonical URLs, sitemap, robots, RSS feed, and JSON-LD. The RSS `alternates` link is set in [src/app/layout.tsx](src/app/layout.tsx). The "Work with me" enquiry form additionally needs `RESEND_API_KEY` to actually send mail, and optionally `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` to rate-limit it (see the contact form notes below); both degrade gracefully when unset.
+`NEXT_PUBLIC_SITE_URL` is the only env var required to build and render (see `.env.example`); it feeds `getSiteUrl()` ([src/lib/site-url.ts](src/lib/site-url.ts)), which in turn feeds the metadata base, canonical URLs, sitemap, robots, RSS feed, and JSON-LD. The RSS `alternates` link is set in [src/app/layout.tsx](src/app/layout.tsx). The "Work with me" enquiry form additionally needs `RESEND_API_KEY` to actually send mail, and optionally `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` to rate-limit it (see the contact form notes below); both degrade gracefully when unset. The GitHub row's heatmap is token-free (it reads the public profile page); `GITHUB_TOKEN` (classic PAT, `repo` + `read:user`) is optional and only serves as a fallback data source (see the GitHub activity notes below).
 
 ## Architecture
 
@@ -27,7 +27,7 @@ No test runner is configured. Prettier runs via the `prettier` binary (`npx pret
 
 App Router under [src/app/](src/app). There are only **two public surfaces**:
 
-- `/` - the home page ([src/app/page.tsx](src/app/page.tsx)) **is the entire site**: a stack of `LABEL → value` rows (intro, Work, Projects, Education, Recognition, Writing, Elsewhere, and a "Work with me" CTA row). Rows carry `id` anchors (`#work`, `#projects`, `#education`, `#contact`).
+- `/` - the home page ([src/app/page.tsx](src/app/page.tsx)) **is the entire site**: a stack of `LABEL → value` rows (intro, GitHub, Work, Projects, Education, Writing, Elsewhere, and a "Work with me" CTA row). Rows carry `id` anchors (`#github`, `#work`, `#projects`, `#education`, `#contact`).
 - `/writings` and `/writings/[slug]` - the blog index and post template.
 
 Plus `/thank-you` (a `noindex` newsletter utility page) and the metadata-file conventions in `src/app/`: `favicon.ico`, `feed.xml/route.ts`, `manifest.ts`, `opengraph-image.tsx`, `robots.ts`, `sitemap.ts`, `providers.tsx`, `not-found.tsx`.
@@ -46,7 +46,8 @@ A handful of small primitives in [src/components/](src/components) build every p
 - [`Row`](src/components/Row.tsx) - a `LABEL → value` definition row: tiny uppercase label in a fixed left column on desktop, stacking above the value on mobile.
 - [`Entry`](src/components/Entry.tsx) - a detailed work / education / recognition item (title + right-aligned meta + tightened blurb + optional external link).
 - [`LinkList`](src/components/LinkList.tsx) - a scannable "title → blurb" list used for projects and writing (title links out; optional secondary link like `code`).
-- [`ThemeToggle`](src/components/ThemeToggle.tsx) - the only UI control, pinned top-right.
+- [`ThemeToggle`](src/components/ThemeToggle.tsx) - the theme toggle, pinned top-right.
+- [`ContributionGraph`](src/components/ContributionGraph.tsx) - server-rendered SVG heatmap of the last year of GitHub contributions (zero client JS).
 
 Visual system: warm cream `paper` (`#f4f3ee`) light / warm `ink` (`#16150f`) dark, set as `theme.extend.colors` in [tailwind.config.ts](tailwind.config.ts) (which keeps `darkMode: 'class'`, the custom `fontSize` scale, and the typography plugin). Text is two-tone (`zinc-900`/`zinc-100` primary, `zinc-500`/`zinc-400` secondary); labels are `text-xs uppercase tracking-[0.18em]`. **Teal** (`teal-700` light / `teal-400` dark) is the single accent, reserved for the "Book a call" CTA and link-hover underlines.
 
@@ -57,6 +58,10 @@ Page copy is **inlined directly in each page** - there are no `messages/*.json` 
 ### Contact form
 
 The "Work with me" row's CTA is an in-page enquiry form (it replaced the old "Book a call" calendar link). The client [`ContactForm`](src/components/ContactForm.tsx) collects Name / Surname / Email / Reason / message and posts to the `submitEnquiry` **Server Action** in [src/lib/contact.ts](src/lib/contact.ts), which validates server-side (presence, an allow-listed `reason`, length caps, a basic email shape) and sends the enquiry via the **Resend** SDK to the owner's inbox, with `replyTo` set to the sender. Abuse controls layer up: a `display:none` honeypot (`company` field), the server-side length caps, and an optional per-IP + global-daily rate limit in [src/lib/rate-limit.ts](src/lib/rate-limit.ts) (Upstash Redis). Resend and Upstash both **degrade gracefully when their env vars are unset** - the form still renders and validates, it just can't send (shows a friendly "email me directly" message) or isn't throttled. `submitEnquiry` returns a `ContactState` that the form reflects as an inline error or a success confirmation (with a "Send another enquiry" reset). Keep the form inside the minimalist frame: underline-style fields, the teal submit button, no card.
+
+### GitHub activity
+
+The GitHub section (first section on the home page, `id="github"`) renders a contribution heatmap ([`ContributionGraph`](src/components/ContributionGraph.tsx), a zero-JS server-rendered SVG). It deliberately breaks the `Row` pattern: **no label** - a plain full-width `<section>` so the SVG spans the same width as the intro paragraph (it scales to the column via `viewBox`, with a `min-w` wrapper inside an rtl scroll container so narrow screens scroll, opening on the most recent weeks). Data comes from `getContributionCalendar()` in [src/lib/github.ts](src/lib/github.ts), tiered for **profile parity**: the primary source is GitHub's public profile fragment `github.com/users/{user}/contributions` - it matches the profile exactly, including anonymized private counts and contributions in orgs that block API tokens, which the GraphQL API undercounts; GraphQL with the optional `GITHUB_TOKEN` and the jogruber proxy are fallback tiers (the profile markup is unofficial, so it's parsed strictly and any surprise falls through). Wrapped in `unstable_cache(..., { revalidate: 3600 })`, and the page exports `revalidate = 3600` - the site's first ISR usage; the home page re-renders hourly. Invariant: **consume the 0-4 level (`data-level` / `contributionLevel`) as-is** - GitHub buckets per-user quartiles that must not be recomputed from counts. Degrades gracefully: all tiers failing → the row keeps its `#github` anchor and shows a profile link. A rotating latest-activity ticker shipped briefly alongside the heatmap but was **deliberately removed** (2026-07): the events API cannot see activity in orgs that block classic PATs, so the feed misrepresented the owner's actual activity - don't re-add it.
 
 ### Metadata
 
