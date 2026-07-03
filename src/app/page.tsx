@@ -4,10 +4,16 @@ import { Row } from '@/components/Row'
 import { Entry } from '@/components/Entry'
 import { LinkList, type LinkListItem } from '@/components/LinkList'
 import { ContactForm } from '@/components/ContactForm'
+import { ContributionGraph } from '@/components/ContributionGraph'
 import { JsonLd } from '@/components/JsonLd'
 import { buildPageMetadata } from '@/lib/metadata'
+import { getContributionCalendar, githubProfileUrl } from '@/lib/github'
 import { getSiteUrl } from '@/lib/site-url'
 import { getAllWritings } from '@/lib/writings'
+
+// Segment config must be a statically analyzable const literal (an exception
+// to the repo's `let` style). Re-renders the page hourly for the GitHub data.
+export const revalidate = 3600
 
 let siteUrl = getSiteUrl()
 
@@ -190,7 +196,11 @@ function formatDate(dateString: string) {
 }
 
 export default async function Home() {
-  let writings = (await getAllWritings()).slice(0, 3)
+  let [allWritings, calendar] = await Promise.all([
+    getAllWritings(),
+    getContributionCalendar(),
+  ])
+  let writings = allWritings.slice(0, 3)
 
   let writingItems: LinkListItem[] = writings.map((writing) => ({
     title: writing.frontmatter.title,
@@ -229,6 +239,20 @@ export default async function Home() {
         </header>
 
         <div className="mt-16 space-y-14 sm:mt-20">
+          {/* Full-width section (no label): the heatmap spans the same width
+              as the intro paragraph above. */}
+          <section id="github" className="scroll-mt-20">
+            {calendar ? (
+              <ContributionGraph calendar={calendar} />
+            ) : (
+              <p className="text-zinc-600 dark:text-zinc-400">
+                <Link href={githubProfileUrl} className={plainLink}>
+                  See my contributions on GitHub ↗
+                </Link>
+              </p>
+            )}
+          </section>
+
           <Row label="Work" id="work">
             <div className="space-y-8">
               {work.map((entry) => (

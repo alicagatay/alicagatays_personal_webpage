@@ -24,7 +24,9 @@ export function Row({
       <h2 className="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 sm:pt-1.5">
         {label}
       </h2>
-      <div>{children}</div>
+      {/* min-w-0 lets wide content (the GitHub heatmap) scroll inside the
+          column instead of blowing the grid out past the viewport. */}
+      <div className="min-w-0">{children}</div>
     </section>
   )
 }
