@@ -33,7 +33,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      "Building Follicle Labeller, a cross-platform medical imaging and annotation tool that detects hair follicles and grafts on the human scalp and tracks them through live surgery, while leading applied AI research across the company's products and robotics.",
+      "Leading the company's applied AI research and engineering - carrying new ideas from first experiments through to products in real use. Most of what we build is confidential; all of it is research that has to hold up in production.",
   },
   {
     title: 'AI & Data Analytics Software Engineer - ProBuild360',
@@ -41,7 +41,7 @@ let work = [
     href: 'https://www.probuild360.co.uk/',
     linkLabel: 'probuild360.co.uk',
     blurb:
-      "Built the company's internal cross-platform app for managing its properties, projects and clients, plus a neural network that predicts property prices and finds properties worth investing in, then integrated the two so the team could find and manage everything in one place.",
+      'Built software and machine-learning systems the company runs on day to day - internal products, data pipelines, and the models behind them.',
   },
   {
     title: 'Machine Learning Engineer Intern - Kollestee UK Global',
@@ -49,7 +49,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      "Researched and built ML models for 3D point-cloud processing, integrated them into the company's robotics and core products, and engineered the data pipelines that fed them.",
+      "Researched and built machine-learning models for the company's core products, and engineered the data pipelines that fed them.",
   },
   {
     title: 'Volunteer Software Engineering Mentor - CodeYourFuture',
@@ -114,7 +114,7 @@ let education = [
     href: 'https://www.bcu.ac.uk/',
     linkLabel: 'bcu.ac.uk',
     blurb:
-      "I did my MSc to go deeper into AI after the field really clicked for me, spending the year on machine learning, deep learning, applied AI, data visualisation and the wider impact of AI. The professional-placement part put me inside ProBuild360 as an AI engineer, shipping production models alongside the coursework. For my dissertation I built a multimodal deep-learning model that predicts property prices across the Birmingham housing market by fusing geospatial and temporal data. It's where most of my deep-learning and applied-AI foundations come from, and I finished with a Distinction.",
+      "I did my MSc to go deeper into AI after the field really clicked for me, spending the year on machine learning, deep learning, applied AI, data visualisation and the wider impact of AI. The professional-placement part put me inside ProBuild360 as an AI engineer, doing the real job alongside the coursework. For my dissertation I built a multimodal deep-learning model that predicts property prices across the Birmingham housing market by fusing geospatial and temporal data. It's where most of my deep-learning and applied-AI foundations come from, and I finished with a Distinction.",
   },
   {
     title: 'BSc Computer Science - University of Birmingham',
@@ -221,20 +221,14 @@ export default async function Home() {
             AI Engineer · Software Builder · Founder
           </p>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-            I build and ship products from scratch - from AI systems to
-            full-stack software applications. Some of what I am building right
-            now or have built previously runs in live surgeries, and some of it
-            powers live property-price prediction algorithms in apps people rely
-            on daily - about as unforgiving as software gets. I currently work
-            as an AI Engineering &amp; Research Lead at Kollestee UK Global,
-            where I lead research and development efforts and am building
-            Follicle Labeller, a medical imaging and annotation tool used to
-            detect hair follicles and grafts on the human scalp. Previously, I
+            I build and ship cool and innovative products from scratch - from
+            AI systems to full-stack software applications - most of it
+            running quietly in production for people who depend on it. I currently lead applied
+            AI research and engineering at Kollestee UK Global. Previously, I
             worked as a Software Engineer and Machine Learning Engineer across
             startups and mid-sized companies, while earning a BSc in Computer
             Science and an MSc in Artificial Intelligence. Outside of work, I
-            build and ship my own tools that help me work much faster and more
-            efficiently.
+            build and ship my own products and tools.
           </p>
         </header>
 
@@ -328,9 +322,9 @@ export default async function Home() {
               An AI feature you want done properly, not bolted on? Or something
               you&rsquo;re trying to get off the ground but need someone to
               actually build and ship it? That&rsquo;s the kind of work I love.
-              I build products from scratch - from AI systems to full-stack
-              software applications - and take them all the way to something
-              people can use. Wherever it&rsquo;s at - a rough idea, a design,
+              I build cool and innovative products from scratch - from AI
+              systems to full-stack software applications - and take them all
+              the way to something people can use. Wherever it&rsquo;s at - a rough idea, a design,
               or a half-built product that needs finishing - tell me about it,
               and let&rsquo;s have a chat.
             </p>
