@@ -1,43 +1,37 @@
 # Ali Cagatay
 
-> Ali Cagatay is an AI engineer based in Birmingham, UK, specialising in deep learning, computer vision, agentic systems, and full-stack software engineering. He is currently AI Engineering & Research Lead at Kollestee UK Global, where he architected Follicle Labeller - a cross-platform medical imaging tool that combines YOLO11 detection and real-time tracking to help clinicians annotate hair grafts on high-resolution scalp imagery.
+> Ali Cagatay is an AI engineer, software builder and founder based in Birmingham, United Kingdom, currently working as AI Engineering & Research Lead at Kollestee UK Global.
 
-Ali holds a BSc in Computer Science from the University of Birmingham and is completing an MSc in Artificial Intelligence with Professional Placement at Birmingham City University (Distinction track). His MSc dissertation, in collaboration with ProBuild360, applies multimodal deep learning to property price prediction in the Birmingham housing market. He has previously worked at ProBuild360 as an AI & Data Analytics Software Engineer and interned at Kollestee UK Global as a Machine Learning Engineer. Outside of paid work, he has volunteered as a mentor at CodeYourFuture for over five years, supporting refugees, asylum seekers, and low-income learners through full-stack web development training.
+Ali specialises in deep learning, computer vision, agentic systems, and full-stack software engineering, taking research-grade AI from notebook to production. At Kollestee UK Global he leads applied AI research and engineering, taking new ideas - most of them confidential - from first experiments to deployed products.
 
-## Pages
+He holds a BSc in Computer Science from the University of Birmingham and an MSc in Artificial Intelligence with Professional Placement from Birmingham City University, completed with a Distinction; his dissertation built a multimodal deep-learning model that predicts property prices across the Birmingham housing market by fusing geospatial and temporal data. He previously worked at ProBuild360 as an AI & Data Analytics Software Engineer (his MSc placement) and at Kollestee UK Global as a Machine Learning Engineer Intern. Since 2020 he has volunteered as a software engineering mentor at CodeYourFuture, leading Saturday classes that teach JavaScript, Python, Git, Jest and SQL to career-changers with no coding background. Outside of work, he builds and ships his own products and tools.
 
-- [Home](https://alicagatay.xyz/en): One-line introduction, social links, and recent photos.
-- [About](https://alicagatay.xyz/en/about): Long-form biography - childhood interest in programming, BSc and MSc in Birmingham, CodeYourFuture mentoring, MSc dissertation on multimodal deep learning, current role at Kollestee.
-- [Work](https://alicagatay.xyz/en/work): Chronological work history including AI Engineering & Research Lead at Kollestee UK Global (March 2026 – present), AI & Data Analytics Software Engineer Placement at ProBuild360 (October 2025 – March 2026), Machine Learning Engineer Intern at Kollestee UK Global (June 2024 – September 2025), Volunteer Software Engineering Mentor at CodeYourFuture (September 2020 – present), and Software Engineer Intern at Invitelecom (August 2018 – September 2018).
-- [Education](https://alicagatay.xyz/en/education): MSc Artificial Intelligence with Professional Placement at Birmingham City University (Distinction track, September 2024 – present) and BSc Computer Science at the University of Birmingham (September 2019 – July 2022).
-- [Projects](https://alicagatay.xyz/en/projects): Side projects including Board of Directors RAG (a multi-agent retrieval-augmented generation system over 484 YouTube transcripts), Micro Marketing Assistant (a minimal CRM for small businesses), Focus Timer (a Pomodoro web app), and Metronome (in progress).
-- [Hackathons](https://alicagatay.xyz/en/hackathons): Includes the Microsoft Embrace Midlands Hackathon 2025, where his team built CouncilAgent - a voice AI assistant for Birmingham City Council - in five hours and finished 3rd out of fifteen university teams.
-- [Gear](https://alicagatay.xyz/en/gear): The software, hardware, and tools Ali uses day to day, including a 14-inch MacBook Pro (M1 Pro), Dell and HP external displays, VS Code, Docker, Figma, Sony WH-1000XM5 headphones, and a Kindle Paperwhite.
+Core specialisms:
 
-## Specialisms
+- Deep learning and multimodal AI
+- Computer vision
+- Agentic systems and retrieval-augmented generation (multi-agent, persona-routed pipelines)
+- Full-stack software engineering (web, cross-platform and mobile applications)
 
-- Deep learning (PyTorch, TensorFlow, Keras)
-- Computer vision (YOLO11 detection and keypoint models, real-time tracking with DeepSORT and optical flow, 2D/3D point cloud processing)
-- Agentic systems and Retrieval-Augmented Generation (multi-agent pipelines, persona-driven retrieval, BM25 + vector + reranker hybrid search)
-- Full-stack software engineering (Next.js, React Native, TypeScript, Python, FastAPI, Flutter)
-- Cross-platform AI deployment (CoreML, CUDA, ONNX Runtime Web, Tauri)
-- Multimodal deep learning (tabular transformers, geo-spatial encoders, temporal models)
+The site is a single English-only minimalist landing page with anchored sections, plus a writings section. Ali speaks English and Turkish.
 
-## Location
+## Site
 
-Birmingham, United Kingdom.
-
-## Languages
-
-English, Turkish. The site is available at https://alicagatay.xyz/en (English) and https://alicagatay.xyz/tr (Turkish).
+- [Home](https://alicagatay.xyz/): Introduction, a GitHub contribution heatmap of the last year of activity, and the sections below.
+- [Work](https://alicagatay.xyz/#work): Chronological work history - AI Engineering & Research Lead at Kollestee UK Global (March 2026 - present), AI & Data Analytics Software Engineer at ProBuild360 (October 2025 - March 2026), Machine Learning Engineer Intern at Kollestee UK Global (June 2024 - September 2025), Volunteer Software Engineering Mentor at CodeYourFuture (September 2020 - present), and Software Engineer Intern at Invitelecom (August 2018 - September 2018).
+- [Projects](https://alicagatay.xyz/#projects): Board of Directors RAG (a multi-agent RAG over 484 YouTube transcripts from 18 creators that routes each question to the right creator's persona), CouncilAgent (a voice AI assistant for Birmingham City Council that answers housing questions out loud - a Flutter app over an Azure OpenAI and Whisper backend, built in 5 hours with a 5-person team and placed 3rd of 15 at the Microsoft hackathon), Micro Marketing Assistant (a fast, minimal CRM for small businesses), and Focus Timer (a clean Pomodoro timer).
+- [Education](https://alicagatay.xyz/#education): MSc Artificial Intelligence with Professional Placement at Birmingham City University (September 2024 - March 2026, Distinction) and BSc Computer Science at the University of Birmingham (September 2019 - July 2022).
+- [Writings](https://alicagatay.xyz/writings): Occasional notes on AI, software engineering, product building, and founding.
+- [Work with me](https://alicagatay.xyz/#contact): An enquiry form for product ideas, AI features, and half-built products that need building and shipping.
 
 ## Contact
 
-- Email: aliccagatay@gmail.com
-- GitHub: https://github.com/alicagatay
-- LinkedIn: https://www.linkedin.com/in/alicagatay/
-- Instagram: https://www.instagram.com/_alicagatay/
+- [Email](mailto:aliccagatay@gmail.com)
+- [GitHub](https://github.com/alicagatay)
+- [LinkedIn](https://www.linkedin.com/in/alicagatay/)
+- [Instagram](https://www.instagram.com/_alicagatay/)
 
 ## Optional
 
 - [Sitemap](https://alicagatay.xyz/sitemap.xml)
+- [RSS feed](https://alicagatay.xyz/feed.xml)
