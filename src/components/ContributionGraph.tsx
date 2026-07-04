@@ -1,25 +1,38 @@
 import { ContributionTooltip } from '@/components/ContributionTooltip'
 import type { ContributionCalendar, ContributionDay } from '@/lib/github'
 
-// One swappable 5-tuple of complete literal class strings (Tailwind scans
-// source for whole class names, so these must never be concatenated).
-// Active: site-native teal ramp on the paper/ink backgrounds.
+// A 10-step ramp (empty + 9 teal intensities) of complete literal class
+// strings (Tailwind scans source for whole class names, so these must never
+// be concatenated). Site-native teal on the paper/ink backgrounds.
 let LEVEL_CLASSES = [
   'fill-[#e8e6dd] dark:fill-[#24231b]',
+  'fill-teal-100 dark:fill-teal-950',
   'fill-teal-200 dark:fill-teal-900',
+  'fill-teal-300 dark:fill-teal-800',
   'fill-teal-400 dark:fill-teal-700',
+  'fill-teal-500 dark:fill-teal-600',
   'fill-teal-600 dark:fill-teal-500',
+  'fill-teal-700 dark:fill-teal-400',
   'fill-teal-800 dark:fill-teal-300',
+  'fill-teal-900 dark:fill-teal-200',
 ]
-// Alternate: GitHub's current production palette (July 2026), level 0 adapted
-// to paper/ink. Kept commented so Tailwind doesn't emit unused CSS.
-// let LEVEL_CLASSES = [
-//   'fill-[#eae8de] dark:fill-[#22281f]',
-//   'fill-[#aceebb] dark:fill-[#033a16]',
-//   'fill-[#4ac26b] dark:fill-[#196c2e]',
-//   'fill-[#2da44e] dark:fill-[#2ea043]',
-//   'fill-[#116329] dark:fill-[#56d364]',
-// ]
+
+// Cell colour is bucketed here from daily counts, log-scaled against the
+// year's busiest day, NOT from GitHub's 0-4 `day.level` (still parsed and
+// stored by src/lib/github.ts). GitHub's per-user quartiles saturate: a 52-
+// and a 667-contribution day both land on level 4. The log scale keeps
+// order-of-magnitude gaps visible; percentile buckets would re-merge them
+// on a heavy-tailed year.
+function buildLevelFor(weeks: ContributionDay[][]) {
+  let max = 0
+  for (let week of weeks)
+    for (let day of week) if (day.count > max) max = day.count
+  return function levelFor(count: number) {
+    if (count === 0 || max === 0) return 0
+    let ratio = Math.log(count + 1) / Math.log(max + 1)
+    return 1 + Math.min(8, Math.floor(ratio * 9))
+  }
+}
 
 let cellSize = 16
 let gap = 4
@@ -79,6 +92,7 @@ export function ContributionGraph({
   let height = gutterTop + 7 * step - gap
   let monthLabels = getMonthLabels(weeks)
   let total = calendar.total.toLocaleString('en-GB')
+  let levelFor = buildLevelFor(weeks)
 
   return (
     <div>
@@ -138,7 +152,7 @@ export function ContributionGraph({
                     height={cellSize}
                     rx={3}
                     data-tooltip={formatDayTitle(day)}
-                    className={LEVEL_CLASSES[day.level]}
+                    className={LEVEL_CLASSES[levelFor(day.count)]}
                   />
                 )),
               )}
