@@ -33,7 +33,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      "Leading the company's applied AI research and engineering - carrying new ideas from first experiments through to products in real use. Most of what we build is confidential; all of it is research that has to hold up in production.",
+      "Leading the company's applied AI research and engineering - taking bold ideas from first experiments all the way to real products in the hands of the end users, and making sure those products are built on rock-solid foundations that stand up in production.",
   },
   {
     title: 'AI & Data Analytics Software Engineer - ProBuild360',
@@ -41,7 +41,7 @@ let work = [
     href: 'https://www.probuild360.co.uk/',
     linkLabel: 'probuild360.co.uk',
     blurb:
-      'Built software and machine-learning systems the company runs on day to day - internal products, data pipelines, and the models behind them.',
+      'Built the software and machine-learning systems the company runs on day to day - internal products, data pipelines, and the models behind them.',
   },
   {
     title: 'Machine Learning Engineer Intern - Kollestee UK Global',
@@ -49,7 +49,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      "Researched and built machine-learning models for the company's core products, and engineered the data pipelines that fed them.",
+      "Researched and built machine-learning models for the company's core products and innovations, and engineered the data pipelines that fed them.",
   },
   {
     title: 'Volunteer Software Engineering Mentor - CodeYourFuture',
@@ -228,7 +228,8 @@ export default async function Home() {
             worked as a Software Engineer and Machine Learning Engineer across
             startups and mid-sized companies, while earning a BSc in Computer
             Science and an MSc in Artificial Intelligence. Outside of work, I
-            build and ship my own products and tools.
+            build and ship my own products and tools that make me faster,
+            more productive and more efficient in my daily life.
           </p>
         </header>
 

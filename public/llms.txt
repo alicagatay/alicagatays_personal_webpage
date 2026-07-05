@@ -2,7 +2,7 @@
 
 > Ali Cagatay is an AI engineer, software builder and founder based in Birmingham, United Kingdom, currently working as AI Engineering & Research Lead at Kollestee UK Global.
 
-Ali specialises in deep learning, computer vision, agentic systems, and full-stack software engineering, taking research-grade AI from notebook to production. At Kollestee UK Global he leads applied AI research and engineering, taking new ideas - most of them confidential - from first experiments to deployed products.
+Ali specialises in deep learning, computer vision, agentic systems, and full-stack software engineering, taking research-grade AI from notebook to production. At Kollestee UK Global he leads applied AI research and engineering, taking new ideas from first experiments to deployed products.
 
 He holds a BSc in Computer Science from the University of Birmingham and an MSc in Artificial Intelligence with Professional Placement from Birmingham City University, completed with a Distinction; his dissertation built a multimodal deep-learning model that predicts property prices across the Birmingham housing market by fusing geospatial and temporal data. He previously worked at ProBuild360 as an AI & Data Analytics Software Engineer (his MSc placement) and at Kollestee UK Global as a Machine Learning Engineer Intern. Since 2020 he has volunteered as a software engineering mentor at CodeYourFuture, leading Saturday classes that teach JavaScript, Python, Git, Jest and SQL to career-changers with no coding background. Outside of work, he builds and ships his own products and tools.
 
