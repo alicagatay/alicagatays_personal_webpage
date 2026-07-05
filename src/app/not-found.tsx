@@ -3,7 +3,7 @@ import { Column } from '@/components/Column'
 
 export default function NotFound() {
   return (
-    <main className="pt-24 pb-32 sm:pt-32">
+    <main className="pb-32 pt-24 sm:pt-32">
       <Column>
         <p className="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">
           404
@@ -12,7 +12,7 @@ export default function NotFound() {
           Page not found
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-          Sorry, I couldn&rsquo;t find that page.
+          Sorry, I couldn’t find that page.
         </p>
         <p className="mt-10 text-sm">
           <Link

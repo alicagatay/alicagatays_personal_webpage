@@ -36,10 +36,9 @@ export default async function Writings() {
             Writings
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-            Occasional notes on whatever I&rsquo;ve been thinking about -
-            usually AI, software engineering, product building, founding, or a
-            bit of tech news. I write when something feels worth sharing, not on
-            a schedule.
+            Occasional notes on whatever I’ve been thinking about - usually AI,
+            software engineering, product building, founding, or a bit of tech
+            news. I write when something feels worth sharing, not on a schedule.
           </p>
         </header>
 

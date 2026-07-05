@@ -33,7 +33,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      "Leading the company's applied AI research and engineering - taking bold ideas from first experiments all the way to real products in the hands of the end users, and making sure those products are built on rock-solid foundations that stand up in production.",
+      'Leading the company’s applied AI research and engineering - taking bold ideas from first experiments all the way to real products in the hands of the end users, and making sure those products are built on rock-solid foundations that stand up in production.',
   },
   {
     title: 'AI & Data Analytics Software Engineer - ProBuild360',
@@ -49,7 +49,7 @@ let work = [
     href: 'https://kollestee.co.uk/',
     linkLabel: 'kollestee.co.uk',
     blurb:
-      "Researched and built machine-learning models for the company's core products and innovations, and engineered the data pipelines that fed them.",
+      'Researched and built machine-learning models for the company’s core products and innovations, and engineered the data pipelines that fed them.',
   },
   {
     title: 'Volunteer Software Engineering Mentor - CodeYourFuture',
@@ -63,7 +63,7 @@ let work = [
     title: 'Software Engineer Intern - Invitelecom',
     meta: 'Aug 2018 - Sep 2018',
     blurb:
-      "Built and shipped an Android game, 'Predict The Number', to the Play Store in under a month.",
+      'Built and shipped an Android game, ‘Predict The Number’, to the Play Store in under a month.',
   },
 ]
 
@@ -76,7 +76,7 @@ let projects: LinkListItem[] = [
       href: 'https://github.com/alicagatay/board-of-directors-rag',
     },
     blurb:
-      "A multi-agent RAG over 484 YouTube transcripts from 18 creators - it routes each question to the right creator's persona and answers in their voice, grounded in what they've actually said.",
+      'A multi-agent RAG over 484 YouTube transcripts from 18 creators - it routes each question to the right creator’s persona and answers in their voice, grounded in what they’ve actually said.',
   },
   {
     title: 'CouncilAgent',
@@ -92,7 +92,7 @@ let projects: LinkListItem[] = [
       href: 'https://github.com/alicagatay/micro-marketing-assistant',
     },
     blurb:
-      "A fast, minimal CRM that helps small businesses track the products they're selling and who they're selling them to.",
+      'A fast, minimal CRM that helps small businesses track the products they’re selling and who they’re selling them to.',
   },
   {
     title: 'Focus Timer',
@@ -114,7 +114,7 @@ let education = [
     href: 'https://www.bcu.ac.uk/',
     linkLabel: 'bcu.ac.uk',
     blurb:
-      "I did my MSc to go deeper into AI after the field really clicked for me, spending the year on machine learning, deep learning, applied AI, data visualisation and the wider impact of AI. The professional-placement part put me inside ProBuild360 as an AI engineer, doing the real job alongside the coursework. For my dissertation I built a multimodal deep-learning model that predicts property prices across the Birmingham housing market by fusing geospatial and temporal data. It's where most of my deep-learning and applied-AI foundations come from, and I finished with a Distinction.",
+      'I did my MSc to go deeper into AI after the field really clicked for me, spending the year on machine learning, deep learning, applied AI, data visualisation and the wider impact of AI. The professional-placement part put me inside ProBuild360 as an AI engineer, doing the real job alongside the coursework. For my dissertation I built a multimodal deep-learning model that predicts property prices across the Birmingham housing market by fusing geospatial and temporal data. It’s where most of my deep-learning and applied-AI foundations come from, and I finished with a Distinction.',
   },
   {
     title: 'BSc Computer Science - University of Birmingham',
@@ -221,15 +221,15 @@ export default async function Home() {
             AI Engineer · Software Builder · Founder
           </p>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-            I build and ship cool and innovative products from scratch - from
-            AI systems to full-stack software applications - most of it
-            running quietly in production for people who depend on it. I currently lead applied
-            AI research and engineering at Kollestee UK Global. Previously, I
-            worked as a Software Engineer and Machine Learning Engineer across
-            startups and mid-sized companies, while earning a BSc in Computer
-            Science and an MSc in Artificial Intelligence. Outside of work, I
-            build and ship my own products and tools that make me faster,
-            more productive and more efficient in my daily life.
+            I build and ship cool and innovative products from scratch - from AI
+            systems to full-stack software applications - most of it running
+            quietly in production for people who depend on it. I currently lead
+            applied AI research and engineering at Kollestee UK Global.
+            Previously, I worked as a Software Engineer and Machine Learning
+            Engineer across startups and mid-sized companies, while earning a
+            BSc in Computer Science and an MSc in Artificial Intelligence.
+            Outside of work, I build and ship my own products and tools that
+            make me faster, more productive and more efficient in my daily life.
           </p>
         </header>
 
@@ -321,13 +321,13 @@ export default async function Home() {
             <p className="text-zinc-600 dark:text-zinc-400">
               Do you have an idea you want built into a real, working product?
               An AI feature you want done properly, not bolted on? Or something
-              you&rsquo;re trying to get off the ground but need someone to
-              actually build and ship it? That&rsquo;s the kind of work I love.
-              I build cool and innovative products from scratch - from AI
-              systems to full-stack software applications - and take them all
-              the way to something people can use. Wherever it&rsquo;s at - a rough idea, a design,
-              or a half-built product that needs finishing - tell me about it,
-              and let&rsquo;s have a chat.
+              you’re trying to get off the ground but need someone to actually
+              build and ship it? That’s the kind of work I love. I build cool
+              and innovative products from scratch - from AI systems to
+              full-stack software applications - and take them all the way to
+              something people can use. Wherever it’s at - a rough idea, a
+              design, or a half-built product that needs finishing - tell me
+              about it, and let’s have a chat.
             </p>
             <ContactForm />
           </Row>

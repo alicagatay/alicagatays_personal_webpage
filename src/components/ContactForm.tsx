@@ -50,7 +50,7 @@ function EnquiryForm({ onReset }: { onReset: () => void }) {
           role="status"
           className="text-zinc-600 outline-none dark:text-zinc-400"
         >
-          Thanks - your enquiry is on its way. I&rsquo;ll be in touch soon.
+          Thanks - your enquiry is on its way. I’ll be in touch soon.
         </p>
         <button type="button" onClick={onReset} className={resetLink}>
           Send another enquiry
