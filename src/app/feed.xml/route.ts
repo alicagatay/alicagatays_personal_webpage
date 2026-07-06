@@ -14,7 +14,6 @@ export async function GET() {
     id: siteUrl,
     link: siteUrl,
     language: 'en',
-    favicon: `${siteUrl}/favicon.ico`,
     copyright: `© ${new Date().getFullYear()} Ali Cagatay. All rights reserved.`,
     updated: new Date(),
     feedLinks: {

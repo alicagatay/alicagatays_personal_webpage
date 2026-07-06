@@ -118,11 +118,6 @@ export default function typographyStyles({ theme }: PluginUtils) {
           marginTop: 0,
         },
 
-        // Images
-        img: {
-          borderRadius: theme('borderRadius.3xl'),
-        },
-
         // Inline elements
         a: {
           color: 'var(--tw-prose-links)',

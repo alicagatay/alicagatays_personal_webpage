@@ -8,6 +8,8 @@ Personal website for Ali Cagatay (alicagatay.xyz). Next.js 16 App Router + React
 
 The site is a **single, radically minimalist landing page**: one narrow centered column on a warm cream / ink background, tiny uppercase `LABEL → value` rows, generous whitespace, and no cards/shadows/carousel/avatar/nav. The only separate sub-tree is the `/writings` blog. Stay inside this minimalist frame when editing - don't reintroduce cards, carousels, or heavy navigation.
 
+The site also serves **no images at all** (removed 2026-07): no favicon, no OG/social-share image, no manifest icons, no `image` in the JSON-LD, no photos anywhere. Inline SVG UI (the contribution heatmap, the theme-toggle glyphs) is fine - the ban is on image assets and image responses, not vector UI. Don't reintroduce any image surface without the owner asking.
+
 ## Commands
 
 ```bash
@@ -30,7 +32,7 @@ App Router under [src/app/](src/app). There are only **two public surfaces**:
 - `/` - the home page ([src/app/page.tsx](src/app/page.tsx)) **is the entire site**: a stack of `LABEL → value` rows (intro, GitHub, Work, Projects, Education, Writing, Elsewhere, and a "Work with me" CTA row). Rows carry `id` anchors (`#github`, `#work`, `#projects`, `#education`, `#contact`).
 - `/writings` and `/writings/[slug]` - the blog index and post template.
 
-Plus `/thank-you` (a `noindex` newsletter utility page) and the metadata-file conventions in `src/app/`: `favicon.ico`, `feed.xml/route.ts`, `manifest.ts`, `opengraph-image.tsx`, `robots.ts`, `sitemap.ts`, `providers.tsx`, `not-found.tsx`.
+Plus `/thank-you` (a `noindex` newsletter utility page) and the metadata-file conventions in `src/app/`: `feed.xml/route.ts`, `manifest.ts`, `robots.ts`, `sitemap.ts`, `providers.tsx`, `not-found.tsx`. There is deliberately **no** `favicon.ico` and **no** `opengraph-image.tsx` (see the no-images policy above); `/favicon.ico` 404s by design.
 
 The redesign collapsed the old multi-page site (`/about`, `/work`, `/projects`, `/education`, `/hackathons`, `/gear`, `/work-with-me`). Those routes no longer exist; they are **301-redirected** to `/` (or the relevant anchor) via `redirects()` in [next.config.mjs](next.config.mjs), which also 301s the old bilingual `/en/*` and `/tr/*` URLs that Google still has indexed. When you cut or rename a route, add a redirect there too.
 
@@ -72,7 +74,7 @@ The GitHub section (first section on the home page, `id="github"`) renders a con
 
 ### Metadata
 
-Each page exports `metadata` (or `generateMetadata` for the dynamic `writings/[slug]` route) built via [`buildPageMetadata`](src/lib/metadata.ts), passing `path`, `title?`, `description`, and optional `openGraphType`. The helper returns a `Metadata` object with canonical URL, OG, and Twitter card. Two behaviors worth knowing:
+Each page exports `metadata` (or `generateMetadata` for the dynamic `writings/[slug]` route) built via [`buildPageMetadata`](src/lib/metadata.ts), passing `path`, `title?`, `description`, and optional `openGraphType`. The helper returns a `Metadata` object with canonical URL, OG, and Twitter card. Per the no-images policy, neither the helper nor the root layout sets `og:image` / `twitter:image`, and the Twitter card type is `summary` (text-only) - social shares intentionally have no preview image. Two behaviors worth knowing:
 
 - The root layout sets `title: { template: '%s - Ali Cagatay', default: '<siteDefault>' }`, so a page-level `title: 'Writings'` renders as `<title>Writings - Ali Cagatay</title>`.
 - The helper appends `- Ali Cagatay` to `og:title` / `twitter:title` itself (`og:title` doesn't go through the layout's title template, so the helper does it explicitly to keep social shares consistent with `<title>`).

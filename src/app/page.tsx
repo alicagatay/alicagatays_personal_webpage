@@ -143,7 +143,6 @@ let personSchema = {
     familyName: 'Cagatay',
     jobTitle: 'AI Engineer',
     description: metaDescription,
-    image: `${siteUrl}/opengraph-image`,
     url: siteUrl,
     address: {
       '@type': 'PostalAddress',

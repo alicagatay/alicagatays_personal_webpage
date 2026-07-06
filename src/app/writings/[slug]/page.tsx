@@ -86,13 +86,12 @@ export default async function WritingPage({
       name: writing.frontmatter.author ?? 'Ali Cagatay',
       url: siteUrl,
     },
-    image: `${siteUrl}/opengraph-image`,
     url: `${siteUrl}/writings/${slug}`,
     inLanguage: 'en-GB',
   }
 
   return (
-    <main className="pt-24 pb-32 sm:pt-32">
+    <main className="pb-32 pt-24 sm:pt-32">
       <JsonLd id={`schema-blog-${slug}`} data={blogPostingSchema} />
       <Column>
         <Link
