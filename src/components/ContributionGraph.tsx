@@ -23,15 +23,52 @@ let LEVEL_CLASSES = [
 // and a 667-contribution day both land on level 4. The log scale keeps
 // order-of-magnitude gaps visible; percentile buckets would re-merge them
 // on a heavy-tailed year.
-function buildLevelFor(weeks: ContributionDay[][]) {
-  let max = 0
-  for (let week of weeks)
-    for (let day of week) if (day.count > max) max = day.count
+function buildLevelFor(max: number) {
   return function levelFor(count: number) {
     if (count === 0 || max === 0) return 0
     let ratio = Math.log(count + 1) / Math.log(max + 1)
     return 1 + Math.min(8, Math.floor(ratio * 9))
   }
+}
+
+function maxDailyCount(weeks: ContributionDay[][]) {
+  let max = 0
+  for (let week of weeks)
+    for (let day of week) if (day.count > max) max = day.count
+  return max
+}
+
+// Legend tooltips: invert the bucketing into the range of daily counts each
+// swatch covers. levelFor is monotonic in count, so each bucket's lower
+// boundary is found by binary search - a count-by-count walk would let one
+// absurd count from the less-validated fallback data tiers spin the render.
+// A quiet year can leave upper swatches with no attainable count - those
+// get no tooltip.
+function buildLegendLabels(max: number, levelFor: (count: number) => number) {
+  // max flows from external calendar data; a non-finite value would break
+  // the search bounds, so treat it as an empty year.
+  let top = Number.isFinite(max) && max > 0 ? max : 0
+  // Smallest count in [1, top] whose bucket is at least `level`; top + 1
+  // when no count reaches it.
+  function firstAtLeast(level: number) {
+    let lo = 1
+    let hi = top + 1
+    while (lo < hi) {
+      let mid = Math.floor((lo + hi) / 2)
+      if (levelFor(mid) >= level) hi = mid
+      else lo = mid + 1
+    }
+    return lo
+  }
+  let boundaries = LEVEL_CLASSES.map((_, level) => firstAtLeast(level + 1))
+  return LEVEL_CLASSES.map((_, level) => {
+    if (level === 0) return 'No contributions'
+    let lo = boundaries[level - 1]
+    let hi = boundaries[level] - 1
+    if (lo > hi) return undefined
+    if (lo === hi) return lo === 1 ? '1 contribution' : `${lo} contributions`
+    return `${lo}–${hi} contributions`
+  })
 }
 
 let cellSize = 16
@@ -92,86 +129,94 @@ export function ContributionGraph({
   let height = gutterTop + 7 * step - gap
   let monthLabels = getMonthLabels(weeks)
   let total = calendar.total.toLocaleString('en-GB')
-  let levelFor = buildLevelFor(weeks)
+  let max = maxDailyCount(weeks)
+  let levelFor = buildLevelFor(max)
+  let legendLabels = buildLegendLabels(max, levelFor)
 
   return (
-    <div>
+    // The tooltip layer spans the scroller and the legend so both the day
+    // cells and the legend swatches share the one pill.
+    <ContributionTooltip>
       {/* rtl scroller: narrow screens open on the most recent weeks, no JS.
           tabIndex makes it keyboard-scrollable in browsers (Safari) that don't
           focus child-less scroll containers implicitly. */}
-      <ContributionTooltip>
-        <div
-          dir="rtl"
-          tabIndex={0}
-          role="region"
-          aria-label="GitHub contribution graph, scrollable"
-          className="max-w-full overflow-x-auto"
-        >
-          {/* Rendered at its intrinsic size (wider than the column) inside the
+      <div
+        dir="rtl"
+        tabIndex={0}
+        role="region"
+        aria-label="GitHub contribution graph, scrollable"
+        className="max-w-full overflow-x-auto"
+      >
+        {/* Rendered at its intrinsic size (wider than the column) inside the
             rtl scroll container - w-fit keeps the wrapper's box as wide as
             the SVG, since overflow spilling from a child on the start side
             of an rtl scroller is unreachable. */}
-          <div dir="ltr" className="w-fit">
-            <svg
-              width={width}
-              height={height}
-              viewBox={`0 0 ${width} ${height}`}
-              role="img"
-              aria-label={`${total} contributions in the last year`}
-              className="block"
-            >
-              {monthLabels.map((entry) => (
-                <text
-                  key={`${entry.label}-${entry.weekIndex}`}
-                  x={gutterLeft + entry.weekIndex * step}
-                  y={16}
-                  className="fill-zinc-400 text-[15px] dark:fill-zinc-500"
-                >
-                  {entry.label}
-                </text>
-              ))}
-              {['Mon', 'Wed', 'Fri'].map((label, index) => (
-                <text
-                  key={label}
-                  x={0}
-                  y={gutterTop + (index * 2 + 1) * step + cellSize - 4}
-                  className="fill-zinc-400 text-[15px] dark:fill-zinc-500"
-                >
-                  {label}
-                </text>
-              ))}
-              {weeks.map((week, weekIndex) =>
-                // Cells are positioned by weekday, never array index - the
-                // first and last weeks of the window are usually partial.
-                week.map((day) => (
-                  <rect
-                    key={day.date}
-                    x={gutterLeft + weekIndex * step}
-                    y={gutterTop + day.weekday * step}
-                    width={cellSize}
-                    height={cellSize}
-                    rx={3}
-                    data-tooltip={formatDayTitle(day)}
-                    className={LEVEL_CLASSES[levelFor(day.count)]}
-                  />
-                )),
-              )}
-            </svg>
-          </div>
+        <div dir="ltr" className="w-fit">
+          <svg
+            width={width}
+            height={height}
+            viewBox={`0 0 ${width} ${height}`}
+            role="img"
+            aria-label={`${total} contributions in the last year`}
+            className="block"
+          >
+            {monthLabels.map((entry) => (
+              <text
+                key={`${entry.label}-${entry.weekIndex}`}
+                x={gutterLeft + entry.weekIndex * step}
+                y={16}
+                className="fill-zinc-400 text-[15px] dark:fill-zinc-500"
+              >
+                {entry.label}
+              </text>
+            ))}
+            {['Mon', 'Wed', 'Fri'].map((label, index) => (
+              <text
+                key={label}
+                x={0}
+                y={gutterTop + (index * 2 + 1) * step + cellSize - 4}
+                className="fill-zinc-400 text-[15px] dark:fill-zinc-500"
+              >
+                {label}
+              </text>
+            ))}
+            {weeks.map((week, weekIndex) =>
+              // Cells are positioned by weekday, never array index - the
+              // first and last weeks of the window are usually partial.
+              week.map((day) => (
+                <rect
+                  key={day.date}
+                  x={gutterLeft + weekIndex * step}
+                  y={gutterTop + day.weekday * step}
+                  width={cellSize}
+                  height={cellSize}
+                  rx={3}
+                  data-tooltip={formatDayTitle(day)}
+                  className={LEVEL_CLASSES[levelFor(day.count)]}
+                />
+              )),
+            )}
+          </svg>
         </div>
-      </ContributionTooltip>
+      </div>
       <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm text-zinc-400 dark:text-zinc-500">
         <p>{total} contributions in the last year</p>
         <div aria-hidden className="flex items-center gap-1">
           <span>Less</span>
-          {LEVEL_CLASSES.map((levelClass) => (
+          {LEVEL_CLASSES.map((levelClass, level) => (
             <svg key={levelClass} width={12} height={12} className="block">
-              <rect width={12} height={12} rx={3} className={levelClass} />
+              <rect
+                width={12}
+                height={12}
+                rx={3}
+                data-tooltip={legendLabels[level]}
+                className={levelClass}
+              />
             </svg>
           ))}
           <span>More</span>
         </div>
       </div>
-    </div>
+    </ContributionTooltip>
   )
 }
