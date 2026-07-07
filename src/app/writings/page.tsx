@@ -46,7 +46,7 @@ export default async function Writings() {
           {items.length > 0 ? (
             <LinkList items={items} />
           ) : (
-            <p className="text-zinc-500 dark:text-zinc-400">
+            <p className="text-zinc-600 dark:text-zinc-400">
               Nothing here yet - check back soon.
             </p>
           )}
@@ -55,7 +55,7 @@ export default async function Writings() {
         <p className="mt-16 text-sm">
           <Link
             href="/"
-            className="text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
+            className="text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
           >
             ← Back home
           </Link>

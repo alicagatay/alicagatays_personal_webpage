@@ -26,7 +26,7 @@ export default function ThankYou() {
         <p className="mt-10 text-sm">
           <Link
             href="/"
-            className="text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
+            className="text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
           >
             ← Back home
           </Link>

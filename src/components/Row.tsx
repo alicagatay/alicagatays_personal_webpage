@@ -21,7 +21,7 @@ export function Row({
         className,
       )}
     >
-      <h2 className="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 sm:pt-1.5">
+      <h2 className="text-xs uppercase tracking-[0.18em] text-zinc-600 dark:text-zinc-400 sm:pt-1.5">
         {label}
       </h2>
       {/* min-w-0 lets wide content (the GitHub heatmap) scroll inside the

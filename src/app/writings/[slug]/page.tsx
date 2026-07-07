@@ -96,7 +96,7 @@ export default async function WritingPage({
       <Column>
         <Link
           href="/writings"
-          className="text-sm text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
+          className="text-sm text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
         >
           ← Writing
         </Link>
@@ -107,7 +107,7 @@ export default async function WritingPage({
             </h1>
             <time
               dateTime={writing.frontmatter.date}
-              className="order-first text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500"
+              className="order-first text-xs uppercase tracking-[0.18em] text-zinc-600 dark:text-zinc-400"
             >
               {formatDate(writing.frontmatter.date)}
             </time>

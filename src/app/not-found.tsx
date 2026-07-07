@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <main className="pb-32 pt-24 sm:pt-32">
       <Column>
-        <p className="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">
+        <p className="text-xs uppercase tracking-[0.18em] text-zinc-600 dark:text-zinc-400">
           404
         </p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -17,7 +17,7 @@ export default function NotFound() {
         <p className="mt-10 text-sm">
           <Link
             href="/"
-            className="text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
+            className="text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
           >
             ← Back home
           </Link>

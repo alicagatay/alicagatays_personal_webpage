@@ -165,7 +165,7 @@ export function ContributionGraph({
                 key={`${entry.label}-${entry.weekIndex}`}
                 x={gutterLeft + entry.weekIndex * step}
                 y={16}
-                className="fill-zinc-400 text-[15px] dark:fill-zinc-500"
+                className="fill-zinc-600 text-[15px] dark:fill-zinc-400"
               >
                 {entry.label}
               </text>
@@ -175,7 +175,7 @@ export function ContributionGraph({
                 key={label}
                 x={0}
                 y={gutterTop + (index * 2 + 1) * step + cellSize - 4}
-                className="fill-zinc-400 text-[15px] dark:fill-zinc-500"
+                className="fill-zinc-600 text-[15px] dark:fill-zinc-400"
               >
                 {label}
               </text>
@@ -199,7 +199,7 @@ export function ContributionGraph({
           </svg>
         </div>
       </div>
-      <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm text-zinc-400 dark:text-zinc-500">
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm text-zinc-600 dark:text-zinc-400">
         <p>{total} contributions in the last year</p>
         <div aria-hidden className="flex items-center gap-1">
           <span>Less</span>

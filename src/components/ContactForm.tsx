@@ -6,17 +6,17 @@ import { submitEnquiry, type ContactState } from '@/lib/contact'
 let initialState: ContactState = { status: 'idle' }
 
 let labelClass =
-  'mb-1.5 block text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500'
+  'mb-1.5 block text-xs uppercase tracking-[0.18em] text-zinc-600 dark:text-zinc-400'
 
 let fieldClass =
-  'w-full border-b border-zinc-300 bg-transparent py-1.5 text-zinc-900 transition placeholder:text-zinc-400 focus:border-teal-700 focus:outline-none dark:border-zinc-700 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-teal-400'
+  'w-full border-b border-zinc-300 bg-transparent py-1.5 text-zinc-900 transition placeholder:text-zinc-600 focus:border-teal-700 focus:outline-none dark:border-zinc-700 dark:text-zinc-100 dark:placeholder:text-zinc-400 dark:focus:border-teal-400'
 
 // The native <select>'s open option menu inherits the control's background; an
 // explicit one keeps it readable in dark mode on platforms that don't theme it.
 let selectClass = fieldClass.replace('bg-transparent', 'bg-paper dark:bg-ink')
 
 let resetLink =
-  'mt-3 text-sm text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 hover:decoration-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400 dark:hover:decoration-teal-400'
+  'mt-3 text-sm text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 hover:decoration-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400 dark:hover:decoration-teal-400'
 
 // The in-page enquiry form. Posts to the submitEnquiry Server Action, which
 // emails the message on; here we collect input and reflect the result. The
@@ -156,7 +156,7 @@ function EnquiryForm({ onReset }: { onReset: () => void }) {
       </div>
 
       {state.status === 'error' && state.message ? (
-        <p role="alert" className="text-sm text-red-600 dark:text-red-400">
+        <p role="alert" className="text-sm text-red-700 dark:text-red-400">
           {state.message}
         </p>
       ) : null}

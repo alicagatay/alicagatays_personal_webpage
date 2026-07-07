@@ -25,12 +25,15 @@ export function LinkList({ items }: { items: LinkListItem[] }) {
               </Link>
               {item.secondary ? (
                 <>
-                  <span className="px-2 text-zinc-300 dark:text-zinc-600">
+                  <span
+                    aria-hidden
+                    className="px-2 text-zinc-300 dark:text-zinc-600"
+                  >
                     ·
                   </span>
                   <Link
                     href={item.secondary.href}
-                    className="text-sm text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
+                    className="text-sm text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition hover:text-teal-700 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-teal-400"
                   >
                     {item.secondary.label}
                   </Link>
@@ -38,13 +41,13 @@ export function LinkList({ items }: { items: LinkListItem[] }) {
               ) : null}
             </p>
             {item.meta ? (
-              <p className="mt-0.5 shrink-0 text-sm text-zinc-400 dark:text-zinc-500 sm:mt-0">
+              <p className="mt-0.5 shrink-0 text-sm text-zinc-600 dark:text-zinc-400 sm:mt-0">
                 {item.meta}
               </p>
             ) : null}
           </div>
           {item.blurb ? (
-            <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+            <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
               {item.blurb}
             </p>
           ) : null}

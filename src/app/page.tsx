@@ -216,7 +216,7 @@ export default async function Home() {
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Ali Cagatay
           </h1>
-          <p className="mt-2 text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">
+          <p className="mt-2 text-xs uppercase tracking-[0.18em] text-zinc-600 dark:text-zinc-400">
             AI Engineer · Software Builder · Founder
           </p>
           <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
