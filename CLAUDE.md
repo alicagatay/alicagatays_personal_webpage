@@ -19,7 +19,7 @@ npm run start   # next start - serve the production build
 npm run lint    # eslint . (flat config in eslint.config.mjs, extends eslint-config-next core-web-vitals)
 ```
 
-No test runner is configured. Prettier runs via the `prettier` binary (`npx prettier --write .`); class ordering comes from `prettier-plugin-tailwindcss`.
+No test runner is configured. Prettier runs via the `prettier` binary (`npx prettier --write .`); class ordering comes from `prettier-plugin-tailwindcss`. There is no typecheck script - use `npx tsc --noEmit` (or `npm run build`) to typecheck.
 
 `NEXT_PUBLIC_SITE_URL` is the only env var required to build and render (see `.env.example`); it feeds `getSiteUrl()` ([src/lib/site-url.ts](src/lib/site-url.ts)), which in turn feeds the metadata base, canonical URLs, sitemap, robots, RSS feed, and JSON-LD. The RSS `alternates` link is set in [src/app/layout.tsx](src/app/layout.tsx). The "Work with me" enquiry form additionally needs `RESEND_API_KEY` to actually send mail, and optionally `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` to rate-limit it (see the contact form notes below); both degrade gracefully when unset. The GitHub row's heatmap is token-free (it reads the public profile page); `GITHUB_TOKEN` (classic PAT, `repo` + `read:user`) is optional and only serves as a fallback data source (see the GitHub activity notes below).
 
@@ -29,7 +29,7 @@ No test runner is configured. Prettier runs via the `prettier` binary (`npx pret
 
 App Router under [src/app/](src/app). There are only **two public surfaces**:
 
-- `/` - the home page ([src/app/page.tsx](src/app/page.tsx)) **is the entire site**: a stack of `LABEL → value` rows (intro, GitHub, Work, Projects, Education, Writing, Elsewhere, and a "Work with me" CTA row). Rows carry `id` anchors (`#github`, `#work`, `#projects`, `#education`, `#contact`).
+- `/` - the home page ([src/app/page.tsx](src/app/page.tsx)) **is the entire site**: a stack of `LABEL → value` rows (intro, GitHub, Work, Projects, Education, Writings, Elsewhere, and a "Work with me" CTA row). Rows carry `id` anchors (`#github`, `#work`, `#projects`, `#education`, `#contact`).
 - `/writings` and `/writings/[slug]` - the blog index and post template.
 
 Plus `/thank-you` (a `noindex` newsletter utility page) and the metadata-file conventions in `src/app/`: `feed.xml/route.ts`, `manifest.ts`, `robots.ts`, `sitemap.ts`, `providers.tsx`, `not-found.tsx`. There is deliberately **no** `favicon.ico` and **no** `opengraph-image.tsx` (see the no-images policy above); `/favicon.ico` 404s by design.
@@ -54,7 +54,7 @@ A handful of small primitives in [src/components/](src/components) build every p
 - [`JsonLd`](src/components/JsonLd.tsx) - injects schema.org JSON-LD via `useServerInsertedHTML` (outside the React tree, so crawlers see it in the initial HTML and React 19's script-tag warning never fires). Use it for any structured data instead of an inline `<script>`.
 - [`SuppressNextThemesScriptWarning`](src/components/SuppressNextThemesScriptWarning.tsx) - dev-only console filter for the false-positive React 19 warning triggered by next-themes' intentional inline theme script.
 
-Visual system: warm cream `paper` (`#f4f3ee`) light / warm `ink` (`#16150f`) dark, set as `theme.extend.colors` in [tailwind.config.ts](tailwind.config.ts) (which keeps `darkMode: 'class'`, the custom `fontSize` scale, and the typography plugin; prose styles for writings come from [typography.ts](typography.ts) at the repo root). Text is two-tone (`zinc-900`/`zinc-100` primary, `zinc-500`/`zinc-400` secondary); labels are `text-xs uppercase tracking-[0.18em]`. **Teal** (`teal-700` light / `teal-400` dark) is the single accent, reserved for the contact form's submit CTA and link-hover underlines.
+Visual system: warm cream `paper` (`#f4f3ee`) light / warm `ink` (`#16150f`) dark, set as `theme.extend.colors` in [tailwind.config.ts](tailwind.config.ts) (which keeps `darkMode: 'class'`, the custom `fontSize` scale, and the typography plugin; prose styles for writings come from [typography.ts](typography.ts) at the repo root). Text is two-tone (`zinc-900`/`zinc-100` primary, `zinc-600`/`zinc-400` secondary); labels are `text-xs uppercase tracking-[0.18em]`. The secondary pair is a WCAG floor, not just taste (set 2026-07 after a Lighthouse contrast failure): `zinc-600` light / `zinc-400` dark are the **lightest** zinc steps that clear the 4.5:1 AA ratio on `paper`/`ink` (`zinc-500` on `paper` is 4.35:1; `zinc-400` is 2.31:1) - don't use lighter greys for visible text. The aria-hidden `·` separators (`zinc-300`/`zinc-600`) and the icon-only theme toggle (held to the 3:1 non-text ratio instead) are the deliberate exceptions. **Teal** (`teal-700` light / `teal-400` dark) is the single accent, reserved for the contact form's submit CTA and link-hover underlines.
 
 ### Where copy lives
 
@@ -98,7 +98,7 @@ Always import `Link` from [@/components/Link](src/components/Link.tsx), **not** 
 
 ### MDX and writings
 
-Writing posts are MDX files in [src/content/writings/](src/content/writings/) (currently empty). They're loaded by [src/lib/writings.ts](src/lib/writings.ts) - `fs.readdir` + `gray-matter` for frontmatter - and rendered by the `writings/[slug]` route via `next-mdx-remote/rsc`, inside the shared cream `Column`. Code blocks are syntax-highlighted at build time via `rehype-pretty-code` + `shiki`. Frontmatter shape (see `WritingFrontmatter`): `title`, `description`, `date`, optional `author`. The home page's "Writing" row lists the latest three posts when they exist (otherwise a single link to `/writings`).
+Writing posts are MDX files (`.mdx`; plain `.md` is also accepted) in [src/content/writings/](src/content/writings/) (currently empty). They're loaded by [src/lib/writings.ts](src/lib/writings.ts) - `fs.readdir` + `gray-matter` for frontmatter - and rendered by the `writings/[slug]` route via `next-mdx-remote/rsc`, inside the shared cream `Column`. Code blocks are syntax-highlighted at build time via `rehype-pretty-code` + `shiki`. Frontmatter shape (see `WritingFrontmatter`): `title`, `description`, `date`, optional `author`. The home page's "Writings" row lists the latest three posts when they exist (otherwise a single link to `/writings`).
 
 `pageExtensions` in [next.config.mjs](next.config.mjs) is `['ts', 'tsx']`; MDX is used only as the content source for writings, not as routable pages. There is no `mdx-components.tsx` - component overrides, if ever needed, go through `MDXRemote`'s `components` prop in the `writings/[slug]` route.
 
