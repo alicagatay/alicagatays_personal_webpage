@@ -21,7 +21,9 @@ npm run lint    # eslint . (flat config in eslint.config.mjs, extends eslint-con
 
 No test runner is configured. Prettier runs via the `prettier` binary (`npx prettier --write .`); class ordering comes from `prettier-plugin-tailwindcss`. There is no typecheck script - use `npx tsc --noEmit` (or `npm run build`) to typecheck.
 
-`NEXT_PUBLIC_SITE_URL` is the only env var required to build and render (see `.env.example`); it feeds `getSiteUrl()` ([src/lib/site-url.ts](src/lib/site-url.ts)), which in turn feeds the metadata base, canonical URLs, sitemap, robots, RSS feed, and JSON-LD. The RSS `alternates` link is set in [src/app/layout.tsx](src/app/layout.tsx). The "Work with me" enquiry form additionally needs `RESEND_API_KEY` to actually send mail, and optionally `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` to rate-limit it (see the contact form notes below); both degrade gracefully when unset. The GitHub row's heatmap is token-free (it reads the public profile page); `GITHUB_TOKEN` (classic PAT, `repo` + `read:user`) is optional and only serves as a fallback data source (see the GitHub activity notes below).
+`next dev` (Turbopack) keeps an on-disk compile cache at `.next/dev/cache/turbopack` with no size cap or expiry - it reached ~3 GB here. `rm -rf .next` is always safe (fully derived). To stop the regrowth, set `experimental: { turbopackFileSystemCacheForDev: false }` in `next.config.mjs` - under `experimental`, **not** inside the existing top-level `turbopack: { root }` block, which hard-exits on unknown keys.
+
+`NEXT_PUBLIC_SITE_URL` is the only env var the rendered site reads (see `.env.example`), and even it is optional: `getSiteUrl()` ([src/lib/site-url.ts](src/lib/site-url.ts)) falls back to `https://alicagatay.xyz` when unset (and normalizes a missing protocol / trailing slash). It feeds the metadata base, canonical URLs, sitemap, robots, RSS feed, and JSON-LD. The RSS `alternates` link is set in [src/app/layout.tsx](src/app/layout.tsx). The "Work with me" enquiry form additionally needs, **in production**, `RESEND_API_KEY` (sends the verification code and the enquiry), `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` (stores codes and passes, and rate-limits), and `EMAIL_VERIFICATION_SECRET` (at least 32 bytes, `openssl rand -base64 32`; seals codes). Without them the form fails closed and shows "email me directly". In local `next dev` all of them can stay unset: emails print to the server console and an in-memory store stands in for Upstash (see the contact form notes below). The GitHub row's heatmap is token-free (it reads the public profile page); `GITHUB_TOKEN` (classic PAT, `repo` + `read:user`) is optional and only serves as a fallback data source (see the GitHub activity notes below).
 
 ## Architecture
 
@@ -46,7 +48,7 @@ A handful of small primitives in [src/components/](src/components) build every p
 
 - [`Column`](src/components/Column.tsx) - the shared `mx-auto max-w-[640px] px-6` reading column.
 - [`Row`](src/components/Row.tsx) - a `LABEL → value` definition row: tiny uppercase label in a fixed left column on desktop, stacking above the value on mobile.
-- [`Entry`](src/components/Entry.tsx) - a detailed work / education / recognition item (title + right-aligned meta + tightened blurb + optional external link).
+- [`Entry`](src/components/Entry.tsx) - a detailed work / education item (title + right-aligned meta + tightened blurb + optional external link).
 - [`LinkList`](src/components/LinkList.tsx) - a scannable "title → blurb" list used for projects and writing (title links out; optional secondary link like `code`).
 - [`ThemeToggle`](src/components/ThemeToggle.tsx) - the theme toggle, pinned top-right.
 - [`ContributionGraph`](src/components/ContributionGraph.tsx) - server-rendered SVG heatmap of the last year of GitHub contributions.
@@ -62,11 +64,44 @@ Page copy is **inlined directly in each page** - there are no `messages/*.json` 
 
 A standing constraint on the work copy: the intro and the employer entries deliberately describe the **kind** of work, never specific products, deployment contexts, industry sectors, or company capabilities - employers' projects are confidential. Employer names, titles, and dates are fine; so are personal projects and academic work. Keep new copy (and `llms.txt`, and commit messages touching copy) at that altitude. Every page is a Server Component; the home and `/writings` pages are `async` because they read writings via `getAllWritings()`. The exception is the "Work with me" row, which renders the client [`ContactForm`](src/components/ContactForm.tsx) (see below).
 
-Typography: all **visible rendered prose** uses real curly apostrophes typed as literal `’` characters (never `&rsquo;` entities or straight `'`) - contractions, possessives, and quoted names like the ‘Predict The Number’ game title; `public/llms.txt` follows the same convention. Code comments and non-rendered strings stay ASCII.
+Typography: all **visible rendered prose** uses real curly apostrophes typed as literal `’` characters (never `&rsquo;` entities or straight `'`) - contractions, possessives, and quoted names like the ‘Predict The Number’ game title; `public/llms.txt` follows the same convention. Code comments and non-rendered strings stay ASCII. Dashes are the opposite case: always an ASCII hyphen with a space on each side, never an em or en dash - in visible copy, titles (`Ali Cagatay - AI Engineer in Birmingham`), `llms.txt`, comments, and this file alike (the repo contains no em-dash characters; they were removed across several commits).
 
 ### Contact form
 
-The "Work with me" row's CTA is an in-page enquiry form (it replaced the old "Book a call" calendar link). The client [`ContactForm`](src/components/ContactForm.tsx) collects Name / Surname / Email / Reason / message and posts to the `submitEnquiry` **Server Action** in [src/lib/contact.ts](src/lib/contact.ts), which validates server-side (presence, an allow-listed `reason`, length caps, a basic email shape) and sends the enquiry via the **Resend** SDK to the owner's inbox, with `replyTo` set to the sender. Abuse controls layer up: a `display:none` honeypot (`company` field), the server-side length caps, and an optional per-IP + global-daily rate limit in [src/lib/rate-limit.ts](src/lib/rate-limit.ts) (Upstash Redis). Resend and Upstash both **degrade gracefully when their env vars are unset** - the form still renders and validates, it just can't send (shows a friendly "email me directly" message) or isn't throttled. `submitEnquiry` returns a `ContactState` that the form reflects as an inline error or a success confirmation (with a "Send another enquiry" reset). Keep the form inside the minimalist frame: underline-style fields, the teal submit button, no card.
+The "Work with me" row's CTA is an in-page enquiry form (it replaced the old "Book a call" calendar link). The client [`ContactForm`](src/components/ContactForm.tsx) collects Name / Surname / Email / Reason / message and posts to the `submitEnquiry` **Server Action** in [src/lib/contact.ts](src/lib/contact.ts), which validates server-side (presence, an allow-listed `reason`, length caps) and sends the enquiry via the **Resend** SDK to the owner's inbox, with `replyTo` set to the verified sender. Keep the form inside the minimalist frame: underline-style fields, inline text buttons, the teal submit button, no card.
+
+**Email verification (since 2026-10).** An enquiry can only be sent from an inbox the visitor proved they can read:
+
+1. A **Verify** text button in the email underline calls `requestVerificationCode`, which emails a 6-digit code (valid 10 minutes) and returns a `challenge` the browser must send back.
+2. `confirmVerificationCode` checks the code and returns a single-use **pass** token (valid an hour), which the form posts as the hidden `verificationToken` field.
+3. `submitEnquiry` atomically claims the pass (`getdel`), and puts it back if the rate limit or Resend then fails. A missing or used pass returns `reverify: true` and the form drops back to unverified.
+
+The code logic lives in [src/lib/email-verification.ts](src/lib/email-verification.ts):
+
+- Codes are stored only as HMACs of the code (keys derived from `EMAIL_VERIFICATION_SECRET`).
+- An atomic Lua script checks the code. The fifth wrong guess deletes it.
+- Every address goes through `canonicalEmail()` (length check before regex, punycode domain).
+- An MX lookup rejects domains that can't receive mail before a code would bounce. Bounces endanger the Resend account that enquiries also use.
+
+Limits in [src/lib/rate-limit.ts](src/lib/rate-limit.ts) run **one at a time, narrowest first**, so a request one limiter refuses never spends another limiter's budget:
+
+| What        | Limits                                                                                  |
+| ----------- | --------------------------------------------------------------------------------------- |
+| Code sends  | 5/h per IP, 3/h and 5/day per mailbox (`+tags` and Gmail dots folded), 50/day site-wide |
+| Code checks | 20/h per IP (plus 5 tries per code)                                                     |
+| Enquiries   | 3/10 min per IP, 40/day (unchanged)                                                     |
+
+There is deliberately **no per-address limit on code checks**: anyone who knows an address could fill it with made-up challenges and lock the real visitor out. Limiters also run with `ephemeralCache: false`, because its cached blocks outlive a sliding daily window.
+
+50 codes + 40 enquiries = 90, inside Resend's free 100 emails a day. The verification limits **fail closed** (Redis errors and the library's 5 s timeout count as blocked); the enquiry limits still fail open. Redis keys are scoped by `VERCEL_ENV`. The other abuse controls remain: the `display:none` honeypot (`company`) and the server-side length caps.
+
+Three rules to keep when editing:
+
+- **Every export of a `'use server'` file is a public endpoint**, so `contact.ts` exports only its three actions. Helpers belong in the plain modules `email-verification.ts`, `rate-limit.ts` (both `import 'server-only'`) and [src/lib/email.ts](src/lib/email.ts) (client-safe: `contactEmail`, `normalizeEmail`).
+- The form dispatches from `onSubmit` (`preventDefault` + `startTransition(() => formAction(formData))`) while keeping `action={formAction}`. That skips React 19's automatic form reset, which would otherwise wipe the typed fields whenever the server returns an error.
+- The Send button uses `aria-disabled`, not `disabled`, until the email is verified. It stays focusable, and pressing it moves focus to the missing step.
+
+Locally (`isLocalDev`: `NODE_ENV !== 'production'` and not on Vercel), codes and enquiries print to the server console and an in-memory store stands in for Upstash. That makes the whole flow testable with only `NEXT_PUBLIC_SITE_URL` set. Everywhere else a missing secret or Upstash makes the form fail closed with the "email me directly" message.
 
 ### GitHub activity
 
@@ -74,7 +109,7 @@ The GitHub section (first section on the home page, `id="github"`) renders a con
 
 ### Metadata
 
-Each page exports `metadata` (or `generateMetadata` for the dynamic `writings/[slug]` route) built via [`buildPageMetadata`](src/lib/metadata.ts), passing `path`, `title?`, `description`, and optional `openGraphType`. The helper returns a `Metadata` object with canonical URL, OG, and Twitter card. Per the no-images policy, neither the helper nor the root layout sets `og:image` / `twitter:image`, and the Twitter card type is `summary` (text-only) - social shares intentionally have no preview image. Two behaviors worth knowing:
+Each page exports `metadata` (or `generateMetadata` for the dynamic `writings/[slug]` route) built via [`buildPageMetadata`](src/lib/metadata.ts), passing `path`, `title?`, `description`, and optional `openGraphType`. The helper returns a `Metadata` object with canonical URL, OG, and Twitter card. Per the no-images policy, neither the helper nor the root layout sets `og:image` / `twitter:image`, and the Twitter card type is `summary` (text-only) - social shares intentionally have no preview image. Three behaviors worth knowing:
 
 - The root layout sets `title: { template: '%s - Ali Cagatay', default: '<siteDefault>' }`, so a page-level `title: 'Writings'` renders as `<title>Writings - Ali Cagatay</title>`.
 - The helper appends `- Ali Cagatay` to `og:title` / `twitter:title` itself (`og:title` doesn't go through the layout's title template, so the helper does it explicitly to keep social shares consistent with `<title>`).
@@ -104,4 +139,4 @@ Writing posts are MDX files (`.mdx`; plain `.md` is also accepted) in [src/conte
 
 ## Code style
 
-Prettier config (`prettier.config.js`): single quotes, no semicolons, Tailwind class-ordering plugin. The codebase uses `let` for locals (including in components) rather than `const` - match that style. The one exception: Next.js exports that must be statically analyzable (`export const metadata`, `export const revalidate`, and other segment config) stay `const`.
+Prettier config (`prettier.config.js`): single quotes, no semicolons, Tailwind class-ordering plugin. The codebase uses `let` for locals (including in components) rather than `const` - match that style ([Link.tsx](src/components/Link.tsx) still has a few template-era `const`s; don't copy them). The one deliberate exception: Next.js exports that must be statically analyzable (`export const metadata`, `export const revalidate`, and other segment config) stay `const`.
